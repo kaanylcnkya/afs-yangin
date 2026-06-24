@@ -20,7 +20,6 @@ export default function Header() {
 
           {/* Menü */}
           <nav className="hidden items-center justify-center gap-12 lg:flex">
-            {" "}
             {menuItems.map((item) => (
               <div key={item.title} className="group relative">
                 <Link
@@ -41,6 +40,7 @@ export default function Header() {
                             className="flex items-center justify-between px-5 py-3 text-sm font-semibold text-[#1f2937] transition hover:bg-[#f8f8f8] hover:text-[#d71920]"
                           >
                             {child.title}
+
                             {child.children && (
                               <ChevronDown
                                 size={14}
@@ -76,7 +76,6 @@ export default function Header() {
 
           {/* Sağ Alan */}
           <div className="hidden items-center justify-end gap-5 lg:flex">
-            {" "}
             <button
               type="button"
               aria-label="Arama"
@@ -84,6 +83,7 @@ export default function Header() {
             >
               <Search size={21} strokeWidth={2.5} />
             </button>
+
             <Link
               href="/teklif-al"
               className="bg-[#d71920] px-7 py-3.5 text-sm font-extrabold uppercase tracking-wide text-white transition hover:bg-[#b9151b]"
