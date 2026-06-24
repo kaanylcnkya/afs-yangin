@@ -6,18 +6,19 @@ import { services } from "@/data/home";
 
 export default function ServicesSection() {
   return (
-    <section className="py-24">
+    <section className="relative overflow-hidden bg-white py-24">
       <div className="mx-auto max-w-[1500px] px-6">
         <div className="mx-auto max-w-4xl text-center">
           <p className="text-sm font-black uppercase tracking-[0.25em] text-[#d71920]">
             Hizmet Alanlarımız
           </p>
-          <h2 className="mt-4 text-3xl font-black uppercase text-[#101827] md:text-5xl">
-            Yangın Güvenliği İçin Bütün İhtiyaçlarınız Karşılanır
+
+          <h2 className="mt-4 text-3xl font-black uppercase leading-tight text-[#101827] md:text-5xl">
+            Yangın Güvenliğinde Bütün İhtiyaçlarınız Karşılanır
           </h2>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-16 grid grid-cols-1 gap-7 md:grid-cols-2 xl:grid-cols-4">
           {services.map((service) => {
             const Icon = service.icon;
 
@@ -25,27 +26,60 @@ export default function ServicesSection() {
               <Link
                 key={service.title}
                 href={service.href}
-                className="group min-h-[310px] border border-gray-200 bg-white p-8 shadow-sm transition hover:-translate-y-2 hover:border-[#d71920] hover:shadow-2xl"
+                className="group relative min-h-[390px] overflow-hidden bg-[#0b1220] shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
               >
-                <div className="mb-8 flex h-16 w-16 items-center justify-center bg-[#f2f4f7] text-[#d71920] transition group-hover:bg-[#d71920] group-hover:text-white">
-                  <Icon size={32} strokeWidth={2.2} />
+                {/* Görsel */}
+                <img
+                  src={service.image}
+                  alt={service.subtitle}
+                  className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-110"
+                />
+
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,18,48,0.18)_0%,rgba(5,18,48,0.72)_55%,rgba(5,18,48,0.96)_100%)]" />
+                <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(215,25,32,0.18),transparent_45%)]" />
+
+                {/* Çapraz kurdele */}
+                <div className="absolute -left-16 top-8 z-10 w-[230px] -rotate-45 bg-[#d71920] py-2 text-center shadow-xl">
+                  <span className="text-sm font-black uppercase tracking-[0.18em] text-white">
+                    {service.ribbon}
+                  </span>
                 </div>
 
-                <h3 className="text-xl font-black uppercase leading-tight text-[#101827]">
-                  {service.title}
-                </h3>
+                {/* Üst ikon */}
+                <div className="absolute right-6 top-6 z-10 flex h-14 w-14 items-center justify-center bg-white/95 text-[#d71920] shadow-lg transition group-hover:bg-[#d71920] group-hover:text-white">
+                  <Icon size={28} strokeWidth={2.4} />
+                </div>
 
-                <p className="mt-4 text-sm leading-7 text-gray-600">
-                  {service.description}
-                </p>
+                {/* İçerik */}
+                <div className="absolute inset-x-0 bottom-0 z-10 p-7">
+                  <p className="mb-3 text-xs font-black uppercase tracking-[0.25em] text-white/65">
+                    AFS Yangın
+                  </p>
 
-                <span className="mt-8 inline-flex items-center gap-2 text-sm font-black uppercase text-[#0b2c5f]">
-                  İncele
-                  <ArrowRight
-                    size={16}
-                    className="transition group-hover:translate-x-1"
-                  />
-                </span>
+                  <h3 className="text-3xl font-black uppercase leading-none text-white">
+                    {service.title}
+                  </h3>
+
+                  <h4 className="mt-3 text-lg font-black uppercase leading-tight text-white">
+                    {service.subtitle}
+                  </h4>
+
+                  <p className="mt-4 min-h-[72px] text-sm leading-7 text-white/76">
+                    {service.description}
+                  </p>
+
+                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-black uppercase text-white">
+                    İncele
+                    <ArrowRight
+                      size={16}
+                      className="transition group-hover:translate-x-1"
+                    />
+                  </span>
+                </div>
+
+                {/* Alt kırmızı çizgi */}
+                <div className="absolute bottom-0 left-0 z-20 h-1 w-0 bg-[#d71920] transition-all duration-500 group-hover:w-full" />
               </Link>
             );
           })}
