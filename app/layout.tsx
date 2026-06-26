@@ -3,10 +3,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import PageLoader from "@/components/PageLoader";
 
 export const metadata: Metadata = {
   title: "AFS Yangın",
-  description: "Yangın söndürme cihazları, yangın güvenlik hizmetleri ve yangın söndürme sistemleri.",
+  description:
+    "Yangın söndürme cihazları, yangın güvenlik hizmetleri ve yangın söndürme sistemleri.",
 };
 
 export default function RootLayout({
@@ -17,8 +20,10 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <body>
+        <PageLoader />
         <Header />
-        <main>{children}</main>
+        {children}
+        <Footer />
       </body>
     </html>
   );
