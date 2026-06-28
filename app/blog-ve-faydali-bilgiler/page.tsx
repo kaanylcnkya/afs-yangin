@@ -3,427 +3,422 @@
 import Link from "next/link";
 import {
   ArrowRight,
-  BookOpen,
-  CalendarDays,
-  ChevronRight,
-  Clock,
+  BadgeCheck,
+  BatteryCharging,
+  BookOpenText,
+  Building2,
+  CheckCircle2,
+  ClipboardCheck,
+  FileCheck2,
   Flame,
-  Search,
+  GraduationCap,
+  HardHat,
+  ShieldAlert,
   ShieldCheck,
-  Tag,
-  UserRound,
+  Siren,
+  Timer,
+  Utensils,
+  Wrench,
 } from "lucide-react";
 
-const categories = [
-  "Tümü",
-  "Yangın Güvenliği",
-  "Yangın Söndürme Cihazları",
-  "Bakım ve Kontrol",
-  "Yönetmelik",
-  "İşletmeler İçin Rehber",
-];
-
-const featuredPost = {
-  title: "İşletmeler İçin Yangın Güvenliği Neden Ertelenmemeli?",
-  description:
-    "Yangın güvenliği sadece yasal bir zorunluluk değil; çalışan güvenliği, iş sürekliliği ve kurumsal sorumluluk açısından kritik bir süreçtir.",
-  category: "Yangın Güvenliği",
-  date: "2026",
-  readTime: "5 dk okuma",
-  image:
-    "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1600&auto=format&fit=crop",
-  href: "/blog-ve-faydali-bilgiler/isletmeler-icin-yangin-guvenligi",
-};
-
-const posts = [
+const blogPosts = [
   {
-    title: "Yangın Söndürme Cihazı Bakımı Ne Sıklıkla Yapılmalı?",
-    description:
-      "Periyodik bakım süreçleri, cihazların doğru çalışması ve işletme güvenliği için düzenli olarak takip edilmelidir.",
-    category: "Bakım ve Kontrol",
-    date: "2026",
-    readTime: "4 dk",
-    image:
-      "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80&w=900&auto=format&fit=crop",
-    href: "/blog-ve-faydali-bilgiler/yangin-sondurme-cihazi-bakimi",
-  },
-  {
-    title: "İş Yerlerinde Yangın Risk Analizi Nasıl Yapılır?",
-    description:
-      "Risk analizi; alan yapısı, çalışan sayısı, ekipman konumu ve acil durum planlarıyla birlikte değerlendirilmelidir.",
-    category: "İşletmeler İçin Rehber",
-    date: "2026",
-    readTime: "6 dk",
-    image:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=900&auto=format&fit=crop",
-    href: "/blog-ve-faydali-bilgiler/yangin-risk-analizi",
-  },
-  {
-    title: "Yangın Algılama ve Alarm Sistemleri Neden Önemlidir?",
-    description:
-      "Erken uyarı sistemleri, yangına hızlı müdahale ve tahliye sürecinin güvenli yönetilmesi açısından kritik rol oynar.",
-    category: "Yangın Güvenliği",
-    date: "2026",
-    readTime: "5 dk",
-    image:
-      "https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=900&auto=format&fit=crop",
-    href: "/blog-ve-faydali-bilgiler/yangin-algilama-alarm-sistemleri",
-  },
-  {
-    title: "Yangın Yönetmelikleri İşletmeler İçin Ne Anlama Gelir?",
-    description:
-      "Yönetmeliklere uygunluk; denetim, sigorta, çalışan güvenliği ve işletme devamlılığı açısından önem taşır.",
+    number: "01",
+    title:
+      "2026 Yangın Yönetmeliği Revizyonu: İşletmeleri ve Tesisleri Neler Bekliyor?",
+    summary:
+      "Binaların Yangından Korunması Hakkında Yönetmelik'te yapılması beklenen köklü değişiklikler, fabrikalar, oteller ve yüksek katlı siteler için hazırlık adımları, kapatma ve cezai yaptırımlardan kaçınmak için alınması gereken acil önlemler.",
+    audience:
+      "Fabrika yöneticileri, İSG uzmanları, site ve AVM yönetimleri.",
     category: "Yönetmelik",
-    date: "2026",
-    readTime: "7 dk",
-    image:
-      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=900&auto=format&fit=crop",
-    href: "/blog-ve-faydali-bilgiler/yangin-yonetmelikleri",
+    icon: FileCheck2,
   },
   {
-    title: "Yangın Tüpü Seçerken Nelere Dikkat Edilmeli?",
-    description:
-      "Alan türü, risk sınıfı, kullanılacak cihaz tipi ve doğru konumlandırma yangın tüpü seçiminde belirleyicidir.",
-    category: "Yangın Söndürme Cihazları",
-    date: "2026",
-    readTime: "4 dk",
-    image:
-      "https://images.unsplash.com/photo-1582719471384-894fbb16e074?q=80&w=900&auto=format&fit=crop",
-    href: "/blog-ve-faydali-bilgiler/yangin-tupu-secimi",
+    number: "02",
+    title:
+      'Yeni Dönem Başlıyor: "Yangın Güvenlik Uzmanı" Bulundurma Zorunluluğu Nedir?',
+    summary:
+      "Yönetmelikle birlikte hayatımıza girecek Yangın Güvenlik Uzmanı kavramının detayları, hangi işletmelerin bu uzmanı bulundurması gerektiği, rutin kontrollerin nasıl yapılacağı ve AFS Yangın’ın bu danışmanlık hizmetini tek çatı altında nasıl sağladığı.",
+    audience:
+      "Yeni ruhsat alacak veya rutin denetime girecek tüm ticari işletmeler ve kurumlar.",
+    category: "Danışmanlık",
+    icon: ShieldAlert,
   },
   {
-    title: "Acil Durum Planı Hazırlarken Yapılan Hatalar",
-    description:
-      "Eksik tahliye planı, personel eğitimi yapılmaması ve ekipman kontrollerinin atlanması ciddi risk oluşturabilir.",
-    category: "İşletmeler İçin Rehber",
-    date: "2026",
-    readTime: "5 dk",
-    image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=900&auto=format&fit=crop",
-    href: "/blog-ve-faydali-bilgiler/acil-durum-plani-hatalari",
+    number: "03",
+    title:
+      "Adım Adım İtfaiye Uygunluk Raporu Nasıl Alınır? En Sık Yapılan Hatalar",
+    summary:
+      "İşletme açılışlarında veya yenilemelerde en çok korkulan süreçlerden biri olan İtfaiye Uygunluk Raporu’nun teknik ve resmi adımları, denetmenlerin dikkat ettiği noktalar, raporun reddedilmesine sebep olan basit hatalar ve AFS’nin tek seferde onaya odaklanan proje çözümleri.",
+    audience:
+      "Yeni işletme sahipleri, mimari ofisler, otel ve restoran yöneticileri.",
+    category: "Ruhsat Süreci",
+    icon: ClipboardCheck,
+  },
+  {
+    number: "04",
+    title:
+      "Hangi Yangına Hangi Tüp? İşletmeniz İçin Doğru Yangın Söndürme Cihazı Seçimi",
+    summary:
+      "Elektrik panosuna su sıkılır mı? Sunucu odasında neden KKT kullanılmaz? A, B, C, D ve F sınıfı yangın türleri, AFS’nin renk kodlu cihazlarının panik anında hayat kurtaran önemi ve doğru yere doğru cihaz yerleştirmenin kuralları.",
+    audience:
+      "İşletme müdürleri, satın alma uzmanları, ev ve araç sahipleri.",
+    category: "YSC",
+    icon: Flame,
+  },
+  {
+    number: "05",
+    title:
+      "Yangın Tüpü Bakım Periyotları: Dolum ve Hidrostatik Test Ne Zaman Yapılmalı?",
+    summary:
+      "Yangın tüpü bakımlarının sadece tarih etiketi yapıştırmaktan ibaret olmadığı, TSE ve yönetmeliklere göre aylık gözle kontroller, yıllık periyodik bakımlar ve 4 yıllık zorunlu hidrostatik test süreçlerinin teknik açıklamaları.",
+    audience: "İdari işler yöneticileri, İSG uzmanları, site yöneticileri.",
+    category: "Bakım",
+    icon: Timer,
+  },
+  {
+    number: "06",
+    title:
+      "Endüstriyel Mutfaklarda Hayati Önlem: Davlumbaz Söndürme Sistemi Teknik Şartnamesi Nasıl Olmalı?",
+    summary:
+      "Otel, AVM ve restoran mutfaklarında sıkça yaşanan yağ yangınlarının tehlikeleri, standart cihazların neden yeterli olmadığı, doğru bir davlumbaz söndürme sisteminin teknik şartnamesinde bulunması gereken zorunlu maddeler, malzeme kalitesi ve kurulum standartları.",
+    audience:
+      "Otel müdürleri, restoran zinciri sahipleri, mekanik tesisat müteahhitleri.",
+    category: "Davlumbaz",
+    icon: Utensils,
+  },
+  {
+    number: "07",
+    title:
+      "Yeni Nesil Tehlike: Elektrikli Araç ve Lityum-İyon Batarya Yangınlarına Nasıl Müdahale Edilmeli?",
+    summary:
+      "Kapalı otoparklar, AVM’ler ve elektrikli araç şarj istasyonlarında büyüyen lityum-iyon batarya yangınları, bu yangınların neden suyla sönmediği, termal kaçak kavramı ve AFS’nin lityum bataryalara özel söndürücü ve battaniye çözümleri.",
+    audience:
+      "Site ve AVM yönetimleri, otopark işletmecileri, bireysel elektrikli araç sahipleri.",
+    category: "Lityum Yangını",
+    icon: BatteryCharging,
+  },
+  {
+    number: "08",
+    title:
+      "Akredite Periyodik Kontrolün Gücü: TÜRKAK Onaylı Raporlar Neden Önemlidir?",
+    summary:
+      "Yangın pompa istasyonları, havalandırma sistemleri ve algılama panellerinin muayenesinde neden akredite bir kurumla çalışılması gerektiği, SGK, Çalışma Bakanlığı ve İtfaiye denetimlerinde TÜRKAK logolu raporların sağladığı yasal güvence ve AFS & Güçbirliği Mühendislik iş birliğinin avantajları.",
+    audience: "Büyük endüstriyel tesisler, fabrikalar, hastaneler ve holdingler.",
+    category: "Akredite Kontrol",
+    icon: BadgeCheck,
   },
 ];
 
-const popularTopics = [
-  "Yangın tüpü bakımı",
-  "Periyodik kontrol",
-  "Yangın algılama sistemi",
-  "Acil durum planı",
-  "İşletmelerde yangın güvenliği",
-  "Yönetmelik ve standartlar",
+const featuredTopics = [
+  "Değişen yangın yönetmelikleri",
+  "Yeni nesil yangın riskleri",
+  "İtfaiye uygunluk raporu süreçleri",
+  "Yangın güvenlik uzmanlığı",
+  "Yangın tüpü seçimi ve bakım periyotları",
+  "Davlumbaz söndürme sistemleri",
+  "Lityum-iyon batarya yangınları",
+  "TÜRKAK onaylı periyodik kontrol raporları",
+];
+
+const guideCards = [
+  {
+    title: "Yönetmelik ve Yasal Süreçler",
+    description:
+      "İşletmenizi ruhsat, denetim, rapor ve yönetmelik süreçlerinde güvenceye alacak rehber içerikler.",
+    icon: FileCheck2,
+  },
+  {
+    title: "Teknik Yangın Güvenliği",
+    description:
+      "Yangın sınıfları, cihaz seçimi, sistem kurulumu ve bakım süreçlerine dair uygulanabilir bilgiler.",
+    icon: Wrench,
+  },
+  {
+    title: "Risk Yönetimi ve Farkındalık",
+    description:
+      "Yeni nesil riskler, endüstriyel tehlikeler ve tesis güvenliği için önleyici bakış açısı.",
+    icon: ShieldCheck,
+  },
 ];
 
 export default function BlogPage() {
   return (
     <main className="bg-white">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-[#06132d] pt-36 text-white">
+      <section className="relative overflow-hidden bg-[#06132d] pt-[82px] text-white lg:pt-32">
         <img
           src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1800&auto=format&fit=crop"
-          alt="Blog ve Faydalı Bilgiler"
+          alt="AFS Blog ve Faydalı Bilgiler"
           className="absolute inset-0 h-full w-full object-cover opacity-30"
         />
 
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,18,48,0.98)_0%,rgba(5,18,48,0.86)_48%,rgba(215,25,32,0.32)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,18,48,0.98)_0%,rgba(5,18,48,0.88)_48%,rgba(215,25,32,0.32)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_right,rgba(255,255,255,0.12),transparent_28%)]" />
 
-        <div className="relative mx-auto max-w-[1500px] px-6 py-28">
-          <div className="max-w-4xl">
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-[#d71920]">
-              Kaynaklar
+        <div className="relative mx-auto max-w-[1500px] px-5 py-20 lg:px-6 lg:py-28">
+          <div className="max-w-5xl">
+            <div className="mb-7 flex items-center gap-3">
+              <span className="h-20 w-1.5 bg-[#d71920] lg:h-28 lg:w-2" />
+              <span className="h-14 w-1.5 bg-[#1d75bc] lg:h-20 lg:w-2" />
+              <span className="h-9 w-1.5 bg-white/80 lg:h-12 lg:w-2" />
+            </div>
+
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-[#d71920] sm:text-sm">
+              Blog ve Faydalı Bilgiler
             </p>
 
-            <h1 className="mt-5 text-4xl font-black uppercase leading-[1.08] md:text-6xl">
-              Blog ve Faydalı Bilgiler
+            <h1 className="mt-5 max-w-5xl text-[34px] font-black uppercase leading-[1.08] tracking-[-0.035em] text-white sm:text-[42px] md:text-[58px] xl:text-[70px]">
+              Yangın güvenliğinde bilinçli adımlar.
             </h1>
 
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-white/75">
-              Yangın güvenliği, yönetmelikler, bakım süreçleri ve işletmeler
-              için pratik rehber içeriklerini bu alanda bulabilirsiniz.
+            <h2 className="mt-5 max-w-4xl text-2xl font-black uppercase leading-tight text-white/90 md:text-4xl">
+              Hayat kurtaran çözümler.
+            </h2>
+
+            <p className="mt-7 max-w-3xl text-base leading-8 text-white/75 md:text-lg">
+              Değişen yönetmelikler, yeni nesil yangın riskleri ve işletmenizi
+              yasal olarak güvenceye alacak mühendislik çözümleri hakkında en
+              güncel bilgilere buradan ulaşabilirsiniz.
             </p>
 
-            <div className="mt-9 flex flex-wrap gap-4">
-              <Link
-                href="/teklif-al"
-                className="group inline-flex items-center gap-3 bg-[#d71920] px-7 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0b2c5f]"
+            <div className="mt-8 max-w-3xl border-l-4 border-[#d71920] bg-white/10 p-5 backdrop-blur">
+              <p className="text-sm font-bold leading-7 text-white/88 md:text-base">
+                AFS Yangın uzmanları tarafından hazırlanan rehber yazılarımızla,
+                riskleri felakete dönüşmeden önce durdurun.
+              </p>
+            </div>
+
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <a
+                href="#blog-yazilari"
+                className="group inline-flex items-center justify-center gap-3 bg-[#d71920] px-7 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0b2c5f]"
               >
-                Teklif Al
+                Blog Başlıklarını İncele
                 <ArrowRight
                   size={18}
                   className="transition group-hover:translate-x-1"
                 />
-              </Link>
+              </a>
 
               <Link
                 href="/bize-ulasin"
-                className="inline-flex items-center border-2 border-white px-7 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0b2c5f]"
+                className="inline-flex items-center justify-center border-2 border-white px-7 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0b2c5f]"
               >
-                Bize Ulaşın
+                Uzmana Danışın
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SEARCH / CATEGORIES */}
-      <section className="border-b border-gray-200 bg-[#f4f6f8] py-10">
-        <div className="mx-auto max-w-[1500px] px-6">
-          <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-            <div className="relative">
-              <Search
-                size={20}
-                className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-400"
-              />
-              <input
-                type="text"
-                placeholder="Blog içinde arama yapın..."
-                className="h-14 w-full border border-gray-200 bg-white pl-14 pr-5 text-sm outline-none transition focus:border-[#d71920]"
-              />
-            </div>
+      {/* TOP CARDS */}
+      <section className="relative z-10 -mt-14">
+        <div className="mx-auto max-w-[1500px] px-5 lg:px-6">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+            {guideCards.map((item) => {
+              const Icon = item.icon;
 
-            <div className="flex flex-wrap gap-3 lg:justify-end">
-              {categories.map((category, index) => (
-                <button
-                  key={category}
-                  type="button"
-                  className={`px-4 py-3 text-xs font-black uppercase tracking-wide transition ${
-                    index === 0
-                      ? "bg-[#d71920] text-white"
-                      : "bg-white text-[#0b2c5f] hover:bg-[#0b2c5f] hover:text-white"
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
+              return (
+                <div key={item.title} className="bg-white p-7 shadow-2xl">
+                  <Icon size={38} className="text-[#d71920]" />
+
+                  <h3 className="mt-5 text-xl font-black uppercase text-[#101827]">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm leading-7 text-gray-600">
+                    {item.description}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* FEATURED */}
+      {/* TOPICS */}
       <section className="py-24">
-        <div className="mx-auto max-w-[1500px] px-6">
-          <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <div>
-              <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
-                Öne Çıkan İçerik
-              </p>
-              <h2 className="mt-4 max-w-4xl text-3xl font-black uppercase text-[#101827] md:text-5xl">
-                İşletmeler için yangın güvenliği rehberi
-              </h2>
-            </div>
+        <div className="mx-auto grid max-w-[1500px] grid-cols-1 gap-12 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:px-6">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
+              Faydalı Bilgi Merkezi
+            </p>
 
-            <p className="max-w-lg text-base leading-8 text-gray-600">
-              Kurumsal alanlarda yangın güvenliği süreçlerini doğru planlamak,
-              riskleri azaltmak ve yasal uygunluğu sağlamak için önemlidir.
+            <h2 className="mt-4 text-3xl font-black uppercase leading-tight text-[#101827] md:text-5xl">
+              Riskleri anlamak, güvenliği doğru yönetmenin ilk adımıdır.
+            </h2>
+
+            <p className="mt-6 max-w-xl text-base leading-8 text-gray-600">
+              Blog içeriklerimiz; işletme yöneticileri, İSG uzmanları, site ve
+              AVM yönetimleri, otel ve restoran işletmeleri, fabrika yöneticileri
+              ve bireysel kullanıcılar için pratik rehber niteliğindedir.
             </p>
           </div>
 
-          <Link
-            href={featuredPost.href}
-            className="group grid overflow-hidden bg-[#06132d] shadow-2xl lg:grid-cols-[1.05fr_0.95fr]"
-          >
-            <div className="relative min-h-[420px] overflow-hidden">
-              <img
-                src={featuredPost.image}
-                alt={featuredPost.title}
-                className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(5,18,48,0.35),rgba(215,25,32,0.25))]" />
-            </div>
-
-            <div className="flex flex-col justify-center p-8 text-white md:p-12">
-              <div className="mb-6 flex flex-wrap gap-4 text-xs font-black uppercase tracking-wide text-white/65">
-                <span className="inline-flex items-center gap-2">
-                  <Tag size={15} className="text-[#d71920]" />
-                  {featuredPost.category}
-                </span>
-                <span className="inline-flex items-center gap-2">
-                  <CalendarDays size={15} className="text-[#d71920]" />
-                  {featuredPost.date}
-                </span>
-                <span className="inline-flex items-center gap-2">
-                  <Clock size={15} className="text-[#d71920]" />
-                  {featuredPost.readTime}
-                </span>
-              </div>
-
-              <h3 className="text-3xl font-black uppercase leading-tight md:text-5xl">
-                {featuredPost.title}
-              </h3>
-
-              <p className="mt-6 text-base leading-8 text-white/72">
-                {featuredPost.description}
-              </p>
-
-              <span className="mt-8 inline-flex items-center gap-2 text-sm font-black uppercase text-white">
-                Yazıyı İncele
-                <ArrowRight
-                  size={17}
-                  className="transition group-hover:translate-x-1"
+          <div className="grid gap-4 sm:grid-cols-2">
+            {featuredTopics.map((item) => (
+              <div
+                key={item}
+                className="flex items-start gap-4 border border-gray-200 bg-white p-5 shadow-sm"
+              >
+                <CheckCircle2
+                  size={22}
+                  className="mt-0.5 shrink-0 text-[#d71920]"
                 />
-              </span>
-            </div>
-          </Link>
+
+                <p className="text-sm font-bold leading-7 text-gray-700">
+                  {item}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* BLOG GRID */}
-      <section className="bg-[#f4f6f8] py-24">
-        <div className="mx-auto grid max-w-[1500px] grid-cols-1 gap-10 px-6 lg:grid-cols-[1fr_360px]">
-          <div>
-            <div className="mb-10">
-              <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
-                Tüm İçerikler
-              </p>
-              <h2 className="mt-4 text-3xl font-black uppercase text-[#101827] md:text-5xl">
-                Faydalı Bilgiler
-              </h2>
-            </div>
+      {/* BLOG POSTS */}
+      <section id="blog-yazilari" className="bg-[#f4f6f8] py-24">
+        <div className="mx-auto max-w-[1500px] px-5 lg:px-6">
+          <div className="mx-auto mb-14 max-w-4xl text-center">
+            <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
+              İlk Etapta Yayımlanacak Yazılar
+            </p>
 
-            <div className="grid grid-cols-1 gap-7 md:grid-cols-2">
-              {posts.map((post) => (
-                <Link
-                  key={post.title}
-                  href={post.href}
-                  className="group overflow-hidden bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
-                >
-                  <div className="relative h-[250px] overflow-hidden">
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
-                    />
+            <h2 className="mt-4 text-3xl font-black uppercase text-[#101827] md:text-5xl">
+              8 vurucu blog başlığı ve konu fikri.
+            </h2>
 
-                    <div className="absolute left-5 top-5 bg-[#d71920] px-4 py-2 text-xs font-black uppercase tracking-wide text-white">
-                      {post.category}
-                    </div>
-                  </div>
-
-                  <div className="p-7">
-                    <div className="mb-4 flex flex-wrap gap-4 text-xs font-bold uppercase text-gray-400">
-                      <span className="inline-flex items-center gap-1.5">
-                        <CalendarDays size={14} />
-                        {post.date}
-                      </span>
-                      <span className="inline-flex items-center gap-1.5">
-                        <Clock size={14} />
-                        {post.readTime}
-                      </span>
-                    </div>
-
-                    <h3 className="text-xl font-black uppercase leading-tight text-[#101827]">
-                      {post.title}
-                    </h3>
-
-                    <p className="mt-4 min-h-[84px] text-sm leading-7 text-gray-600">
-                      {post.description}
-                    </p>
-
-                    <span className="mt-6 inline-flex items-center gap-2 text-sm font-black uppercase text-[#d71920]">
-                      Devamını Oku
-                      <ArrowRight
-                        size={16}
-                        className="transition group-hover:translate-x-1"
-                      />
-                    </span>
-                  </div>
-                </Link>
-              ))}
-            </div>
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-gray-600">
+              AFS Yangın uzmanlığıyla hazırlanacak bu rehber içerikler,
+              işletmelerin yangın güvenliği süreçlerine bilinçli şekilde
+              hazırlanmasına destek olur.
+            </p>
           </div>
 
-          {/* SIDEBAR */}
-          <aside className="space-y-7 lg:sticky lg:top-32 lg:self-start">
-            <div className="bg-white p-7 shadow-sm">
-              <p className="text-xs font-black uppercase tracking-[0.25em] text-[#d71920]">
-                Popüler Konular
-              </p>
+          <div className="grid grid-cols-1 gap-7 lg:grid-cols-2">
+            {blogPosts.map((post) => {
+              const Icon = post.icon;
 
-              <div className="mt-6 flex flex-wrap gap-3">
-                {popularTopics.map((topic) => (
-                  <Link
-                    key={topic}
-                    href="/blog-ve-faydali-bilgiler"
-                    className="bg-[#f4f6f8] px-4 py-2 text-xs font-black uppercase tracking-wide text-[#0b2c5f] transition hover:bg-[#d71920] hover:text-white"
-                  >
-                    {topic}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            <div className="overflow-hidden bg-[#06132d] text-white shadow-sm">
-              <div className="relative h-[190px]">
-                <img
-                  src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=900&auto=format&fit=crop"
-                  alt="Yangın güvenliği teklif"
-                  className="absolute inset-0 h-full w-full object-cover opacity-55"
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(5,18,48,0.78),rgba(215,25,32,0.42))]" />
-                <div className="absolute bottom-5 left-5 right-5">
-                  <Flame size={34} className="text-[#d71920]" />
-                </div>
-              </div>
-
-              <div className="p-7">
-                <p className="text-xs font-black uppercase tracking-[0.25em] text-white/55">
-                  Hızlı Destek
-                </p>
-
-                <h3 className="mt-3 text-2xl font-black uppercase leading-tight">
-                  Yangın güvenliği ihtiyacınız mı var?
-                </h3>
-
-                <p className="mt-4 text-sm leading-7 text-white/68">
-                  İşletmeniz için uygun cihaz, sistem ve bakım çözümleri
-                  hakkında teklif alabilirsiniz.
-                </p>
-
-                <Link
-                  href="/teklif-al"
-                  className="group mt-6 inline-flex items-center gap-2 bg-[#d71920] px-5 py-3 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0b2c5f]"
+              return (
+                <article
+                  key={post.number}
+                  className="group relative overflow-hidden border border-gray-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-2 hover:border-[#d71920] hover:shadow-2xl md:p-8"
                 >
-                  Teklif Al
-                  <ArrowRight
-                    size={16}
-                    className="transition group-hover:translate-x-1"
-                  />
-                </Link>
-              </div>
-            </div>
+                  <div className="absolute right-[-26px] top-[-24px] text-[100px] font-black uppercase leading-none text-[#0b2c5f]/5">
+                    {post.number}
+                  </div>
 
-            <div className="bg-white p-7 shadow-sm">
-              <p className="text-xs font-black uppercase tracking-[0.25em] text-[#d71920]">
-                Kategoriler
-              </p>
+                  <div className="relative flex flex-wrap items-center gap-3">
+                    <span className="inline-flex h-14 w-14 items-center justify-center bg-[#eef1f5] text-[#d71920] transition group-hover:bg-[#d71920] group-hover:text-white">
+                      <Icon size={28} />
+                    </span>
 
-              <div className="mt-6 space-y-3">
-                {categories.slice(1).map((category) => (
+                    <span className="inline-flex bg-[#06132d] px-4 py-2 text-xs font-black uppercase tracking-wide text-white">
+                      {post.category}
+                    </span>
+                  </div>
+
+                  <p className="relative mt-7 text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
+                    Blog {post.number}
+                  </p>
+
+                  <h3 className="relative mt-4 text-2xl font-black uppercase leading-tight text-[#101827]">
+                    {post.title}
+                  </h3>
+
+                  <div className="relative mt-6 border-l-4 border-[#d71920] bg-[#f4f6f8] p-5">
+                    <p className="text-xs font-black uppercase tracking-[0.22em] text-gray-400">
+                      Konu Özeti
+                    </p>
+
+                    <p className="mt-3 text-sm leading-7 text-gray-600">
+                      {post.summary}
+                    </p>
+                  </div>
+
+                  <div className="relative mt-5 bg-white">
+                    <p className="text-xs font-black uppercase tracking-[0.22em] text-gray-400">
+                      Hedef Kitle
+                    </p>
+
+                    <p className="mt-2 text-sm font-bold leading-7 text-[#0b2c5f]">
+                      {post.audience}
+                    </p>
+                  </div>
+
                   <Link
-                    key={category}
-                    href="/blog-ve-faydali-bilgiler"
-                    className="group flex items-center justify-between border-b border-gray-100 pb-3 text-sm font-black uppercase text-[#101827] transition hover:text-[#d71920]"
+                    href="/bize-ulasin"
+                    className="relative mt-7 inline-flex items-center gap-3 text-sm font-black uppercase text-[#d71920]"
                   >
-                    {category}
-                    <ChevronRight
-                      size={16}
+                    Bu Konu Hakkında Bilgi Al
+                    <ArrowRight
+                      size={17}
                       className="transition group-hover:translate-x-1"
                     />
                   </Link>
-                ))}
-              </div>
-            </div>
-          </aside>
+                </article>
+              );
+            })}
+          </div>
         </div>
       </section>
 
-      {/* CTA */}
+      {/* AUTHORITY CTA */}
+      <section className="bg-[#06132d] py-24 text-white">
+        <div className="mx-auto grid max-w-[1500px] grid-cols-1 gap-12 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-6">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
+              AFS Uzmanlığı
+            </p>
+
+            <h2 className="mt-4 text-3xl font-black uppercase leading-tight md:text-5xl">
+              Bilgiyi sadece okumayın, işletmenizde uygulayın.
+            </h2>
+
+            <p className="mt-6 max-w-xl text-base leading-8 text-white/65">
+              Yangın güvenliği süreçlerinde doğru bilgi, doğru analiz ve doğru
+              uygulama birlikte ilerlemelidir. AFS Yangın, rehber içeriklerin
+              yanında danışmanlık, projelendirme, bakım ve periyodik kontrol
+              süreçlerinde de yanınızdadır.
+            </p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            {[
+              "Yangın danışmanlığı",
+              "İtfaiye uygunluk raporu",
+              "Yangın güvenlik uzmanlığı",
+              "YSC seçimi ve bakım takibi",
+              "Davlumbaz söndürme sistemi",
+              "Lityum batarya yangını çözümleri",
+              "Akredite periyodik kontrol",
+              "TÜRKAK onaylı raporlama",
+            ].map((item) => (
+              <div
+                key={item}
+                className="flex items-start gap-4 border border-white/10 bg-white/5 p-5 backdrop-blur"
+              >
+                <BookOpenText
+                  size={22}
+                  className="mt-0.5 shrink-0 text-[#d71920]"
+                />
+
+                <p className="text-sm font-bold leading-7 text-white/82">
+                  {item}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FINAL CTA */}
       <section className="py-24">
-        <div className="mx-auto max-w-[1500px] px-6">
+        <div className="mx-auto max-w-[1500px] px-5 lg:px-6">
           <div className="relative overflow-hidden bg-[#06132d] p-8 text-white md:p-14">
             <img
-              src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=1600&auto=format&fit=crop"
-              alt="AFS bilgi merkezi"
+              src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1600&auto=format&fit=crop"
+              alt="AFS Yangın Blog ve Faydalı Bilgiler"
               className="absolute inset-0 h-full w-full object-cover opacity-25"
             />
 
@@ -432,16 +427,16 @@ export default function BlogPage() {
             <div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
               <div>
                 <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
-                  AFS Bilgi Merkezi
+                  Bilinçli Güvenlik
                 </p>
 
                 <h2 className="mt-4 max-w-4xl text-3xl font-black uppercase leading-tight md:text-5xl">
-                  Yangın güvenliği süreçlerinizi doğru bilgiyle planlayın.
+                  Riskleri felakete dönüşmeden önce durdurun.
                 </h2>
 
                 <p className="mt-5 max-w-2xl text-base leading-8 text-white/68">
-                  Blog içeriklerimizden faydalanabilir, işletmeniz için uygun
-                  çözüm hakkında AFS ekibiyle iletişime geçebilirsiniz.
+                  Yönetmelikler, yangın riskleri ve yasal süreçler hakkında
+                  uzman desteği almak için AFS ekibiyle iletişime geçin.
                 </p>
               </div>
 
@@ -449,7 +444,7 @@ export default function BlogPage() {
                 href="/bize-ulasin"
                 className="group inline-flex w-fit items-center gap-3 bg-[#d71920] px-7 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0b2c5f]"
               >
-                Bize Ulaşın
+                Uzmana Danışın
                 <ArrowRight
                   size={18}
                   className="transition group-hover:translate-x-1"

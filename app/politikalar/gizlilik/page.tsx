@@ -1,0 +1,104 @@
+// app/politikalar/gizlilik/page.tsx
+
+import Link from "next/link";
+import { ArrowRight, CheckCircle2, LockKeyhole } from "lucide-react";
+
+const items = [
+  "Faaliyetlerimiz sırasında işletmelere ve kurumlara ait elde edilen her türlü ticari, teknik, mimari ve kişisel bilgi “Gizli Bilgi” statüsünde değerlendirilir.",
+  "Müşterilerimizin tescilli hakları, ticari sırları ve projelerine ait mimari detaylar titizlikle korunur.",
+  "Kanunların veya yasal mercilerin bilgi talep ettiği istisnai durumlar haricinde, elde edilen hiçbir bilgi müşterinin yazılı izni olmadan üçüncü şahıslar veya kurumlarla kesinlikle paylaşılmaz. Yasal bir zorunluluk halinde müşteri önceden bilgilendirilir.",
+  "Bilgilerin gizliliğini ve güvenliğini tam sağlamak amacıyla tüm personelimiz gizlilik sözleşmelerine bağlı olarak çalışmaktadır.",
+];
+
+export default function PrivacyPolicyPage() {
+  return (
+    <main className="bg-white">
+      <section className="relative overflow-hidden bg-[#06132d] pt-[82px] text-white lg:pt-32">
+        <img
+          src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1800&auto=format&fit=crop"
+          alt="AFS Gizlilik Politikası"
+          className="absolute inset-0 h-full w-full object-cover opacity-25"
+        />
+
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,18,48,0.98),rgba(5,18,48,0.85),rgba(215,25,32,0.28))]" />
+
+        <div className="relative mx-auto max-w-[1500px] px-5 py-20 lg:px-6 lg:py-28">
+          <div className="max-w-5xl">
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-[#d71920]">
+              Politikalarımız
+            </p>
+
+            <h1 className="mt-5 text-[34px] font-black uppercase leading-[1.08] tracking-[-0.035em] sm:text-[42px] md:text-[58px]">
+              Gizlilik politikası
+            </h1>
+
+            <p className="mt-7 max-w-3xl text-base leading-8 text-white/75 md:text-lg">
+              Müşterilerimizin güveni en değerli varlığımızdır. AFS Yangın
+              Mühendislik Hizmetleri A.Ş. olarak, tüm mühendislik,
+              projelendirme, dolum, bakım ve resmi danışmanlık hizmetleri
+              sırasında elde edilen bilgilerin güvenliğini taahhüt ediyoruz.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24">
+        <div className="mx-auto grid max-w-[1500px] grid-cols-1 gap-12 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:px-6">
+          <div>
+            <div className="flex h-20 w-20 items-center justify-center bg-[#d71920] text-white">
+              <LockKeyhole size={38} />
+            </div>
+
+            <h2 className="mt-7 text-3xl font-black uppercase leading-tight text-[#101827] md:text-5xl">
+              Bilgi güvenliği taahhüdümüz
+            </h2>
+
+            <p className="mt-6 text-base leading-8 text-gray-600">
+              Faaliyetlerimiz sırasında elde edilen ticari, teknik, mimari ve
+              kişisel bilgiler gizlilik esasıyla korunur.
+            </p>
+          </div>
+
+          <div className="grid gap-4">
+            {items.map((item) => (
+              <div
+                key={item}
+                className="flex items-start gap-4 border border-gray-200 bg-white p-5 shadow-sm"
+              >
+                <CheckCircle2
+                  size={22}
+                  className="mt-0.5 shrink-0 text-[#d71920]"
+                />
+                <p className="text-sm font-bold leading-7 text-gray-700">
+                  {item}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#06132d] py-20 text-white">
+        <div className="mx-auto flex max-w-[1500px] flex-col justify-between gap-8 px-5 lg:flex-row lg:items-center lg:px-6">
+          <div>
+            <h2 className="text-3xl font-black uppercase">
+              Gizlilik süreçlerimiz hakkında bilgi alın.
+            </h2>
+            <p className="mt-4 max-w-2xl text-white/65">
+              Bilgi güvenliği ve gizlilik süreçleriyle ilgili başvurularınız
+              için bizimle iletişime geçebilirsiniz.
+            </p>
+          </div>
+
+          <Link
+            href="/bize-ulasin"
+            className="inline-flex w-fit items-center gap-3 bg-[#d71920] px-7 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0b2c5f]"
+          >
+            Bize Ulaşın
+            <ArrowRight size={18} />
+          </Link>
+        </div>
+      </section>
+    </main>
+  );
+}

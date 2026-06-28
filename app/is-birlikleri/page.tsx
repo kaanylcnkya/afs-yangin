@@ -4,146 +4,141 @@ import Link from "next/link";
 import {
   ArrowRight,
   BadgeCheck,
-  BriefcaseBusiness,
   Building2,
-  ClipboardCheck,
+  CheckCircle2,
+  Globe2,
   Handshake,
   Network,
-  Send,
   ShieldCheck,
   Store,
   Truck,
   Users,
 } from "lucide-react";
 
-const partnershipTypes = [
-  {
-    title: "Franchise İş Birliği",
-    description:
-      "AFS markasıyla bölgenizde yangın güvenliği alanında güçlü ve sürdürülebilir bir iş modeli kurun.",
-    href: "/franchise-ol",
-    icon: Store,
-  },
-  {
-    title: "Tedarikçi İş Birliği",
-    description:
-      "Ürün, ekipman, lojistik ve hizmet süreçlerinde AFS tedarik ağına dahil olun.",
-    href: "/tedarikci-ol",
-    icon: Truck,
-  },
-  {
-    title: "Kurumsal Partnerlik",
-    description:
-      "Kurumsal firmalar, tesis yönetimleri ve hizmet sağlayıcılarla ortak çözüm modeli geliştirelim.",
-    href: "/bize-ulasin",
-    icon: Handshake,
-  },
-  {
-    title: "Proje İş Birliği",
-    description:
-      "Yangın güvenliği, bakım, sistem ve hizmet projelerinde birlikte sürdürülebilir çözümler üretelim.",
-    href: "/bize-ulasin",
-    icon: Network,
-  },
+const partnerBadges = [
+  "TSE",
+  "TSE-HYB",
+  "TÜRKAK",
+  "TMMOB",
+  "NFPA",
+  "FM Approvals",
+  "VdS",
 ];
 
-const benefits = [
+const businessPartners = [
+  "Sarızeybek Şirketler Grubu",
+  "Eplus Fire Protection",
+  "Kidscert Certificate",
+  "A Yangın Güvenlik A.Ş.",
+];
+
+const trustItems = [
   {
-    title: "Kurumsal Marka Gücü",
+    title: "Uluslararası Standart",
     description:
-      "AFS markası altında güven veren, standartları belirlenmiş ve sürdürülebilir bir yapı içinde ilerleyin.",
+      "Projelerimizde kullanılan donanım ve hizmetlerin ulusal ve uluslararası standartlara uygun olmasına önem veririz.",
+    icon: Globe2,
+  },
+  {
+    title: "Onaylı Çözüm Ortakları",
+    description:
+      "TÜRKAK akredite kuruluşlar, global yangın ekipmanı üreticileri ve yetkin hizmet sağlayıcılarla çalışırız.",
     icon: BadgeCheck,
   },
   {
-    title: "Operasyonel Uyum",
+    title: "Güven Veren Ekosistem",
     description:
-      "Başvuru, değerlendirme, hizmet, saha ve müşteri süreçlerinde daha düzenli bir iş akışı oluşturun.",
-    icon: ClipboardCheck,
-  },
-  {
-    title: "Geniş Hizmet Alanı",
-    description:
-      "Yangın söndürme cihazları, sistemler, bakım, kontrol ve eğitim süreçlerinde ortak çalışma fırsatı.",
+      "İnsan hayatı ve yüksek değerli yatırımlar söz konusu olduğunda hiçbir detayı şansa bırakmayız.",
     icon: ShieldCheck,
   },
+];
+
+const partnershipOptions = [
   {
-    title: "Büyüme Potansiyeli",
+    title: "Tedarikçimiz Olun",
     description:
-      "Bölgesel ve kurumsal talepler doğrultusunda yeni müşteri, proje ve hizmet alanlarına erişim sağlayın.",
-    icon: BriefcaseBusiness,
+      "Yönetmeliklere tam uyumlu, sertifikalı ve yenilikçi yangın güvenlik ürünleriniz varsa; özel söndürücü köpükler, yeni nesil cihazlar ve benzeri çözümleri AFS güvencesiyle geniş müşteri ve bayi ağımıza sunabiliriz.",
+    href: "/tedarikci-ol",
+    button: "Tedarikçi Ol",
+    icon: Truck,
+  },
+  {
+    title: "Bayimiz Olun",
+    description:
+      "Bölgenizde AFS’nin ayrıcalıklı bayi ağına katılarak yüksek kâr marjlı, sertifikalı ve mühendislik onaylı ürünleri müşterilerinize ulaştırmanın ticari avantajlarını yakalayabilirsiniz.",
+    href: "/franchise-ol",
+    button: "Bayi Ol",
+    icon: Store,
   },
 ];
 
-const processSteps = [
-  {
-    number: "01",
-    title: "Başvuru",
-    description:
-      "İş birliği yapmak istediğiniz alanı ve temel bilgilerinizi bizimle paylaşırsınız.",
-  },
-  {
-    number: "02",
-    title: "Ön Değerlendirme",
-    description:
-      "Başvurunuz faaliyet alanı, bölge, kapasite ve iş modeli açısından değerlendirilir.",
-  },
-  {
-    number: "03",
-    title: "Görüşme",
-    description:
-      "Uygun başvurular için iş birliği kapsamı, beklentiler ve çalışma modeli detaylandırılır.",
-  },
-  {
-    number: "04",
-    title: "Süreç Başlangıcı",
-    description:
-      "Mutabakat sağlanması halinde iş birliği modeli planlanır ve operasyon süreci başlatılır.",
-  },
-];
-
-const suitableFor = [
-  "Yangın güvenliği alanında faaliyet gösteren firmalar",
-  "Teknik servis ve bakım hizmeti sunan işletmeler",
-  "Ürün, ekipman veya lojistik tedarikçileri",
-  "Tesis yönetimi ve kurumsal hizmet sağlayıcılar",
-  "Yeni bölgelerde AFS markasıyla büyümek isteyen girişimciler",
-  "Saha operasyonu ve müşteri ilişkileri güçlü işletmeler",
+const ecosystemItems = [
+  "Kalitesini kanıtlamış markalarla güç birliği",
+  "Tedarikçi, bayi ve çözüm ortağı ağı",
+  "Sertifikalı ürün ve hizmet yaklaşımı",
+  "Mühendislik onaylı çözüm modeli",
+  "İzmir ve Ege Bölgesi başta olmak üzere Türkiye geneli büyüme",
+  "Doğru ürünleri doğru projelerle buluşturan yapı",
 ];
 
 export default function PartnershipsPage() {
   return (
     <main className="bg-white">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-[#06132d] pt-36 text-white">
+      <section className="relative overflow-hidden bg-[#06132d] pt-[82px] text-white lg:pt-32">
         <img
           src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1800&auto=format&fit=crop"
-          alt="AFS İş Birlikleri"
+          alt="AFS İş Birlikleri ve Çözüm Ortakları"
           className="absolute inset-0 h-full w-full object-cover opacity-30"
         />
 
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,18,48,0.98)_0%,rgba(5,18,48,0.86)_48%,rgba(215,25,32,0.32)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,18,48,0.98)_0%,rgba(5,18,48,0.88)_48%,rgba(215,25,32,0.32)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_right,rgba(255,255,255,0.12),transparent_28%)]" />
 
-        <div className="relative mx-auto max-w-[1500px] px-6 py-28">
-          <div className="max-w-4xl">
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-[#d71920]">
-              AFS İş Birlikleri
+        <div className="relative mx-auto max-w-[1500px] px-5 py-20 lg:px-6 lg:py-28">
+          <div className="max-w-5xl">
+            <div className="mb-7 flex items-center gap-3">
+              <span className="h-20 w-1.5 bg-[#d71920] lg:h-28 lg:w-2" />
+              <span className="h-14 w-1.5 bg-[#1d75bc] lg:h-20 lg:w-2" />
+              <span className="h-9 w-1.5 bg-white/80 lg:h-12 lg:w-2" />
+            </div>
+
+            <p className="text-xs font-black uppercase tracking-[0.32em] text-[#d71920] sm:text-sm">
+              İş Birliklerimiz ve Çözüm Ortaklarımız
             </p>
 
-            <h1 className="mt-5 text-4xl font-black uppercase leading-[1.08] md:text-6xl">
-              Güçlü iş ortaklıklarıyla yangın güvenliği ağını birlikte büyütelim.
+            <h1 className="mt-5 max-w-5xl text-[34px] font-black uppercase leading-[1.08] tracking-[-0.035em] text-white sm:text-[42px] md:text-[58px] xl:text-[70px]">
+              Güvenlik zayıf halka kabul etmez.
             </h1>
 
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-white/75">
-              Franchise, tedarikçi, kurumsal partnerlik ve proje iş birlikleri
-              için AFS ile ortak çalışma modellerini değerlendirebilirsiniz.
+            <p className="mt-7 max-w-3xl text-base leading-8 text-white/75 md:text-lg">
+              Sektörün en iyileriyle omuz omuzayız. İnsan hayatı ve milyonlarca
+              liralık yatırımlar söz konusu olduğunda hiçbir detayı şansa
+              bırakamayız.
             </p>
 
-            <div className="mt-9 flex flex-wrap gap-4">
+            <div className="mt-8 max-w-3xl border-l-4 border-[#d71920] bg-white/10 p-5 backdrop-blur">
+              <p className="text-sm font-bold leading-7 text-white/88 md:text-base">
+                AFS Yangın Mühendislik Hizmetleri A.Ş. olarak; projelerimizde
+                kullandığımız her donanımın ve sunduğumuz her hizmetin
+                uluslararası standartlarda olmasını sağlamak için sektörünün
+                lider tedarikçileri ve onaylı çözüm ortaklarıyla güçlü bir
+                ekosistem kurduk.
+              </p>
+            </div>
+
+            <p className="mt-7 max-w-3xl text-base leading-8 text-white/75">
+              Sizlere kesin çözüm sunabilmek için, kalitesini kanıtlamış
+              markalarla gücümüzü birleştiriyor ve bu güçlü ağı her geçen gün
+              büyütüyoruz.
+            </p>
+
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <a
-                href="#is-birligi-formu"
-                className="group inline-flex items-center gap-3 bg-[#d71920] px-7 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0b2c5f]"
+                href="#partner-agi"
+                className="group inline-flex items-center justify-center gap-3 bg-[#d71920] px-7 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0b2c5f]"
               >
-                İş Birliği Başvurusu
+                Partner Ağını İncele
                 <ArrowRight
                   size={18}
                   className="transition group-hover:translate-x-1"
@@ -151,184 +146,30 @@ export default function PartnershipsPage() {
               </a>
 
               <Link
-                href="/franchise-ol"
-                className="inline-flex items-center border-2 border-white px-7 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0b2c5f]"
+                href="/bize-ulasin"
+                className="inline-flex items-center justify-center border-2 border-white px-7 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0b2c5f]"
               >
-                Franchise Ol
+                Bize Ulaşın
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* TOP CARDS */}
-      <section className="relative z-10 -mt-16">
-        <div className="mx-auto max-w-[1500px] px-6">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            <div className="bg-white p-7 shadow-2xl">
-              <Handshake size={38} className="text-[#d71920]" />
-              <h3 className="mt-5 text-xl font-black uppercase text-[#101827]">
-                Ortak Büyüme
-              </h3>
-              <p className="mt-3 text-sm leading-7 text-gray-600">
-                İş ortaklarımızla uzun vadeli, güvenilir ve sürdürülebilir
-                modeller kurmayı hedefliyoruz.
-              </p>
-            </div>
-
-            <div className="bg-white p-7 shadow-2xl">
-              <Building2 size={38} className="text-[#d71920]" />
-              <h3 className="mt-5 text-xl font-black uppercase text-[#101827]">
-                Kurumsal Yapı
-              </h3>
-              <p className="mt-3 text-sm leading-7 text-gray-600">
-                Başvuru, değerlendirme ve operasyon süreçlerinde kurumsal
-                standartlarla ilerliyoruz.
-              </p>
-            </div>
-
-            <div className="bg-white p-7 shadow-2xl">
-              <Users size={38} className="text-[#d71920]" />
-              <h3 className="mt-5 text-xl font-black uppercase text-[#101827]">
-                Geniş Ağ
-              </h3>
-              <p className="mt-3 text-sm leading-7 text-gray-600">
-                Bölgesel ve kurumsal talepleri karşılayacak güçlü bir hizmet ağı
-                oluşturuyoruz.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PARTNERSHIP TYPES */}
-      <section className="py-24">
-        <div className="mx-auto max-w-[1500px] px-6">
-          <div className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <div>
-              <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
-                İş Birliği Modelleri
-              </p>
-
-              <h2 className="mt-4 max-w-4xl text-3xl font-black uppercase leading-tight text-[#101827] md:text-5xl">
-                AFS ile farklı alanlarda ortaklık kurabilirsiniz.
-              </h2>
-            </div>
-
-            <p className="max-w-lg text-base leading-8 text-gray-600">
-              Franchise, tedarik, kurumsal partnerlik ve proje bazlı iş
-              birlikleri için başvurularınızı değerlendirebiliriz.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-7 md:grid-cols-2 xl:grid-cols-4">
-            {partnershipTypes.map((item) => {
+      {/* TOP TRUST CARDS */}
+      <section className="relative z-10 -mt-14">
+        <div className="mx-auto max-w-[1500px] px-5 lg:px-6">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+            {trustItems.map((item) => {
               const Icon = item.icon;
 
               return (
-                <Link
-                  key={item.title}
-                  href={item.href}
-                  className="group relative min-h-[330px] overflow-hidden bg-[#06132d] p-8 text-white shadow-lg transition hover:-translate-y-2 hover:shadow-2xl"
-                >
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(215,25,32,0.25),transparent_34%)]" />
-                  <div className="absolute bottom-0 left-0 h-1 w-0 bg-[#d71920] transition-all duration-500 group-hover:w-full" />
-
-                  <div className="relative flex h-16 w-16 items-center justify-center bg-white/10 text-[#d71920] transition group-hover:bg-[#d71920] group-hover:text-white">
-                    <Icon size={32} />
-                  </div>
-
-                  <h3 className="relative mt-7 text-2xl font-black uppercase leading-tight">
+                <div key={item.title} className="bg-white p-7 shadow-2xl">
+                  <Icon size={38} className="text-[#d71920]" />
+                  <h3 className="mt-5 text-xl font-black uppercase text-[#101827]">
                     {item.title}
                   </h3>
-
-                  <p className="relative mt-4 text-sm leading-7 text-white/70">
-                    {item.description}
-                  </p>
-
-                  <span className="relative mt-7 inline-flex items-center gap-2 text-sm font-black uppercase text-white">
-                    Detaylı İncele
-                    <ArrowRight
-                      size={16}
-                      className="transition group-hover:translate-x-1"
-                    />
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* WHO CAN APPLY */}
-      <section className="bg-[#f4f6f8] py-24">
-        <div className="mx-auto grid max-w-[1500px] grid-cols-1 gap-12 px-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
-          <div>
-            <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
-              Kimler Başvurabilir?
-            </p>
-
-            <h2 className="mt-4 text-3xl font-black uppercase leading-tight text-[#101827] md:text-5xl">
-              İş birliği modeli farklı sektör oyuncuları için uygundur.
-            </h2>
-
-            <p className="mt-6 max-w-xl text-base leading-8 text-gray-600">
-              AFS iş birlikleri; mevcut işletmeler, teknik servis firmaları,
-              tedarikçiler, girişimciler ve kurumsal çözüm ortakları için
-              değerlendirilebilir.
-            </p>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            {suitableFor.map((item) => (
-              <div
-                key={item}
-                className="flex items-start gap-4 border border-gray-200 bg-white p-5 shadow-sm"
-              >
-                <ShieldCheck
-                  size={22}
-                  className="mt-0.5 shrink-0 text-[#d71920]"
-                />
-                <p className="text-sm font-bold leading-7 text-[#101827]">
-                  {item}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* BENEFITS */}
-      <section className="py-24">
-        <div className="mx-auto max-w-[1500px] px-6">
-          <div className="mx-auto mb-14 max-w-4xl text-center">
-            <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
-              Avantajlar
-            </p>
-
-            <h2 className="mt-4 text-3xl font-black uppercase text-[#101827] md:text-5xl">
-              AFS iş birlikleri ne sağlar?
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
-            {benefits.map((item) => {
-              const Icon = item.icon;
-
-              return (
-                <div
-                  key={item.title}
-                  className="group border border-gray-200 bg-white p-8 shadow-sm transition hover:-translate-y-2 hover:border-[#d71920] hover:shadow-2xl"
-                >
-                  <div className="flex h-16 w-16 items-center justify-center bg-[#eef1f5] text-[#d71920] transition group-hover:bg-[#d71920] group-hover:text-white">
-                    <Icon size={32} />
-                  </div>
-
-                  <h3 className="mt-7 text-xl font-black uppercase text-[#101827]">
-                    {item.title}
-                  </h3>
-
-                  <p className="mt-4 text-sm leading-7 text-gray-600">
+                  <p className="mt-3 text-sm leading-7 text-gray-600">
                     {item.description}
                   </p>
                 </div>
@@ -338,46 +179,116 @@ export default function PartnershipsPage() {
         </div>
       </section>
 
-      {/* PROCESS */}
-      <section className="bg-[#f4f6f8] py-24">
-        <div className="mx-auto max-w-[1500px] px-6">
-          <div className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+      {/* PARTNER LOGO STYLE AREA */}
+      <section id="partner-agi" className="py-24">
+        <div className="mx-auto max-w-[1500px] px-5 lg:px-6">
+          <div className="mb-14 grid grid-cols-1 gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
             <div>
               <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
-                Süreç
+                Güçlü Ortaklıklar
               </p>
 
-              <h2 className="mt-4 max-w-4xl text-3xl font-black uppercase text-[#101827] md:text-5xl">
-                İş birliği başvurunuz adım adım değerlendirilir.
+              <h2 className="mt-4 text-3xl font-black uppercase leading-tight text-[#101827] md:text-5xl">
+                Yetkiler, üyelikler, çalışma grupları ve çözüm ortakları.
               </h2>
             </div>
 
-            <p className="max-w-lg text-base leading-8 text-gray-600">
-              Talebiniz doğrultusunda başvuru türü, faaliyet alanı ve operasyon
-              uygunluğu birlikte incelenir.
+            <p className="max-w-2xl text-base leading-8 text-gray-600">
+              AFS ekosistemi; standartlara uygunluk, güvenilir tedarik,
+              mühendislik disiplini ve güçlü çözüm ortaklığı anlayışıyla
+              şekillenir.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
-            {processSteps.map((step) => (
+          <div className="relative overflow-hidden bg-[#f4f6f8] p-6 shadow-sm md:p-10">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(215,25,32,0.08),transparent_35%)]" />
+
+            <div className="relative grid grid-cols-1 gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+              <div>
+                <div className="mb-6">
+                  <h3 className="text-xl font-black uppercase text-[#101827]">
+                    Üyelikler / Çalışma Grupları / Sertifikalar
+                  </h3>
+                  <span className="mt-3 block h-1 w-24 bg-[#d71920]" />
+                </div>
+
+                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 xl:grid-cols-4">
+                  {partnerBadges.map((item) => (
+                    <div
+                      key={item}
+                      className="flex min-h-[92px] items-center justify-center border border-gray-200 bg-white p-5 text-center shadow-sm transition hover:-translate-y-1 hover:border-[#d71920] hover:shadow-xl"
+                    >
+                      <span className="text-lg font-black uppercase tracking-tight text-[#0b2c5f]">
+                        {item}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <div className="mb-6">
+                  <h3 className="text-xl font-black uppercase text-[#101827]">
+                    İş Ortakları
+                  </h3>
+                  <span className="mt-3 block h-1 w-24 bg-[#d71920]" />
+                </div>
+
+                <div className="grid gap-4">
+                  {businessPartners.map((item) => (
+                    <div
+                      key={item}
+                      className="flex items-center gap-4 border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-[#d71920] hover:shadow-xl"
+                    >
+                      <Network size={24} className="shrink-0 text-[#d71920]" />
+                      <span className="text-sm font-black uppercase leading-6 text-[#101827]">
+                        {item}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p className="mt-5 text-sm leading-7 text-gray-500">
+            Not: Bu alandaki marka, sertifika ve çözüm ortağı logoları görsel
+            dosya olarak ayrıca yüklendiğinde gerçek logolarla değiştirilebilir.
+          </p>
+        </div>
+      </section>
+
+      {/* ECOSYSTEM */}
+      <section className="bg-[#06132d] py-24 text-white">
+        <div className="mx-auto grid max-w-[1500px] grid-cols-1 gap-12 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:px-6">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
+              AFS Ekosistemi
+            </p>
+
+            <h2 className="mt-4 text-3xl font-black uppercase leading-tight md:text-5xl">
+              Kaliteli ürün ve hizmet ağımızı birlikte büyütüyoruz.
+            </h2>
+
+            <p className="mt-6 max-w-xl text-base leading-8 text-white/65">
+              İzmir ve Ege Bölgesi başta olmak üzere, Türkiye'nin dört bir
+              yanındaki projelerimizde kaliteli ürün ve hizmet ağımızı
+              genişletmeye devam ediyoruz.
+            </p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            {ecosystemItems.map((item) => (
               <div
-                key={step.number}
-                className="relative overflow-hidden border border-gray-200 bg-white p-8 shadow-sm"
+                key={item}
+                className="flex items-start gap-4 border border-white/10 bg-white/5 p-5 backdrop-blur"
               >
-                <span className="absolute right-5 top-3 text-6xl font-black text-[#0b2c5f]/5">
-                  {step.number}
-                </span>
-
-                <p className="text-sm font-black uppercase tracking-[0.24em] text-[#d71920]">
-                  {step.number}
-                </p>
-
-                <h3 className="mt-5 text-2xl font-black uppercase text-[#101827]">
-                  {step.title}
-                </h3>
-
-                <p className="mt-4 text-sm leading-7 text-gray-600">
-                  {step.description}
+                <CheckCircle2
+                  size={22}
+                  className="mt-0.5 shrink-0 text-[#d71920]"
+                />
+                <p className="text-sm font-bold leading-7 text-white/82">
+                  {item}
                 </p>
               </div>
             ))}
@@ -385,91 +296,127 @@ export default function PartnershipsPage() {
         </div>
       </section>
 
-      {/* FORM */}
-      <section id="is-birligi-formu" className="bg-[#06132d] py-24 text-white">
-        <div className="mx-auto grid max-w-[1500px] grid-cols-1 gap-12 px-6 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
+      {/* PARTNER CTA OPTIONS */}
+      <section className="bg-[#f4f6f8] py-24">
+        <div className="mx-auto max-w-[1500px] px-5 lg:px-6">
+          <div className="mx-auto mb-14 max-w-4xl text-center">
             <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
-              İş Birliği Başvurusu
+              Partner Ağı ve Bayilik
             </p>
 
-            <h2 className="mt-4 text-3xl font-black uppercase leading-tight md:text-5xl">
-              İş birliği talebinizi iletin, birlikte değerlendirelim.
+            <h2 className="mt-4 text-3xl font-black uppercase text-[#101827] md:text-5xl">
+              AFS ekosistemine katılın, birlikte büyüyelim.
             </h2>
 
-            <p className="mt-6 max-w-xl text-base leading-8 text-white/65">
-              Formu doldurduktan sonra AFS ekibi başvurunuzu değerlendirir ve
-              uygun iş modeli için sizinle iletişime geçer.
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-gray-600">
+              Yangın güvenliği sektöründe standartları belirleyen bu vizyonun
+              bir parçası olmak istiyorsanız, kapımız iş birliklerine her zaman
+              açık.
             </p>
           </div>
 
-          <form className="grid gap-4 bg-white p-7 text-[#101827] shadow-2xl">
-            <div className="grid gap-4 md:grid-cols-2">
-              <input
-                type="text"
-                placeholder="Ad Soyad"
-                className="h-14 border border-gray-200 px-4 text-sm outline-none transition focus:border-[#d71920]"
-              />
-              <input
-                type="text"
-                placeholder="Firma Adı"
-                className="h-14 border border-gray-200 px-4 text-sm outline-none transition focus:border-[#d71920]"
-              />
+          <div className="grid grid-cols-1 gap-7 lg:grid-cols-2">
+            <div className="group relative overflow-hidden bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              <div className="absolute right-[-30px] top-[-30px] text-[120px] font-black uppercase leading-none text-[#0b2c5f]/5">
+                AFS
+              </div>
+
+              <div className="relative flex h-16 w-16 items-center justify-center bg-[#eef1f5] text-[#d71920] transition group-hover:bg-[#d71920] group-hover:text-white">
+                <Truck size={32} />
+              </div>
+
+              <h3 className="relative mt-7 text-3xl font-black uppercase leading-tight text-[#101827]">
+                Tedarikçimiz Olun
+              </h3>
+
+              <p className="relative mt-5 text-sm leading-7 text-gray-600">
+                Yönetmeliklere tam uyumlu, sertifikalı ve yenilikçi yangın
+                güvenlik ürünleriniz varsa; özel söndürücü köpükler, yeni nesil
+                cihazlar ve benzeri çözümleri AFS güvencesiyle geniş müşteri ve
+                bayi portalımızda sunabiliriz.
+              </p>
+
+              <Link
+                href="/tedarikci-ol"
+                className="relative mt-7 inline-flex items-center gap-3 bg-[#d71920] px-6 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#0b2c5f]"
+              >
+                Tedarikçi Ol
+                <ArrowRight size={17} />
+              </Link>
             </div>
 
-            <div className="grid gap-4 md:grid-cols-2">
-              <input
-                type="tel"
-                placeholder="Telefon"
-                className="h-14 border border-gray-200 px-4 text-sm outline-none transition focus:border-[#d71920]"
-              />
-              <input
-                type="email"
-                placeholder="E-posta"
-                className="h-14 border border-gray-200 px-4 text-sm outline-none transition focus:border-[#d71920]"
-              />
+            <div className="group relative overflow-hidden bg-[#06132d] p-8 text-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              <div className="absolute right-[-30px] top-[-30px] text-[120px] font-black uppercase leading-none text-white/[0.04]">
+                AFS
+              </div>
+
+              <div className="relative flex h-16 w-16 items-center justify-center bg-white/10 text-[#d71920] transition group-hover:bg-[#d71920] group-hover:text-white">
+                <Store size={32} />
+              </div>
+
+              <h3 className="relative mt-7 text-3xl font-black uppercase leading-tight">
+                Bayimiz Olun
+              </h3>
+
+              <p className="relative mt-5 text-sm leading-7 text-white/68">
+                Bölgenizde AFS'nin ayrıcalıklı bayi ağına katılarak; yüksek kâr
+                marjlı, sertifikalı ve mühendislik onaylı ürünleri
+                müşterilerinize ulaştırmanın ticari avantajlarını yakalayın.
+              </p>
+
+              <Link
+                href="/franchise-ol"
+                className="relative mt-7 inline-flex items-center gap-3 bg-[#d71920] px-6 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0b2c5f]"
+              >
+                Bayi Ol
+                <ArrowRight size={17} />
+              </Link>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="grid gap-4 md:grid-cols-2">
-              <select className="h-14 border border-gray-200 px-4 text-sm text-gray-500 outline-none transition focus:border-[#d71920]">
-                <option>İş Birliği Türü</option>
-                <option>Franchise İş Birliği</option>
-                <option>Tedarikçi İş Birliği</option>
-                <option>Kurumsal Partnerlik</option>
-                <option>Proje İş Birliği</option>
-                <option>Diğer</option>
-              </select>
-
-              <input
-                type="text"
-                placeholder="Şehir / Bölge"
-                className="h-14 border border-gray-200 px-4 text-sm outline-none transition focus:border-[#d71920]"
-              />
-            </div>
-
-            <input
-              type="text"
-              placeholder="Faaliyet Alanınız"
-              className="h-14 border border-gray-200 px-4 text-sm outline-none transition focus:border-[#d71920]"
+      {/* FINAL CTA */}
+      <section className="py-24">
+        <div className="mx-auto max-w-[1500px] px-5 lg:px-6">
+          <div className="relative overflow-hidden bg-[#06132d] p-8 text-white md:p-14">
+            <img
+              src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1600&auto=format&fit=crop"
+              alt="AFS İş Birliği ve Bayilik"
+              className="absolute inset-0 h-full w-full object-cover opacity-25"
             />
 
-            <textarea
-              placeholder="İş birliği talebiniz / mesajınız"
-              rows={5}
-              className="resize-none border border-gray-200 p-4 text-sm outline-none transition focus:border-[#d71920]"
-            />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,18,48,0.98),rgba(5,18,48,0.78),rgba(215,25,32,0.28))]" />
 
-            <button
-              type="button"
-              className="group mt-2 inline-flex w-fit items-center gap-3 bg-[#d71920] px-7 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#0b2c5f]"
-            >
-              Başvuruyu Gönder
-              <Send
-                size={18}
-                className="transition group-hover:translate-x-1"
-              />
-            </button>
-          </form>
+            <div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+              <div>
+                <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
+                  Güçlü İş Birlikleri
+                </p>
+
+                <h2 className="mt-4 max-w-4xl text-3xl font-black uppercase leading-tight md:text-5xl">
+                  Sektörde fark yaratmak için bir adım atın.
+                </h2>
+
+                <p className="mt-5 max-w-2xl text-base leading-8 text-white/68">
+                  Ürünlerinizi doğru projelere ulaştırmak veya AFS'nin onaylı
+                  bayi ağında yer almak için yetkili birimlerimizle hemen
+                  iletişime geçin.
+                </p>
+              </div>
+
+              <Link
+                href="/bize-ulasin"
+                className="group inline-flex w-fit items-center gap-3 bg-[#d71920] px-7 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0b2c5f]"
+              >
+                İş Birliği ve Bayilik İçin Bize Ulaşın
+                <ArrowRight
+                  size={18}
+                  className="transition group-hover:translate-x-1"
+                />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </main>
