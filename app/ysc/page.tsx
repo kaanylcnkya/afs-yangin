@@ -280,412 +280,282 @@ export default function YscPage() {
             </p>
           </div>
 
-          {/* MOBILE MAIN TABS */}
-          <div className="mb-6 lg:hidden">
-            <div className="mb-3 flex items-center justify-between gap-4">
-              <p className="text-xs font-black uppercase tracking-[0.22em] text-[#0b2c5f]">
-                Kategori Seç
-              </p>
+          {/* 4 COLUMN MAIN BOXES */}
+          <div className="mb-8 grid grid-cols-2 gap-4 lg:grid-cols-4">
+            {pageTabs.map((tab) => {
+              const Icon = tab.icon;
+              const active = activeTab === tab.key;
 
-              <p className="text-xs font-bold text-gray-400">Kaydır →</p>
-            </div>
+              return (
+                <button
+                  key={tab.key}
+                  type="button"
+                  onClick={() => setActiveTab(tab.key)}
+                  className={`group min-h-[170px] cursor-pointer border p-5 text-left transition duration-300 ${
+                    active
+                      ? "border-[#d71920] bg-[#06132d] text-white shadow-2xl"
+                      : "border-gray-200 bg-white text-[#101827] shadow-sm hover:-translate-y-1 hover:border-[#d71920] hover:shadow-xl"
+                  }`}
+                >
+                  <div
+                    className={`flex h-12 w-12 items-center justify-center transition ${
+                      active
+                        ? "bg-[#d71920] text-white"
+                        : "bg-[#eef1f5] text-[#d71920] group-hover:bg-[#d71920] group-hover:text-white"
+                    }`}
+                  >
+                    <Icon size={24} />
+                  </div>
 
-            <div className="relative -mx-5">
-              <div className="flex gap-3 overflow-x-auto px-5 pb-2 pr-16">
-                {pageTabs.map((tab) => {
-                  const Icon = tab.icon;
-                  const active = activeTab === tab.key;
+                  <h3 className="mt-5 text-base font-black uppercase leading-tight">
+                    {tab.title}
+                  </h3>
 
-                  return (
-                    <button
-                      key={tab.key}
-                      type="button"
-                      onClick={() => setActiveTab(tab.key)}
-                      className={`flex min-w-[170px] cursor-pointer items-center gap-3 border p-4 text-left transition ${
-                        active
-                          ? "border-[#d71920] bg-[#06132d] text-white shadow-xl"
-                          : "border-gray-200 bg-white text-[#101827]"
-                      }`}
-                    >
-                      <div
-                        className={`flex h-10 w-10 shrink-0 items-center justify-center ${
-                          active
-                            ? "bg-[#d71920] text-white"
-                            : "bg-[#eef1f5] text-[#d71920]"
-                        }`}
-                      >
-                        <Icon size={20} />
-                      </div>
-
-                      <div>
-                        <h3 className="text-sm font-black uppercase leading-tight">
-                          {tab.title}
-                        </h3>
-
-                        <p
-                          className={`mt-1 text-[11px] font-semibold leading-4 ${
-                            active ? "text-white/65" : "text-gray-500"
-                          }`}
-                        >
-                          {tab.description}
-                        </p>
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
-
-              <div className="pointer-events-none absolute bottom-2 right-0 top-0 flex w-14 items-center justify-end bg-gradient-to-l from-[#f4f6f8] via-[#f4f6f8]/90 to-transparent pr-4">
-                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#06132d] text-white shadow-lg">
-                  <ArrowRight size={18} />
-                </div>
-              </div>
-            </div>
+                  <p
+                    className={`mt-3 text-xs font-semibold leading-5 sm:text-sm sm:leading-6 ${
+                      active ? "text-white/70" : "text-gray-500"
+                    }`}
+                  >
+                    {tab.description}
+                  </p>
+                </button>
+              );
+            })}
           </div>
 
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-[360px_minmax(0,1fr)]">
-            {/* DESKTOP MAIN TABS */}
-            <aside className="hidden self-start lg:sticky lg:top-28 lg:block">
-              <div className="overflow-hidden bg-white shadow-xl">
-                {pageTabs.map((tab) => {
-                  const Icon = tab.icon;
-                  const active = activeTab === tab.key;
+          {/* CONTENT PANEL */}
+          <div className="overflow-hidden bg-white shadow-xl">
+            {activeTab === "cihazlar" && (
+              <div>
+                <div className="border-b border-gray-100 p-6 md:p-8 lg:p-10">
+                  <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
+                    YSC Çözümleri
+                  </p>
 
-                  return (
-                    <button
-                      key={tab.key}
-                      type="button"
-                      onClick={() => setActiveTab(tab.key)}
-                      className={`group flex w-full cursor-pointer items-start gap-4 border-b border-gray-100 p-5 text-left transition last:border-b-0 ${
-                        active
-                          ? "bg-[#06132d] text-white"
-                          : "bg-white text-[#101827] hover:bg-[#f8fafc]"
-                      }`}
-                    >
-                      <div
-                        className={`flex h-12 w-12 shrink-0 items-center justify-center transition ${
+                  <h3 className="mt-4 text-3xl font-black uppercase leading-tight text-[#101827] md:text-5xl">
+                    Cihaz tipini seçin.
+                  </h3>
+
+                  <p className="mt-5 max-w-2xl text-base leading-8 text-gray-600">
+                    Yangın riskine ve kullanım alanına göre doğru cihaz tipini
+                    hızlıca inceleyin.
+                  </p>
+                </div>
+
+                {/* PRODUCT BOXES */}
+                <div className="grid grid-cols-1 gap-4 border-b border-gray-100 bg-[#f8fafc] p-5 sm:grid-cols-2 lg:grid-cols-5">
+                  {productCategories.map((product, index) => {
+                    const Icon = product.icon;
+                    const active = activeProduct === index;
+
+                    return (
+                      <button
+                        key={product.title}
+                        type="button"
+                        onClick={() => setActiveProduct(index)}
+                        className={`group min-h-[150px] cursor-pointer border p-4 text-left transition duration-300 ${
                           active
-                            ? "bg-[#d71920] text-white"
-                            : "bg-[#eef1f5] text-[#d71920] group-hover:bg-[#d71920] group-hover:text-white"
+                            ? "border-[#d71920] bg-[#06132d] text-white shadow-xl"
+                            : "border-gray-200 bg-white text-[#101827] hover:-translate-y-1 hover:border-[#d71920] hover:shadow-lg"
                         }`}
                       >
-                        <Icon size={24} />
-                      </div>
-
-                      <div className="min-w-0 flex-1">
-                        <h3 className="text-base font-black uppercase leading-tight">
-                          {tab.title}
-                        </h3>
-
-                        <p
-                          className={`mt-2 text-sm font-semibold leading-6 ${
-                            active ? "text-white/70" : "text-gray-500"
+                        <div
+                          className={`flex h-11 w-11 items-center justify-center transition ${
+                            active
+                              ? "bg-[#d71920] text-white"
+                              : "bg-[#eef1f5] text-[#d71920] group-hover:bg-[#d71920] group-hover:text-white"
                           }`}
                         >
-                          {tab.description}
-                        </p>
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
-            </aside>
+                          <Icon size={22} />
+                        </div>
 
-            {/* RIGHT CONTENT PANEL */}
-            <div className="min-h-[760px] overflow-hidden bg-white shadow-xl">
-              {activeTab === "cihazlar" && (
-                <div className="grid min-h-[760px] grid-cols-1 xl:grid-cols-[340px_minmax(0,1fr)]">
-                  {/* PRODUCT NAV */}
-                  <div className="border-b border-gray-100 bg-white p-5 xl:border-b-0 xl:border-r">
-                    <div className="mb-5">
-                      <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
-                        YSC Çözümleri
+                        <p className="mt-4 text-xs font-black uppercase tracking-[0.22em] text-[#d71920]">
+                          {product.number}
+                        </p>
+
+                        <h4 className="mt-2 text-sm font-black uppercase leading-tight">
+                          {product.title}
+                        </h4>
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* PRODUCT DETAIL */}
+                <div className="grid grid-cols-1 lg:grid-cols-[0.55fr_0.45fr]">
+                  <div className="relative w-full overflow-hidden bg-[#06132d]">
+                    <img
+                      src={currentProduct.image}
+                      alt={currentProduct.title}
+                      className="block h-auto w-full"
+                    />
+
+                    <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(5,18,48,0.58),rgba(215,25,32,0.18))]" />
+
+                    <div className="absolute left-5 top-5 flex h-14 w-14 items-center justify-center bg-white text-[#d71920] shadow-xl">
+                      <CurrentProductIcon size={28} />
+                    </div>
+
+                    <div className="absolute bottom-5 left-5 right-5">
+                      <p className="inline-flex bg-[#d71920] px-4 py-2 text-xs font-black uppercase tracking-wide text-white">
+                        {currentProduct.number}
                       </p>
 
-                      <h3 className="mt-3 text-2xl font-black uppercase leading-tight text-[#101827]">
-                        Cihaz tipini seçin.
+                      <h3 className="mt-4 max-w-2xl text-2xl font-black uppercase leading-tight text-white sm:text-3xl md:text-4xl">
+                        {currentProduct.title}
                       </h3>
                     </div>
-
-                    {/* MOBILE PRODUCT TABS */}
-                    <div className="xl:hidden">
-                      <div className="mb-3 flex items-center justify-between">
-                        <p className="text-xs font-black uppercase tracking-[0.22em] text-[#0b2c5f]">
-                          Cihaz Tipi
-                        </p>
-
-                        <p className="text-xs font-bold text-gray-400">
-                          Kaydır →
-                        </p>
-                      </div>
-
-                      <div className="relative -mx-5">
-                        <div className="flex gap-3 overflow-x-auto px-5 pb-2 pr-16">
-                          {productCategories.map((product, index) => {
-                            const Icon = product.icon;
-                            const active = activeProduct === index;
-
-                            return (
-                              <button
-                                key={product.title}
-                                type="button"
-                                onClick={() => setActiveProduct(index)}
-                                className={`flex min-w-[165px] cursor-pointer items-center gap-3 border p-4 text-left transition ${
-                                  active
-                                    ? "border-[#d71920] bg-[#06132d] text-white shadow-xl"
-                                    : "border-gray-200 bg-white text-[#101827]"
-                                }`}
-                              >
-                                <div
-                                  className={`flex h-10 w-10 shrink-0 items-center justify-center ${
-                                    active
-                                      ? "bg-[#d71920] text-white"
-                                      : "bg-[#eef1f5] text-[#d71920]"
-                                  }`}
-                                >
-                                  <Icon size={20} />
-                                </div>
-
-                                <div>
-                                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#d71920]">
-                                    {product.number}
-                                  </p>
-
-                                  <h4 className="mt-1 text-xs font-black uppercase leading-tight">
-                                    {product.title}
-                                  </h4>
-                                </div>
-                              </button>
-                            );
-                          })}
-                        </div>
-
-                        <div className="pointer-events-none absolute bottom-2 right-0 top-0 flex w-14 items-center justify-end bg-gradient-to-l from-white via-white/90 to-transparent pr-4">
-                          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#06132d] text-white shadow-lg">
-                            <ArrowRight size={18} />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* DESKTOP PRODUCT TABS */}
-                    <div className="hidden gap-3 xl:grid">
-                      {productCategories.map((product, index) => {
-                        const Icon = product.icon;
-                        const active = activeProduct === index;
-
-                        return (
-                          <button
-                            key={product.title}
-                            type="button"
-                            onClick={() => setActiveProduct(index)}
-                            className={`group flex w-full cursor-pointer items-center gap-4 border p-4 text-left transition ${
-                              active
-                                ? "border-[#d71920] bg-[#06132d] text-white"
-                                : "border-gray-200 bg-white text-[#101827] hover:border-[#d71920]"
-                            }`}
-                          >
-                            <div
-                              className={`flex h-11 w-11 shrink-0 items-center justify-center transition ${
-                                active
-                                  ? "bg-[#d71920] text-white"
-                                  : "bg-[#eef1f5] text-[#d71920] group-hover:bg-[#d71920] group-hover:text-white"
-                              }`}
-                            >
-                              <Icon size={22} />
-                            </div>
-
-                            <div className="min-w-0 flex-1">
-                              <p className="text-xs font-black uppercase tracking-[0.22em] text-[#d71920]">
-                                {product.number}
-                              </p>
-
-                              <h4 className="mt-1 text-sm font-black uppercase leading-tight">
-                                {product.title}
-                              </h4>
-                            </div>
-                          </button>
-                        );
-                      })}
-                    </div>
                   </div>
 
-                  {/* PRODUCT DETAIL */}
-                  <div className="overflow-hidden bg-white">
-                    <div className="relative w-full overflow-hidden bg-[#06132d]">
-                      <img
-                        src={currentProduct.image}
-                        alt={currentProduct.title}
-                        className="block h-auto w-full"
-                      />
+                  <div className="flex flex-col justify-center p-6 md:p-8 lg:p-10">
+                    <p className="text-xl font-black uppercase leading-tight text-[#0b2c5f] md:text-2xl">
+                      {currentProduct.subtitle}
+                    </p>
 
-                      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(5,18,48,0.58),rgba(215,25,32,0.18))]" />
+                    <div className="mt-6 bg-[#eef1f5] px-5 py-4">
+                      <p className="text-xs font-black uppercase tracking-wide text-[#0b2c5f]">
+                        Kullanım Alanı
+                      </p>
 
-                      <div className="absolute left-5 top-5 flex h-14 w-14 items-center justify-center bg-white text-[#d71920] shadow-xl">
-                        <CurrentProductIcon size={28} />
-                      </div>
+                      <p className="mt-2 text-sm font-bold leading-6 text-gray-700">
+                        {currentProduct.usage}
+                      </p>
+                    </div>
 
-                      <div className="absolute bottom-5 left-5 right-5">
-                        <p className="inline-flex bg-[#d71920] px-4 py-2 text-xs font-black uppercase tracking-wide text-white">
-                          {currentProduct.number}
+                    <p className="mt-6 max-w-3xl text-sm leading-7 text-gray-600 md:text-base md:leading-8">
+                      {currentProduct.description}
+                    </p>
+
+                    <Link
+                      href="/bize-ulasin"
+                      className="mt-8 inline-flex w-fit items-center gap-3 bg-[#d71920] px-6 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#0b2c5f]"
+                    >
+                      Bu Cihaz İçin Teklif Al
+                      <ArrowRight size={17} />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {activeTab === "farkimiz" && (
+              <div className="p-6 md:p-8 lg:p-10">
+                <div className="max-w-4xl">
+                  <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
+                    AFS Farkı
+                  </p>
+
+                  <h3 className="mt-4 text-3xl font-black uppercase leading-tight text-[#101827] md:text-5xl">
+                    Sadece cihaz değil, güvenli kullanım süreci.
+                  </h3>
+
+                  <p className="mt-5 max-w-2xl text-base leading-8 text-gray-600">
+                    Yangın söndürme cihazı seçiminde doğru ürün, doğru
+                    konumlandırma ve düzenli bakım birlikte değerlendirilir.
+                  </p>
+                </div>
+
+                <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
+                  {differences.map((item) => {
+                    const Icon = item.icon;
+
+                    return (
+                      <div
+                        key={item.title}
+                        className="group border border-gray-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-2 hover:border-[#d71920] hover:shadow-2xl"
+                      >
+                        <div className="flex h-14 w-14 items-center justify-center bg-[#eef1f5] text-[#d71920] transition group-hover:bg-[#d71920] group-hover:text-white">
+                          <Icon size={28} />
+                        </div>
+
+                        <h3 className="mt-6 text-lg font-black uppercase leading-tight text-[#101827]">
+                          {item.title}
+                        </h3>
+
+                        <p className="mt-4 text-sm leading-7 text-gray-600">
+                          {item.description}
                         </p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
 
-                        <h3 className="mt-4 max-w-2xl text-2xl font-black uppercase leading-tight text-white sm:text-3xl md:text-4xl">
-                          {currentProduct.title}
+            {activeTab === "alanlar" && (
+              <div className="bg-[#06132d] p-6 text-white md:p-8 lg:p-10">
+                <div className="max-w-4xl">
+                  <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
+                    Koruma Alanları
+                  </p>
+
+                  <h3 className="mt-4 text-3xl font-black uppercase leading-tight md:text-5xl">
+                    Evden fabrikaya kadar her alana uygun çözüm.
+                  </h3>
+
+                  <p className="mt-5 max-w-2xl text-base leading-8 text-white/65">
+                    Kullanım alanına göre doğru yangın söndürme cihazı
+                    planlaması yapılmalıdır.
+                  </p>
+                </div>
+
+                <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 xl:grid-cols-5">
+                  {protectionAreas.map((area) => {
+                    const Icon = area.icon;
+
+                    return (
+                      <div
+                        key={area.title}
+                        className="flex min-h-[145px] flex-col items-center justify-center border border-white/10 bg-white/5 p-5 text-center backdrop-blur transition hover:-translate-y-2 hover:border-[#d71920] hover:bg-white/10"
+                      >
+                        <Icon size={32} className="text-[#d71920]" />
+
+                        <h3 className="mt-5 text-sm font-black uppercase leading-6 text-white">
+                          {area.title}
                         </h3>
                       </div>
-                    </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
 
-                    <div className="p-6 md:p-8 lg:p-10">
-                      <p className="text-xl font-black uppercase leading-tight text-[#0b2c5f] md:text-2xl">
-                        {currentProduct.subtitle}
+            {activeTab === "hizmet" && (
+              <div className="p-6 md:p-8 lg:p-10">
+                <div className="max-w-4xl">
+                  <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
+                    Hizmet Kapsamı
+                  </p>
+
+                  <h3 className="mt-4 text-3xl font-black uppercase leading-tight text-[#101827] md:text-5xl">
+                    Satış, dolum, bakım ve takip tek çatı altında.
+                  </h3>
+
+                  <p className="mt-5 max-w-2xl text-base leading-8 text-gray-600">
+                    AFS Yangın, bireysel ve kurumsal ihtiyaçlara uygun yangın
+                    söndürme cihazı çözümleri sunar.
+                  </p>
+                </div>
+
+                <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {serviceItems.map((item) => (
+                    <div
+                      key={item}
+                      className="flex items-start gap-4 border border-gray-200 bg-white p-5 shadow-sm"
+                    >
+                      <CheckCircle2
+                        size={22}
+                        className="mt-0.5 shrink-0 text-[#d71920]"
+                      />
+
+                      <p className="text-sm font-bold leading-7 text-gray-700">
+                        {item}
                       </p>
-
-                      <div className="mt-6 bg-[#eef1f5] px-5 py-4">
-                        <p className="text-xs font-black uppercase tracking-wide text-[#0b2c5f]">
-                          Kullanım Alanı
-                        </p>
-
-                        <p className="mt-2 text-sm font-bold leading-6 text-gray-700">
-                          {currentProduct.usage}
-                        </p>
-                      </div>
-
-                      <p className="mt-6 max-w-3xl text-sm leading-7 text-gray-600 md:text-base md:leading-8">
-                        {currentProduct.description}
-                      </p>
-
-                      <Link
-                        href="/bize-ulasin"
-                        className="mt-8 inline-flex w-fit items-center gap-3 bg-[#d71920] px-6 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#0b2c5f]"
-                      >
-                        Bu Cihaz İçin Teklif Al
-                        <ArrowRight size={17} />
-                      </Link>
                     </div>
-                  </div>
+                  ))}
                 </div>
-              )}
-
-              {activeTab === "farkimiz" && (
-                <div className="min-h-[760px] p-6 md:p-8 lg:p-10">
-                  <div className="max-w-4xl">
-                    <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
-                      AFS Farkı
-                    </p>
-
-                    <h3 className="mt-4 text-3xl font-black uppercase leading-tight text-[#101827] md:text-5xl">
-                      Sadece cihaz değil, güvenli kullanım süreci.
-                    </h3>
-
-                    <p className="mt-5 max-w-2xl text-base leading-8 text-gray-600">
-                      Yangın söndürme cihazı seçiminde doğru ürün, doğru
-                      konumlandırma ve düzenli bakım birlikte değerlendirilir.
-                    </p>
-                  </div>
-
-                  <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-                    {differences.map((item) => {
-                      const Icon = item.icon;
-
-                      return (
-                        <div
-                          key={item.title}
-                          className="group border border-gray-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-2 hover:border-[#d71920] hover:shadow-2xl"
-                        >
-                          <div className="flex h-14 w-14 items-center justify-center bg-[#eef1f5] text-[#d71920] transition group-hover:bg-[#d71920] group-hover:text-white">
-                            <Icon size={28} />
-                          </div>
-
-                          <h3 className="mt-6 text-lg font-black uppercase leading-tight text-[#101827]">
-                            {item.title}
-                          </h3>
-
-                          <p className="mt-4 text-sm leading-7 text-gray-600">
-                            {item.description}
-                          </p>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-
-              {activeTab === "alanlar" && (
-                <div className="min-h-[760px] bg-[#06132d] p-6 text-white md:p-8 lg:p-10">
-                  <div className="max-w-4xl">
-                    <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
-                      Koruma Alanları
-                    </p>
-
-                    <h3 className="mt-4 text-3xl font-black uppercase leading-tight md:text-5xl">
-                      Evden fabrikaya kadar her alana uygun çözüm.
-                    </h3>
-
-                    <p className="mt-5 max-w-2xl text-base leading-8 text-white/65">
-                      Kullanım alanına göre doğru yangın söndürme cihazı
-                      planlaması yapılmalıdır.
-                    </p>
-                  </div>
-
-                  <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 xl:grid-cols-5">
-                    {protectionAreas.map((area) => {
-                      const Icon = area.icon;
-
-                      return (
-                        <div
-                          key={area.title}
-                          className="flex min-h-[145px] flex-col items-center justify-center border border-white/10 bg-white/5 p-5 text-center backdrop-blur transition hover:-translate-y-2 hover:border-[#d71920] hover:bg-white/10"
-                        >
-                          <Icon size={32} className="text-[#d71920]" />
-
-                          <h3 className="mt-5 text-sm font-black uppercase leading-6 text-white">
-                            {area.title}
-                          </h3>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-
-              {activeTab === "hizmet" && (
-                <div className="min-h-[760px] p-6 md:p-8 lg:p-10">
-                  <div className="max-w-4xl">
-                    <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
-                      Hizmet Kapsamı
-                    </p>
-
-                    <h3 className="mt-4 text-3xl font-black uppercase leading-tight text-[#101827] md:text-5xl">
-                      Satış, dolum, bakım ve takip tek çatı altında.
-                    </h3>
-
-                    <p className="mt-5 max-w-2xl text-base leading-8 text-gray-600">
-                      AFS Yangın, bireysel ve kurumsal ihtiyaçlara uygun yangın
-                      söndürme cihazı çözümleri sunar.
-                    </p>
-                  </div>
-
-                  <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                    {serviceItems.map((item) => (
-                      <div
-                        key={item}
-                        className="flex items-start gap-4 border border-gray-200 bg-white p-5 shadow-sm"
-                      >
-                        <CheckCircle2
-                          size={22}
-                          className="mt-0.5 shrink-0 text-[#d71920]"
-                        />
-
-                        <p className="text-sm font-bold leading-7 text-gray-700">
-                          {item}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
