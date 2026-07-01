@@ -24,33 +24,47 @@ import {
   Zap,
 } from "lucide-react";
 
+const highlights = [
+  {
+    title: "Otomatik Söndürme",
+    text: "Risk yapısına uygun yangın söndürme sistemleri.",
+    icon: Flame,
+  },
+  {
+    title: "Algılama ve İkaz",
+    text: "Duman, ısı ve tehlikeyi erken algılayan uyarı sistemleri.",
+    icon: Siren,
+  },
+  {
+    title: "Sertifikalı Güvence",
+    text: "Proje, kurulum, test ve bakımda belgeli süreç yönetimi.",
+    icon: ShieldCheck,
+  },
+];
+
 const authorityItems = [
   {
-    title: "İzmir’in En Kapsamlı Yetki Belgesi",
-    subtitle: "TSE HYB Güvencesi",
+    title: "TSE HYB Güvencesi",
     description:
-      "Kullanılan tüm ürünlerimiz sertifikalıdır. Kurulumdan teste, bakımdan devreye almaya kadar her aşama en geniş kapsamlı TSE Hizmet Yeterlilik Belgemiz ile güvence altındadır.",
+      "Kurulum, test, bakım ve devreye alma süreçlerinde TSE Hizmet Yeterlilik Belgesi güvencesi.",
     icon: BadgeCheck,
   },
   {
-    title: "Uluslararası Uzmanlık",
-    subtitle: "NFPA CFPS ile Dünya Standardı",
+    title: "NFPA CFPS Uzmanlığı",
     description:
-      "Uluslararası geçerliliğe sahip NFPA CFPS sertifikasına sahip İzmir'deki tek yangın firması olarak sistemlerinizi dünya standartlarında tasarlıyoruz.",
+      "Yangın söndürme sistemlerinde uluslararası standartlara uygun mühendislik yaklaşımı.",
     icon: ShieldCheck,
   },
   {
-    title: "Güçlü Mühendislik Kadrosu",
-    subtitle: "TMMOB SMM Yetkili",
+    title: "TMMOB SMM Yetkisi",
     description:
-      "Elektrik mühendisi, makine mühendisi, mimar ve iş güvenliği uzmanlarından oluşan güçlü kadromuzla projelerinizi hazırlıyoruz. İtfaiye uygunluk raporu gibi resmi kurumlardan onay almak bizimle sorun olmaktan çıkar.",
+      "Elektrik, makine, mimari ve iş güvenliği uzmanlığıyla teknik proje desteği.",
     icon: HardHat,
   },
   {
-    title: "Kalibrasyonlu Ölçüm",
-    subtitle: "Eksiksiz Dokümantasyon",
+    title: "Kalibrasyonlu Test",
     description:
-      "Göz kararı değil, bilimsel çalışıyoruz. Sistemlerinizi kendi bünyemizdeki kalibrasyonlu cihazlarla test edip devreye alıyor ve yasal olarak ihtiyaç duyacağınız tüm dokümantasyonu anahtar teslim sunuyoruz.",
+      "Sistemlerin ölçüm, test ve devreye alma süreçlerinde teknik dokümantasyon.",
     icon: Gauge,
   },
 ];
@@ -60,7 +74,7 @@ const certificateScopes = [
   "NFPA CFPS",
   "TMMOB SMM",
   "Kalibrasyonlu Ölçüm",
-  "Eksiksiz Dokümantasyon",
+  "Teknik Dokümantasyon",
 ];
 
 const focusSectors = [
@@ -90,10 +104,10 @@ const systemSolutions = [
   {
     number: "01",
     title: "Temiz Gazlı Söndürme Sistemleri",
-    subtitle: "Söndürürken zarar vermeyen teknoloji.",
+    subtitle: "Hassas alanlara kalıntısız koruma.",
     tags: "FM200, Novec, CO2",
     description:
-      "Su veya köpük her yangında kullanılamaz. Trafo odaları, hücre odaları, hassas bilgi işlem veri merkezleri ve arşivler için özel tasarlanır. Yangını saniyeler içinde boğarken, milyonlarca liralık elektronik cihazlarınıza zarar vermez ve kalıntı bırakmaz.",
+      "Trafo odası, veri merkezi, arşiv ve hassas elektronik alanlarda yangına hızlı ve kalıntısız müdahale sağlar.",
     icon: Cpu,
     image:
       "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop",
@@ -101,32 +115,32 @@ const systemSolutions = [
   {
     number: "02",
     title: "Davlumbaz Söndürme Sistemleri",
-    subtitle: "Endüstriyel mutfaklarda yangın korkusuna son.",
-    tags: "Otel, Restoran, Yurt, AVM Mutfakları",
+    subtitle: "Endüstriyel mutfaklar için güvenlik.",
+    tags: "Otel, restoran, AVM mutfakları",
     description:
-      "Oteller, restoranlar, yurtlar ve AVM'lerdeki endüstriyel mutfakların en büyük kabusu yağ yangınlarıdır. Mevzuatın zorunlu kıldığı bu sistemleri mutfağınızın mimarisine özel projelendiriyor, en ince detayına kadar uyguluyor ve 7/24 servis desteği sağlıyoruz.",
+      "Yağ yangını riski taşıyan endüstriyel mutfaklarda otomatik söndürme, bakım ve servis çözümü sunar.",
     icon: Utensils,
     image:
       "https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&w=1600&auto=format&fit=crop",
   },
   {
     number: "03",
-    title: "Yangın Algılama ve Uyarı İkaz Sistemleri",
-    subtitle: "Tehlikeyi büyümeden yakalayın.",
-    tags: "Algılama, İhbar, Uyarı, Akıllı Dedektör",
+    title: "Yangın Algılama ve Uyarı Sistemleri",
+    subtitle: "Tehlikeyi büyümeden algılayın.",
+    tags: "Algılama, ihbar, uyarı",
     description:
-      "Erken müdahale hayat kurtarır. Tesisinizin her metrekaresini akıllı dedektörlerle donatıyor; dumanı veya ısıyı ilk saniyesinde algılayıp uyarı veren, yönetmeliklere tam uyumlu ihbar sistemleri projelendirip kuruyoruz.",
+      "Duman, ısı ve yangın riskini erken tespit eden, yönetmeliklere uygun algılama ve ikaz sistemleri kurarız.",
     icon: Siren,
     image:
       "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1600&auto=format&fit=crop",
   },
   {
     number: "04",
-    title: "Acil Aydınlatma ve Yönlendirme Sistemleri",
-    subtitle: "Karanlıkta ve panikte güvenli tahliye.",
-    tags: "Yönlendirme, Tahliye, Acil Aydınlatma",
+    title: "Acil Aydınlatma ve Yönlendirme",
+    subtitle: "Güvenli tahliye için doğru yönlendirme.",
+    tags: "Yönlendirme, tahliye, acil aydınlatma",
     description:
-      "Yangın anında elektrikler kesildiğinde panik en büyük düşmandır. Yüksek katlı binalar, siteler ve sosyal donatı alanlarında insanların güvenle dışarı çıkabilmesi için standartlara uygun acil yönlendirme armatürleri ve aydınlatma ağları kuruyoruz.",
+      "Elektrik kesintisi ve panik anında güvenli tahliye için standartlara uygun yönlendirme sistemleri sağlar.",
     icon: Lightbulb,
     image:
       "https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1600&auto=format&fit=crop",
@@ -134,10 +148,10 @@ const systemSolutions = [
   {
     number: "05",
     title: "Pano İçi Söndürme Sistemleri",
-    subtitle: "Tehlikenin kalbine doğrudan müdahale.",
-    tags: "Elektrik Panosu, Mikro Söndürme, Kaynağında Müdahale",
+    subtitle: "Yangına kaynağında müdahale.",
+    tags: "Elektrik panosu, mikro söndürme",
     description:
-      "Büyük yangınlar genellikle küçük bir elektrik panosunda başlar. Elektrik panolarınızın içerisine entegre ettiğimiz mikro söndürme sistemleri ile alevi daha dışarıya sızmadan kaynağında anında bitiriyoruz.",
+      "Elektrik panolarında başlayan yangın risklerine karşı kaynağında otomatik müdahale sağlayan sistemlerdir.",
     icon: PanelTop,
     image:
       "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=1600&auto=format&fit=crop",
@@ -147,205 +161,160 @@ const systemSolutions = [
 const engineeringSteps = [
   {
     title: "İhtiyaç Analizi",
-    description:
-      "Tesisinizin kullanım amacı, risk sınıfı, mevcut altyapısı ve mevzuat gereksinimleri analiz edilir.",
+    description: "Tesisin risk sınıfı, kullanım amacı ve mevcut altyapısı incelenir.",
     icon: ClipboardCheck,
   },
   {
     title: "Projelendirme",
-    description:
-      "İşletmenize özel otomatik söndürme, algılama ve uyarı sistemleri mühendislik hesaplarıyla projelendirilir.",
+    description: "Söndürme, algılama ve uyarı sistemleri teknik olarak planlanır.",
     icon: FileCheck2,
   },
   {
-    title: "Kurulum ve Devreye Alma",
-    description:
-      "Sertifikalı ürünlerle kurulum yapılır; sistemler kalibrasyonlu cihazlarla test edilerek devreye alınır.",
+    title: "Kurulum",
+    description: "Sertifikalı ürünlerle sistem kurulumu ve devreye alma yapılır.",
     icon: Wrench,
   },
   {
-    title: "Bakım ve 7/24 Destek",
-    description:
-      "Kurulum sonrası bakım, test, periyodik kontrol ve servis süreçleriyle kesintisiz koruma sağlanır.",
+    title: "Bakım ve Destek",
+    description: "Periyodik bakım, test ve servis süreçleriyle koruma sürdürülür.",
     icon: MonitorCog,
   },
 ];
 
 const seoHighlights = [
-  "TMMOB yetkili mühendis kadrosu",
+  "Yangın söndürme sistemleri",
+  "Temiz gazlı söndürme",
+  "Davlumbaz söndürme sistemi",
+  "Yangın algılama sistemi",
+  "Acil yönlendirme sistemi",
+  "Pano içi söndürme",
+  "TSE HYB belgeli hizmet",
   "NFPA CFPS uzmanlığı",
-  "İzmir’in kapsamlı TSE HYB yetki yapısı",
-  "A’dan Z’ye projelendirme ve kurulum",
-  "Bakım, test ve periyodik kontrol desteği",
-  "7/24 servis anlayışı",
 ];
 
 export default function SystemsPage() {
   return (
     <main className="bg-white">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-[#06132d] pt-[82px] text-white lg:pt-32">
-        <img
-          src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1800&auto=format&fit=crop"
-          alt="AFS Yangın Söndürme Sistemleri"
-          className="absolute inset-0 h-full w-full object-cover opacity-30"
-        />
+      <section className="bg-[#06132d] pt-[82px] text-white lg:pt-32">
+        <div className="relative mx-auto min-h-[430px] max-w-[1500px] overflow-hidden lg:min-h-[410px]">
+          <img
+            src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1800&auto=format&fit=crop"
+            alt="AFS Yangın Söndürme Sistemleri"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
 
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,18,48,0.98)_0%,rgba(5,18,48,0.88)_48%,rgba(215,25,32,0.32)_100%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_right,rgba(255,255,255,0.12),transparent_28%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,#031433_0%,rgba(3,20,51,0.98)_34%,rgba(3,20,51,0.78)_62%,rgba(3,20,51,0.88)_100%)]" />
 
-        <div className="relative mx-auto max-w-[1500px] px-5 py-20 lg:px-6 lg:py-28">
-          <div className="max-w-5xl">
-            <div className="mb-7 flex items-center gap-3">
-              <span className="h-20 w-1.5 bg-[#d71920] lg:h-28 lg:w-2" />
-              <span className="h-14 w-1.5 bg-[#1d75bc] lg:h-20 lg:w-2" />
-              <span className="h-9 w-1.5 bg-white/80 lg:h-12 lg:w-2" />
-            </div>
+          <div className="relative flex min-h-[430px] items-center px-5 py-10 sm:px-8 lg:min-h-[410px] lg:px-14 xl:px-20">
+            <div className="max-w-[700px]">
+              <div className="mb-4 flex items-center gap-3">
+                <span className="h-12 w-1.5 bg-[#d71920] sm:h-14" />
+                <span className="h-9 w-1.5 bg-[#1d75bc] sm:h-10" />
+                <span className="h-6 w-1.5 bg-white/80" />
+              </div>
 
-            <p className="text-xs font-black uppercase tracking-[0.32em] text-[#d71920] sm:text-sm">
-              Yangın Söndürme Sistemleri
-            </p>
-
-            <h1 className="mt-5 max-w-5xl text-[34px] font-black uppercase leading-[1.08] tracking-[-0.035em] text-white sm:text-[42px] md:text-[58px] xl:text-[70px]">
-              Büyük yatırımlarınız şansa bırakılamaz.
-            </h1>
-
-            <h2 className="mt-5 max-w-4xl text-2xl font-black uppercase leading-tight text-white/90 md:text-4xl">
-              Uluslararası mühendislik, kesintisiz koruma.
-            </h2>
-
-            <p className="mt-7 max-w-3xl text-base leading-8 text-white/75 md:text-lg">
-              Milyonlarca liralık tesisleriniz, hassas veri merkezleriniz veya
-              her gün binlerce kişiyi ağırlayan otel ve AVM'leriniz... Büyük
-              yatırımlar, sıradan çözümlerle değil; yönetmeliklere uyumlu,
-              kusursuz bir mühendislikle korunur.
-            </p>
-
-            <div className="mt-8 max-w-3xl border-l-4 border-[#d71920] bg-white/10 p-5 backdrop-blur">
-              <p className="text-sm font-bold leading-7 text-white/88 md:text-base">
-                AFS Yangın olarak; endüstriyel tesislerden yüksek katlı yapılara
-                kadar işletmenize özel otomatik söndürme ve algılama
-                sistemlerini projelendiriyor, kuruyor ve sertifikalandırıyoruz.
+              <p className="mb-3 text-[9px] font-black uppercase tracking-[0.22em] text-[#d71920] sm:text-[11px] sm:tracking-[0.26em]">
+                Yangın Söndürme Sistemleri
               </p>
-            </div>
 
-            <p className="mt-7 max-w-3xl text-base leading-8 text-white/75">
-              Siz üretmeye ve büyümeye devam edin, yasal prosedürleri ve
-              güvenliği uzman mühendislerimize bırakın.
-            </p>
+              <h1 className="max-w-[680px] text-[27px] font-black uppercase leading-[1.06] tracking-[-0.035em] text-white sm:text-[38px] md:text-[46px] lg:text-[50px]">
+                Büyük yatırımlarınız şansa bırakılamaz.
+              </h1>
 
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Link
-                href="/teklif-al"
-                className="group inline-flex items-center justify-center gap-3 bg-[#d71920] px-7 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0b2c5f]"
-              >
-                Hızlı Teklif Al
-                <ArrowRight
-                  size={18}
-                  className="transition group-hover:translate-x-1"
-                />
-              </Link>
+              <p className="mt-4 max-w-[600px] text-[13px] font-semibold leading-6 text-white/80 sm:text-[15px] sm:leading-7 md:text-base">
+                Otomatik söndürme, algılama, ikaz ve acil yönlendirme
+                sistemlerinde mühendislik temelli çözümler sunarız.
+              </p>
 
-              <a
-                href="#sistem-cozumleri"
-                className="inline-flex items-center justify-center border-2 border-white px-7 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0b2c5f]"
-              >
-                Sistemleri İncele
-              </a>
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <a
+                  href="#sistem-cozumleri"
+                  className="group inline-flex items-center justify-center gap-2 bg-[#d71920] px-5 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0b2c5f] sm:justify-start sm:text-sm"
+                >
+                  Sistemleri İncele
+                  <ArrowRight
+                    size={15}
+                    className="transition group-hover:translate-x-1"
+                  />
+                </a>
+
+                <Link
+                  href="/bize-ulasin"
+                  className="inline-flex items-center justify-center gap-2 bg-white px-5 py-3 text-xs font-black uppercase tracking-wide text-[#0b2c5f] transition hover:bg-[#d71920] hover:text-white sm:justify-start sm:text-sm"
+                >
+                  Teklif Al
+                  <ArrowRight size={15} />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* TOP CARDS */}
-      <section className="relative z-10 -mt-14">
+      <section className="relative z-10 bg-white py-5 md:py-0">
         <div className="mx-auto max-w-[1500px] px-5 lg:px-6">
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
-            <div className="bg-white p-7 shadow-2xl">
-              <Flame size={38} className="text-[#d71920]" />
-              <h3 className="mt-5 text-xl font-black uppercase text-[#101827]">
-                Otomatik Söndürme
-              </h3>
-              <p className="mt-3 text-sm leading-7 text-gray-600">
-                Tesisinizin risk yapısına uygun otomatik söndürme sistemlerini
-                projelendirir ve kurarız.
-              </p>
-            </div>
+          <div className="grid grid-cols-1 gap-5 md:-mt-5 md:grid-cols-3">
+            {highlights.map((item) => {
+              const Icon = item.icon;
 
-            <div className="bg-white p-7 shadow-2xl">
-              <Siren size={38} className="text-[#d71920]" />
-              <h3 className="mt-5 text-xl font-black uppercase text-[#101827]">
-                Algılama ve İkaz
-              </h3>
-              <p className="mt-3 text-sm leading-7 text-gray-600">
-                Dumanı, ısıyı ve tehlikeyi ilk saniyede algılayarak hızlı
-                müdahale imkânı sağlayan sistemler kurarız.
-              </p>
-            </div>
+              return (
+                <div key={item.title} className="bg-white p-6 shadow-xl">
+                  <Icon size={34} className="text-[#d71920]" />
 
-            <div className="bg-white p-7 shadow-2xl">
-              <ShieldCheck size={38} className="text-[#d71920]" />
-              <h3 className="mt-5 text-xl font-black uppercase text-[#101827]">
-                Sertifikalı Güvence
-              </h3>
-              <p className="mt-3 text-sm leading-7 text-gray-600">
-                Ürün, proje, kurulum, test ve bakım süreçlerini yetki belgeleri
-                ve dokümantasyonla destekleriz.
-              </p>
-            </div>
+                  <h3 className="mt-5 text-lg font-black uppercase text-[#101827]">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm leading-7 text-gray-600">
+                    {item.text}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* WHY AFS */}
-      <section className="py-24">
+      <section className="py-14 lg:py-20">
         <div className="mx-auto max-w-[1500px] px-5 lg:px-6">
-          <div className="mb-14 grid grid-cols-1 gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+          <div className="mb-10 grid grid-cols-1 gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
             <div>
               <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
                 Neden AFS?
               </p>
 
               <h2 className="mt-4 text-3xl font-black uppercase leading-tight text-[#101827] md:text-5xl">
-                İzmir'de tek, Türkiye'de öncü: mühendislik ve güvenin kesişim
-                noktası.
+                Belgeli, yetkili ve mühendislik temelli hizmet.
               </h2>
             </div>
 
             <p className="max-w-2xl text-base leading-8 text-gray-600">
-              Kurumların denetimlerinden sorunsuz geçmek ve tehlike anında
-              sistemin kusursuz çalışacağından emin olmak istiyorsanız, doğru
-              adrestesiniz. Çünkü biz sadece sistem kurmuyoruz; yasal güvence ve
-              huzur sağlıyoruz.
+              Yangın söndürme sistemlerinde doğru proje, doğru ürün ve düzenli
+              bakım birlikte değerlendirilmelidir.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-7 lg:grid-cols-2">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
             {authorityItems.map((item) => {
               const Icon = item.icon;
 
               return (
                 <div
                   key={item.title}
-                  className="group relative overflow-hidden border border-gray-200 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:border-[#d71920] hover:shadow-2xl"
+                  className="group border border-gray-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-2 hover:border-[#d71920] hover:shadow-2xl"
                 >
-                  <div className="absolute right-[-30px] top-[-30px] text-[110px] font-black uppercase leading-none text-[#0b2c5f]/5">
-                    AFS
+                  <div className="flex h-14 w-14 items-center justify-center bg-[#eef1f5] text-[#d71920] transition group-hover:bg-[#d71920] group-hover:text-white">
+                    <Icon size={28} />
                   </div>
 
-                  <div className="relative flex h-16 w-16 items-center justify-center bg-[#eef1f5] text-[#d71920] transition group-hover:bg-[#d71920] group-hover:text-white">
-                    <Icon size={32} />
-                  </div>
-
-                  <p className="relative mt-7 text-xs font-black uppercase tracking-[0.25em] text-[#d71920]">
-                    {item.subtitle}
-                  </p>
-
-                  <h3 className="relative mt-3 text-2xl font-black uppercase leading-tight text-[#101827]">
+                  <h3 className="mt-6 text-lg font-black uppercase leading-tight text-[#101827]">
                     {item.title}
                   </h3>
 
-                  <p className="relative mt-5 text-sm leading-7 text-gray-600">
+                  <p className="mt-4 text-sm leading-7 text-gray-600">
                     {item.description}
                   </p>
                 </div>
@@ -356,11 +325,11 @@ export default function SystemsPage() {
           <div className="mt-10 bg-[#f4f6f8] p-6 md:p-8">
             <div className="mb-6">
               <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
-                Yetki Belgeleri ve Kapsamlar
+                Yetki Belgeleri
               </p>
 
               <h3 className="mt-3 text-2xl font-black uppercase leading-tight text-[#101827]">
-                TSE HYB, NFPA CFPS, TMMOB SMM ve teknik dokümantasyon güvencesi.
+                TSE HYB, NFPA CFPS, TMMOB SMM ve teknik dokümantasyon.
               </h3>
             </div>
 
@@ -368,7 +337,7 @@ export default function SystemsPage() {
               {certificateScopes.map((item) => (
                 <div
                   key={item}
-                  className="flex min-h-[92px] items-center justify-center border border-gray-200 bg-white p-5 text-center shadow-sm transition hover:-translate-y-1 hover:border-[#d71920] hover:shadow-xl"
+                  className="flex min-h-[88px] items-center justify-center border border-gray-200 bg-white p-5 text-center shadow-sm transition hover:-translate-y-1 hover:border-[#d71920] hover:shadow-xl"
                 >
                   <span className="text-sm font-black uppercase leading-6 text-[#0b2c5f]">
                     {item}
@@ -376,44 +345,33 @@ export default function SystemsPage() {
                 </div>
               ))}
             </div>
-
-            <p className="mt-5 text-sm leading-7 text-gray-500">
-              Not: 5 kapsam logoları ve yetki belge logoları ayrı görsel dosya
-              olarak verildiğinde bu alana gerçek logolarla yerleştirilebilir.
-            </p>
           </div>
         </div>
       </section>
 
       {/* FOCUS SECTORS */}
-      <section className="bg-[#06132d] py-24 text-white">
+      <section className="bg-[#06132d] py-16 text-white lg:py-20">
         <div className="mx-auto max-w-[1500px] px-5 lg:px-6">
-          <div className="mx-auto mb-14 max-w-4xl text-center">
+          <div className="mx-auto mb-10 max-w-4xl text-center">
             <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
               Odak Sektörler
             </p>
 
             <h2 className="mt-4 text-3xl font-black uppercase leading-tight md:text-5xl">
-              İşletmenize özel, teknolojik ve kesin çözümler.
+              Yüksek riskli alanlara özel sistem çözümleri.
             </h2>
-
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-white/65">
-              Endüstriyel tesisler, oteller, AVM’ler, hastaneler ve veri
-              merkezleri için yangın söndürme ve algılama sistemleri
-              geliştiriyoruz.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
             {focusSectors.map((sector) => {
               const Icon = sector.icon;
 
               return (
                 <div
                   key={sector.title}
-                  className="flex min-h-[170px] flex-col items-center justify-center border border-white/10 bg-white/5 p-6 text-center backdrop-blur transition hover:-translate-y-2 hover:border-[#d71920] hover:bg-white/10"
+                  className="flex min-h-[135px] flex-col items-center justify-center border border-white/10 bg-white/5 p-5 text-center backdrop-blur transition hover:-translate-y-2 hover:border-[#d71920] hover:bg-white/10"
                 >
-                  <Icon size={36} className="text-[#d71920]" />
+                  <Icon size={32} className="text-[#d71920]" />
 
                   <h3 className="mt-5 text-sm font-black uppercase leading-6 text-white">
                     {sector.title}
@@ -426,77 +384,78 @@ export default function SystemsPage() {
       </section>
 
       {/* SYSTEM SOLUTIONS */}
-      <section id="sistem-cozumleri" className="bg-[#f4f6f8] py-24">
+      <section id="sistem-cozumleri" className="bg-[#f4f6f8] py-16 lg:py-20">
         <div className="mx-auto max-w-[1500px] px-5 lg:px-6">
-          <div className="mx-auto mb-14 max-w-4xl text-center">
+          <div className="mx-auto mb-10 max-w-4xl text-center">
             <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
-              Sistem Çözümlerimiz
+              Sistem Çözümleri
             </p>
 
             <h2 className="mt-4 text-3xl font-black uppercase text-[#101827] md:text-5xl">
-              Yangın riskine karşı doğru sistem, doğru mühendislik.
+              Risk alanına göre doğru sistem.
             </h2>
 
             <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-gray-600">
-              Temiz gazlı söndürmeden davlumbaz sistemlerine, algılama
-              sistemlerinden acil yönlendirme ve pano içi söndürmeye kadar tüm
-              çözümleri işletmenizin risk yapısına göre projelendiriyoruz.
+              Temiz gazlı söndürme, davlumbaz söndürme, algılama, yönlendirme ve
+              pano içi söndürme çözümleri.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8">
-            {systemSolutions.map((system, index) => {
+          <div className="grid grid-cols-1 gap-7 md:grid-cols-2 xl:grid-cols-3">
+            {systemSolutions.map((system) => {
               const Icon = system.icon;
-              const reverse = index % 2 === 1;
 
               return (
                 <div
                   key={system.title}
-                  className="grid grid-cols-1 overflow-hidden bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-2xl lg:grid-cols-2"
+                  className="group overflow-hidden bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
                 >
-                  <div
-                    className={`relative min-h-[320px] ${
-                      reverse ? "lg:order-2" : ""
-                    }`}
-                  >
+                  <div className="relative h-[210px] sm:h-[230px]">
                     <img
                       src={system.image}
                       alt={system.title}
                       className="absolute inset-0 h-full w-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(5,18,48,0.45),rgba(215,25,32,0.20))]" />
 
-                    <div className="absolute left-6 top-6 flex h-16 w-16 items-center justify-center bg-white text-[#d71920] shadow-xl">
-                      <Icon size={32} />
+                    <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(5,18,48,0.60),rgba(215,25,32,0.22))]" />
+
+                    <div className="absolute left-5 top-5 flex h-14 w-14 items-center justify-center bg-white text-[#d71920] shadow-xl">
+                      <Icon size={28} />
+                    </div>
+
+                    <div className="absolute bottom-5 left-5 bg-[#d71920] px-4 py-2 text-xs font-black uppercase tracking-wide text-white">
+                      {system.number}
                     </div>
                   </div>
 
-                  <div className="p-7 md:p-10">
-                    <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
-                      {system.number}
-                    </p>
-
-                    <h3 className="mt-4 text-3xl font-black uppercase leading-tight text-[#101827]">
+                  <div className="p-6">
+                    <h3 className="text-2xl font-black uppercase leading-tight text-[#101827]">
                       {system.title}
                     </h3>
 
-                    <p className="mt-4 text-xl font-black uppercase leading-tight text-[#0b2c5f]">
+                    <p className="mt-3 text-base font-black uppercase leading-tight text-[#0b2c5f]">
                       {system.subtitle}
                     </p>
 
-                    <div className="mt-5 inline-flex bg-[#eef1f5] px-4 py-2 text-xs font-black uppercase tracking-wide text-[#0b2c5f]">
-                      {system.tags}
+                    <div className="mt-5 bg-[#eef1f5] px-4 py-3">
+                      <p className="text-xs font-black uppercase tracking-wide text-[#0b2c5f]">
+                        Kapsam
+                      </p>
+
+                      <p className="mt-2 text-sm font-bold leading-6 text-gray-700">
+                        {system.tags}
+                      </p>
                     </div>
 
-                    <p className="mt-6 text-sm leading-7 text-gray-600">
+                    <p className="mt-5 text-sm leading-7 text-gray-600">
                       {system.description}
                     </p>
 
                     <Link
-                      href="/teklif-al"
-                      className="mt-7 inline-flex items-center gap-3 bg-[#d71920] px-6 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#0b2c5f]"
+                      href="/bize-ulasin"
+                      className="mt-6 inline-flex items-center gap-3 text-sm font-black uppercase text-[#d71920]"
                     >
-                      Bu Sistem İçin Teklif Al
+                      Teklif Al
                       <ArrowRight size={17} />
                     </Link>
                   </div>
@@ -508,22 +467,22 @@ export default function SystemsPage() {
       </section>
 
       {/* ENGINEERING PROCESS */}
-      <section className="py-24">
+      <section className="py-16 lg:py-20">
         <div className="mx-auto max-w-[1500px] px-5 lg:px-6">
-          <div className="mb-14 grid grid-cols-1 gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+          <div className="mb-10 grid grid-cols-1 gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
             <div>
               <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
-                Anahtar Teslim Süreç
+                Süreç
               </p>
 
               <h2 className="mt-4 text-3xl font-black uppercase leading-tight text-[#101827] md:text-5xl">
-                Projelendirme, kurulum, test, bakım ve servis.
+                Analizden bakıma anahtar teslim hizmet.
               </h2>
             </div>
 
             <p className="max-w-2xl text-base leading-8 text-gray-600">
-              Kurulum sonrası bakım, test, periyodik kontrol ve 7/24 servis
-              hizmetlerimizle her zaman yanınızdayız.
+              Yangın söndürme sistemleri; doğru analiz, doğru proje, doğru
+              kurulum ve düzenli bakım ile güven verir.
             </p>
           </div>
 
@@ -534,13 +493,13 @@ export default function SystemsPage() {
               return (
                 <div
                   key={step.title}
-                  className="group border border-gray-200 bg-white p-8 shadow-sm transition hover:-translate-y-2 hover:border-[#d71920] hover:shadow-2xl"
+                  className="group border border-gray-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-2 hover:border-[#d71920] hover:shadow-2xl"
                 >
-                  <div className="flex h-16 w-16 items-center justify-center bg-[#eef1f5] text-[#d71920] transition group-hover:bg-[#d71920] group-hover:text-white">
-                    <Icon size={32} />
+                  <div className="flex h-14 w-14 items-center justify-center bg-[#eef1f5] text-[#d71920] transition group-hover:bg-[#d71920] group-hover:text-white">
+                    <Icon size={28} />
                   </div>
 
-                  <h3 className="mt-7 text-xl font-black uppercase text-[#101827]">
+                  <h3 className="mt-6 text-lg font-black uppercase leading-tight text-[#101827]">
                     {step.title}
                   </h3>
 
@@ -554,80 +513,48 @@ export default function SystemsPage() {
         </div>
       </section>
 
-      {/* SEO CLOSING */}
-      <section className="bg-[#06132d] py-24 text-white">
-        <div className="mx-auto max-w-[1500px] px-5 lg:px-6">
-          <div className="relative overflow-hidden bg-white p-8 text-[#101827] md:p-12">
-            <div className="absolute right-[-40px] top-[-30px] text-[140px] font-black uppercase leading-none text-[#0b2c5f]/5">
-              AFS
-            </div>
+      {/* SEO HIGHLIGHTS */}
+      <section className="bg-[#06132d] py-16 text-white lg:py-20">
+        <div className="mx-auto grid max-w-[1500px] grid-cols-1 gap-10 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:px-6">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
+              AFS Sistem Çözümleri
+            </p>
 
-            <div className="relative max-w-5xl">
-              <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
-                İzmir'de Yangın Söndürme Sistemlerinde Profesyonel Çözüm Ortağınız
-              </p>
+            <h2 className="mt-4 text-3xl font-black uppercase leading-tight md:text-5xl">
+              Profesyonel yangın söndürme sistemleri.
+            </h2>
 
-              <h2 className="mt-4 text-3xl font-black uppercase leading-tight text-[#101827] md:text-5xl">
-                Endüstriyel tesislerin, otellerin ve eğitim kurumlarının yangın
-                güvenliği yetkisiz kişilere bırakılamaz.
-              </h2>
+            <p className="mt-6 max-w-xl text-base leading-8 text-white/65">
+              Endüstriyel tesis, otel, AVM, hastane ve veri merkezi gibi alanlar
+              için projelendirme, kurulum, test ve bakım desteği sağlarız.
+            </p>
+          </div>
 
-              <p className="mt-6 text-base leading-8 text-gray-600">
-                Endüstriyel bir tesisin, lüks bir otelin veya bir eğitim
-                kurumunun yangın güvenliği “merdiven altı” çözümlere veya
-                yetkisiz kişilere teslim edilemeyecek kadar ciddidir. AFS Yangın
-                olarak; TMMOB yetkili mühendis kadromuz, NFPA CFPS uzmanımız ile
-                ihtiyaç analizi yaparak projelendirme gücümüz ve İzmir'in en
-                kapsamlı TSE HYB belgesiyle sistemlerinizi A'dan Z'ye kuruyoruz.
-                Kurulum sonrası bakım, test, periyodik kontrol ve 7/24 servis
-                hizmetlerimizle her zaman yanınızdayız.
-              </p>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {seoHighlights.map((item) => (
+              <div
+                key={item}
+                className="flex items-start gap-4 border border-white/10 bg-white/5 p-5 backdrop-blur"
+              >
+                <CheckCircle2
+                  size={22}
+                  className="mt-0.5 shrink-0 text-[#d71920]"
+                />
 
-              <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-                {seoHighlights.map((item) => (
-                  <div
-                    key={item}
-                    className="flex items-start gap-3 border border-gray-200 bg-[#f4f6f8] p-4"
-                  >
-                    <CheckCircle2
-                      size={20}
-                      className="mt-0.5 shrink-0 text-[#d71920]"
-                    />
-                    <p className="text-sm font-bold leading-6 text-gray-700">
-                      {item}
-                    </p>
-                  </div>
-                ))}
+                <p className="text-sm font-bold leading-7 text-white/82">
+                  {item}
+                </p>
               </div>
-
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <Link
-                  href="/teklif-al"
-                  className="group inline-flex w-fit items-center gap-3 bg-[#d71920] px-7 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#0b2c5f]"
-                >
-                  Hızlı Teklif Al
-                  <ArrowRight
-                    size={18}
-                    className="transition group-hover:translate-x-1"
-                  />
-                </Link>
-
-                <Link
-                  href="/bize-ulasin"
-                  className="inline-flex w-fit items-center border-2 border-[#0b2c5f] px-7 py-4 text-sm font-black uppercase tracking-wide text-[#0b2c5f] transition hover:bg-[#0b2c5f] hover:text-white"
-                >
-                  Uzmana Danışın
-                </Link>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* FINAL CTA */}
-      <section className="py-24">
+      <section className="py-16 lg:py-20">
         <div className="mx-auto max-w-[1500px] px-5 lg:px-6">
-          <div className="relative overflow-hidden bg-[#06132d] p-8 text-white md:p-14">
+          <div className="relative overflow-hidden bg-[#06132d] p-7 text-white md:p-10 lg:p-12">
             <img
               src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=1600&auto=format&fit=crop"
               alt="AFS Yangın Söndürme Sistemleri Teklif"
@@ -639,7 +566,7 @@ export default function SystemsPage() {
             <div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
               <div>
                 <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
-                  Projenizi Şansa Değil, Mühendislere Bırakın
+                  Projenizi Mühendislere Bırakın
                 </p>
 
                 <h2 className="mt-4 max-w-4xl text-3xl font-black uppercase leading-tight md:text-5xl">
@@ -648,13 +575,13 @@ export default function SystemsPage() {
                 </h2>
 
                 <p className="mt-5 max-w-2xl text-base leading-8 text-white/68">
-                  Projelendirme, yasal gereksinimler ve ücretsiz keşif süreci
-                  hakkında uzman mühendislerimizle hemen görüşün.
+                  Projelendirme, yasal gereksinimler ve keşif süreci için AFS
+                  uzmanlarıyla iletişime geçin.
                 </p>
               </div>
 
               <Link
-                href="/teklif-al"
+                href="/bize-ulasin"
                 className="group inline-flex w-fit items-center gap-3 bg-[#d71920] px-7 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0b2c5f]"
               >
                 Hızlı Teklif Al

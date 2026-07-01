@@ -5,44 +5,14 @@ import {
   ArrowRight,
   BadgeCheck,
   Building2,
+  CheckCircle2,
   ClipboardCheck,
-  Flame,
+  FileCheck2,
   Handshake,
   ShieldCheck,
   Target,
-  Users,
   Wrench,
-  FileCheck2,
-  CheckCircle2,
-  Timer,
 } from "lucide-react";
-
-const values = [
-  {
-    title: "Güven",
-    description:
-      "Can ve mal güvenliğini şansa değil, mühendisliğin kesinliğine emanet eden bir hizmet anlayışıyla çalışırız.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Kalite",
-    description:
-      "Projeden uygulamaya, bakım ve kontrolden raporlamaya kadar her aşamada kalite standartlarını esas alırız.",
-    icon: BadgeCheck,
-  },
-  {
-    title: "Sorumluluk",
-    description:
-      "Teslim ettiğimiz her projenin ve attığımız her imzanın arkasında dururuz.",
-    icon: ClipboardCheck,
-  },
-  {
-    title: "Tek Çatı Çözüm",
-    description:
-      "Müşterilerimizin farklı taşeronlarla uğraşmasını önler, tüm süreci tek merkezden yönetiriz.",
-    icon: Handshake,
-  },
-];
 
 const stats = [
   {
@@ -59,7 +29,25 @@ const stats = [
   },
   {
     value: "0",
-    label: "Sorun Odaklı Hizmet Anlayışı",
+    label: "Sorun Hedefi",
+  },
+];
+
+const highlights = [
+  {
+    title: "Mühendislik Gücü",
+    text: "Yangın güvenliğini teknik analiz ve doğru planlama ile ele alırız.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Tek Çatı Çözüm",
+    text: "Proje, ruhsat, bakım ve kontrol süreçlerini tek merkezden yönetiriz.",
+    icon: Handshake,
+  },
+  {
+    title: "Sıfır Sorun Hedefi",
+    text: "Denetimlerde ve kritik anda güven veren sistemler kurmayı hedefleriz.",
+    icon: BadgeCheck,
   },
 ];
 
@@ -67,138 +55,156 @@ const processItems = [
   {
     title: "Projelendirme",
     description:
-      "İşletmenizin ihtiyaçlarına uygun yangın güvenliği projeleri teknik kadromuz tarafından hazırlanır.",
+      "İşletmenizin ihtiyaçlarına uygun yangın güvenliği projeleri hazırlanır.",
     icon: FileCheck2,
   },
   {
-    title: "Resmi Ruhsat Süreçleri",
+    title: "Resmi Süreçler",
     description:
-      "İtfaiye, ruhsat ve ilgili resmi süreçlerde gerekli teknik hazırlık ve yönlendirme sağlanır.",
+      "İtfaiye, ruhsat ve ilgili teknik hazırlık süreçlerinde destek sağlanır.",
     icon: Building2,
   },
   {
-    title: "Akredite Periyodik Kontrol",
+    title: "Periyodik Kontrol",
     description:
-      "Yangın güvenliği ekipmanlarının periyodik kontrol ve raporlama süreçleri profesyonel şekilde yürütülür.",
+      "Yangın güvenliği ekipmanlarının kontrol ve raporlama süreçleri yürütülür.",
     icon: ClipboardCheck,
   },
   {
     title: "Bakım ve Servis",
     description:
-      "Sistemlerin kritik anda kusursuz çalışması için bakım, servis ve takip süreçleri planlanır.",
+      "Sistemlerin çalışır kalması için bakım, servis ve takip planlanır.",
     icon: Wrench,
+  },
+];
+
+const promises = [
+  "Yangın güvenliği süreçlerini tek çatı altında yönetiriz.",
+  "Farklı taşeronlarla zaman ve enerji kaybını azaltırız.",
+  "Denetimlere uygun teknik süreç kurgularız.",
+  "Kritik anda çalışması gereken sistemleri takip ederiz.",
+  "Projelendirmeden bakıma kadar süreci planlarız.",
+  "İşiniz durmasın, yatırımlarınız güvende kalsın diye yanınızda oluruz.",
+];
+
+const values = [
+  {
+    title: "Güven",
+    description:
+      "Can ve mal güvenliğini mühendislik disipliniyle ele alırız.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Kalite",
+    description:
+      "Projeden bakıma kadar her aşamada kalite standartlarını esas alırız.",
+    icon: BadgeCheck,
+  },
+  {
+    title: "Sorumluluk",
+    description:
+      "Teslim ettiğimiz her işin ve attığımız her imzanın arkasında dururuz.",
+    icon: ClipboardCheck,
+  },
+  {
+    title: "Tek Çatı",
+    description:
+      "Müşterilerimizin tüm süreci tek muhatapla yönetmesini sağlarız.",
+    icon: Handshake,
   },
 ];
 
 const approach = [
   {
     number: "01",
-    title: "Riskleri Doğru Okuruz",
+    title: "Riskleri Analiz Ederiz",
     description:
-      "İşletmenizin faaliyet alanını, denetim ihtiyaçlarını, mevcut ekipmanlarını ve yangın güvenliği risklerini analiz ederiz.",
+      "İşletmenizin faaliyet alanı, ekipmanları ve yangın güvenliği ihtiyaçları incelenir.",
   },
   {
     number: "02",
-    title: "Sıfır Sorun Hedefiyle Planlarız",
+    title: "Doğru Süreci Planlarız",
     description:
-      "Denetimlerde başınızı ağrıtmayacak, yasal ve teknik gereklilikleri karşılayan sürdürülebilir çözümler geliştiririz.",
+      "Yasal ve teknik gerekliliklere uygun, sürdürülebilir çözümler hazırlanır.",
   },
   {
     number: "03",
-    title: "Uygular ve Arkasında Dururuz",
+    title: "Uygular ve Takip Ederiz",
     description:
-      "Kurulan sistemlerin, bakım ve kontrol süreçlerinin takipçisi olur; teslim ettiğimiz işin sonuna kadar arkasında dururuz.",
+      "Kurulan sistemlerin bakım, kontrol ve servis süreçleri takip edilir.",
   },
-];
-
-const promises = [
-  "İşletmenizin yangın güvenliği süreçlerini tek çatı altında yönetiriz.",
-  "Farklı taşeronlarla zaman, enerji ve para kaybetmenizin önüne geçeriz.",
-  "Denetimlerde sorun yaşamamanız için teknik süreci baştan doğru kurgularız.",
-  "Kritik saniyede çalışması gereken sistemleri mühendislik disipliniyle kurarız.",
-  "Projelendirmeden bakıma kadar tüm süreci yetkin mühendis kadromuzla takip ederiz.",
-  "İşiniz durmasın, yatırımlarınız güvende kalsın diye yanınızda oluruz.",
 ];
 
 export default function AboutPage() {
   return (
     <main className="bg-white">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-[#06132d] pt-[82px] text-white lg:pt-32">
-        <img
-          src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1800&auto=format&fit=crop"
-          alt="AFS Hakkımızda"
-          className="absolute inset-0 h-full w-full object-cover opacity-30"
-        />
+      <section className="bg-[#06132d] pt-[82px] text-white lg:pt-32">
+        <div className="relative mx-auto min-h-[430px] max-w-[1500px] overflow-hidden lg:min-h-[410px]">
+          <img
+            src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1800&auto=format&fit=crop"
+            alt="AFS Hakkımızda"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
 
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,18,48,0.98)_0%,rgba(5,18,48,0.88)_48%,rgba(215,25,32,0.32)_100%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_right,rgba(255,255,255,0.12),transparent_28%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,#031433_0%,rgba(3,20,51,0.98)_34%,rgba(3,20,51,0.78)_62%,rgba(3,20,51,0.88)_100%)]" />
 
-        <div className="relative mx-auto max-w-[1500px] px-5 py-20 lg:px-6 lg:py-28">
-          <div className="max-w-5xl">
-            <div className="mb-7 flex items-center gap-3">
-              <span className="h-20 w-1.5 bg-[#d71920] lg:h-28 lg:w-2" />
-              <span className="h-14 w-1.5 bg-[#1d75bc] lg:h-20 lg:w-2" />
-              <span className="h-9 w-1.5 bg-white/80 lg:h-12 lg:w-2" />
-            </div>
+          <div className="relative flex min-h-[430px] items-center px-5 py-10 sm:px-8 lg:min-h-[410px] lg:px-14 xl:px-20">
+            <div className="max-w-[720px]">
+              <div className="mb-4 flex items-center gap-3">
+                <span className="h-12 w-1.5 bg-[#d71920] sm:h-14" />
+                <span className="h-9 w-1.5 bg-[#1d75bc] sm:h-10" />
+                <span className="h-6 w-1.5 bg-white/80" />
+              </div>
 
-            <p className="text-xs font-black uppercase tracking-[0.32em] text-[#d71920] sm:text-sm">
-              Kurumsal / Hakkımızda
-            </p>
-
-            <h1 className="mt-5 max-w-5xl text-[34px] font-black uppercase leading-[1.08] tracking-[-0.035em] text-white sm:text-[42px] md:text-[58px] xl:text-[70px]">
-              Siz işinize odaklanın, yangın güvenliğinde “sıfır sorun” bizim
-              işimiz.
-            </h1>
-
-            <p className="mt-7 max-w-3xl text-base leading-8 text-white/75 md:text-lg">
-              AFS Yangın Mühendislik Hizmetleri Tic. San. A.Ş. olarak;
-              sektördeki 12 yıllık köklü tecrübemiz ve başarıyla tamamladığımız
-              sayısız projeyle, can ve mal güvenliğinizi şansa değil,
-              mühendisliğin kesinliğine emanet ediyoruz.
-            </p>
-
-            <div className="mt-8 max-w-3xl border-l-4 border-[#d71920] bg-white/10 p-5 backdrop-blur">
-              <p className="text-sm font-bold leading-7 text-white/88 md:text-base">
-                Bizim için yangın güvenliği sadece ekipman tedarik etmek veya
-                yasal bir prosedürü geçiştirmek değildir. Temel felsefemiz;
-                denetimlerde başınızı ağrıtmayacak, kritik anda kusursuz
-                çalışacak sistemler kurmaktır.
+              <p className="mb-3 text-[9px] font-black uppercase tracking-[0.22em] text-[#d71920] sm:text-[11px] sm:tracking-[0.26em]">
+                Kurumsal / Hakkımızda
               </p>
-            </div>
 
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Link
-                href="/teklif-al"
-                className="group inline-flex items-center justify-center gap-3 bg-[#d71920] px-7 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0b2c5f]"
-              >
-                Teklif Al
-                <ArrowRight
-                  size={18}
-                  className="transition group-hover:translate-x-1"
-                />
-              </Link>
+              <h1 className="max-w-[700px] text-[27px] font-black uppercase leading-[1.06] tracking-[-0.035em] text-white sm:text-[38px] md:text-[46px] lg:text-[50px]">
+                Yangın güvenliğinde sıfır sorun hedefiyle çalışıyoruz.
+              </h1>
 
-              <Link
-                href="/bize-ulasin"
-                className="inline-flex items-center justify-center border-2 border-white px-7 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0b2c5f]"
-              >
-                Bize Ulaşın
-              </Link>
+              <p className="mt-4 max-w-[610px] text-[13px] font-semibold leading-6 text-white/80 sm:text-[15px] sm:leading-7 md:text-base">
+                AFS Yangın olarak; projelendirme, resmi süreçler, bakım, servis
+                ve kontrol hizmetlerini tek çatı altında yönetiyoruz.
+              </p>
+
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <Link
+                  href="/bize-ulasin"
+                  className="group inline-flex items-center justify-center gap-2 bg-[#d71920] px-5 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0b2c5f] sm:justify-start sm:text-sm"
+                >
+                  Bize Ulaşın
+                  <ArrowRight
+                    size={15}
+                    className="transition group-hover:translate-x-1"
+                  />
+                </Link>
+
+                <Link
+                  href="/hizmetler"
+                  className="inline-flex items-center justify-center gap-2 bg-white px-5 py-3 text-xs font-black uppercase tracking-wide text-[#0b2c5f] transition hover:bg-[#d71920] hover:text-white sm:justify-start sm:text-sm"
+                >
+                  Hizmetleri İncele
+                  <ArrowRight size={15} />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* STATS */}
-      <section className="relative z-10 -mt-14">
+      <section className="relative z-10 bg-white py-5 md:py-0">
         <div className="mx-auto max-w-[1500px] px-5 lg:px-6">
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-4">
+          <div className="grid grid-cols-1 gap-5 md:-mt-5 md:grid-cols-4">
             {stats.map((item) => (
-              <div key={item.label} className="bg-white p-7 shadow-2xl">
+              <div key={item.label} className="bg-white p-6 shadow-xl">
                 <p className="text-4xl font-black uppercase text-[#d71920]">
                   {item.value}
                 </p>
+
                 <p className="mt-3 text-sm font-black uppercase tracking-wide text-[#101827]">
                   {item.label}
                 </p>
@@ -208,101 +214,134 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* HIGHLIGHTS */}
+      <section className="py-14 lg:py-20">
+        <div className="mx-auto max-w-[1500px] px-5 lg:px-6">
+          <div className="mb-10 grid grid-cols-1 gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+            <div>
+              <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
+                AFS Yaklaşımı
+              </p>
+
+              <h2 className="mt-4 text-3xl font-black uppercase leading-tight text-[#101827] md:text-5xl">
+                Yangın güvenliğini mühendislik disipliniyle ele alıyoruz.
+              </h2>
+            </div>
+
+            <p className="max-w-2xl text-base leading-8 text-gray-600">
+              Amacımız; denetimlerde güven veren, kritik anda çalışan ve düzenli
+              takip edilen yangın güvenliği süreçleri oluşturmaktır.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {highlights.map((item) => {
+              const Icon = item.icon;
+
+              return (
+                <div
+                  key={item.title}
+                  className="group border border-gray-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-2 hover:border-[#d71920] hover:shadow-2xl"
+                >
+                  <div className="flex h-14 w-14 items-center justify-center bg-[#eef1f5] text-[#d71920] transition group-hover:bg-[#d71920] group-hover:text-white">
+                    <Icon size={28} />
+                  </div>
+
+                  <h3 className="mt-6 text-lg font-black uppercase leading-tight text-[#101827]">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-4 text-sm leading-7 text-gray-600">
+                    {item.text}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* MAIN CONTENT */}
-      <section className="py-24">
-        <div className="mx-auto grid max-w-[1500px] grid-cols-1 gap-14 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-6">
+      <section className="bg-[#f4f6f8] py-16 lg:py-20">
+        <div className="mx-auto grid max-w-[1500px] grid-cols-1 gap-10 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-6">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
-              AFS Yaklaşımı
+              Tek Çatı Modeli
             </p>
 
             <h2 className="mt-4 text-3xl font-black uppercase leading-tight text-[#101827] md:text-5xl">
-              Yangın güvenliğini yasal prosedür değil, kesintisiz güvenlik
-              sistemi olarak ele alıyoruz.
+              Proje, ruhsat, bakım ve kontrol tek merkezde.
             </h2>
 
             <p className="mt-6 text-base leading-8 text-gray-600">
-              Bugüne kadar teslim ettiğimiz her projenin ve attığımız her
-              imzanın sonuna kadar arkasında durduk, durmaya da devam ediyoruz.
-              Amacımız; işletmenize “acaba çalışır mı?” endişesi yaşatmayan,
-              kritik anda görevini eksiksiz yerine getiren sistemler kurmaktır.
+              Farklı taşeronlarla zaman kaybetmeden, yangın güvenliği sürecinizi
+              tek muhatapla yönetmenizi sağlarız.
             </p>
 
-            <p className="mt-5 text-base leading-8 text-gray-600">
-              Müşterilerimizin farklı farklı taşeronlarla uğraşarak zaman,
-              enerji ve para kaybetmesinin önüne geçiyoruz. Projelendirmeden
-              resmi ruhsat alımına, akredite periyodik kontrollerden bakım ve
-              servise kadar tüm süreci tek çatı altında, tam yetkili mühendis
-              kadromuzla yönetiyoruz.
-            </p>
-
-            <div className="mt-7 border-l-4 border-[#d71920] bg-[#f4f6f8] p-5">
+            <div className="mt-7 border-l-4 border-[#d71920] bg-white p-5">
               <p className="text-sm font-bold leading-7 text-gray-700">
-                Çünkü biliyoruz ki; en iyi yangın güvenlik sistemi, varlığını
-                unuttuğunuz ancak tehlike anında %100 çalışan sistemdir.
+                En iyi yangın güvenlik sistemi; varlığını unuttuğunuz ama
+                tehlike anında eksiksiz çalışan sistemdir.
               </p>
             </div>
           </div>
 
-          <div className="relative">
-            <div className="relative h-[560px] overflow-hidden shadow-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80&w=1600&auto=format&fit=crop"
-                alt="AFS Yangın mühendislik hizmetleri"
-                className="h-full w-full object-cover"
-              />
+          <div className="relative min-h-[360px] overflow-hidden shadow-2xl md:min-h-[460px]">
+            <img
+              src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80&w=1600&auto=format&fit=crop"
+              alt="AFS Yangın mühendislik hizmetleri"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
 
-              <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(5,18,48,0.22),rgba(215,25,32,0.24))]" />
+            <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(5,18,48,0.28),rgba(215,25,32,0.22))]" />
 
-              <div className="absolute bottom-6 left-6 right-6 bg-white p-7 shadow-2xl">
-                <p className="text-xs font-black uppercase tracking-[0.25em] text-[#d71920]">
-                  Sıfır Sorun Hedefi
-                </p>
-                <h3 className="mt-3 text-2xl font-black uppercase leading-tight text-[#101827]">
-                  İşiniz durmasın, yatırımlarınız güvende kalsın diye
-                  mühendislik gücümüzle yanınızdayız.
-                </h3>
-              </div>
+            <div className="absolute bottom-5 left-5 right-5 bg-white p-6 shadow-2xl">
+              <p className="text-xs font-black uppercase tracking-[0.25em] text-[#d71920]">
+                Sıfır Sorun Hedefi
+              </p>
+
+              <h3 className="mt-3 text-2xl font-black uppercase leading-tight text-[#101827]">
+                İşiniz durmasın, yatırımlarınız güvende kalsın.
+              </h3>
             </div>
           </div>
         </div>
       </section>
 
       {/* PROCESS SCOPE */}
-      <section className="bg-[#f4f6f8] py-24">
+      <section className="py-16 lg:py-20">
         <div className="mx-auto max-w-[1500px] px-5 lg:px-6">
-          <div className="mb-14 grid grid-cols-1 gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+          <div className="mb-10 grid grid-cols-1 gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
             <div>
               <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
-                Tek Çatı Altında Hizmet
+                Hizmet Kapsamı
               </p>
 
               <h2 className="mt-4 text-3xl font-black uppercase leading-tight text-[#101827] md:text-5xl">
-                Projelendirmeden bakım ve servise kadar tüm süreci yönetiyoruz.
+                Projelendirmeden bakım ve servise kadar.
               </h2>
             </div>
 
             <p className="max-w-2xl text-base leading-8 text-gray-600">
-              Yangın güvenliği süreçlerinde parçalı çalışma modelini ortadan
-              kaldırıyor; mühendislik, ruhsat, kontrol, bakım ve servis
-              adımlarını tek merkezden koordine ediyoruz.
+              Mühendislik, ruhsat, kontrol, bakım ve servis adımlarını tek
+              merkezden koordine ediyoruz.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-7 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
             {processItems.map((item) => {
               const Icon = item.icon;
 
               return (
                 <div
                   key={item.title}
-                  className="group border border-gray-200 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:border-[#d71920] hover:shadow-2xl"
+                  className="group border border-gray-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-2 hover:border-[#d71920] hover:shadow-2xl"
                 >
-                  <div className="flex h-16 w-16 items-center justify-center bg-[#eef1f5] text-[#d71920] transition group-hover:bg-[#d71920] group-hover:text-white">
-                    <Icon size={32} />
+                  <div className="flex h-14 w-14 items-center justify-center bg-[#eef1f5] text-[#d71920] transition group-hover:bg-[#d71920] group-hover:text-white">
+                    <Icon size={28} />
                   </div>
 
-                  <h3 className="mt-7 text-xl font-black uppercase text-[#101827]">
+                  <h3 className="mt-6 text-lg font-black uppercase leading-tight text-[#101827]">
                     {item.title}
                   </h3>
 
@@ -317,21 +356,20 @@ export default function AboutPage() {
       </section>
 
       {/* PROMISES */}
-      <section className="bg-[#06132d] py-24 text-white">
-        <div className="mx-auto grid max-w-[1500px] grid-cols-1 gap-12 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:px-6">
+      <section className="bg-[#06132d] py-16 text-white lg:py-20">
+        <div className="mx-auto grid max-w-[1500px] grid-cols-1 gap-10 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:px-6">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
               AFS Güvencesi
             </p>
 
             <h2 className="mt-4 text-3xl font-black uppercase leading-tight md:text-5xl">
-              Denetimlerde sorun çıkarmayan, kritik anda çalışan sistemler.
+              Denetimde güven, kritik anda çalışan sistem.
             </h2>
 
             <p className="mt-6 max-w-xl text-base leading-8 text-white/65">
-              Yangın güvenliği bizim için görünürde duran ekipmandan ibaret
-              değildir. Asıl değer, sistemin ihtiyaç duyulan o kritik saniyede
-              eksiksiz çalışmasıdır.
+              Yangın güvenliği bizim için sadece ekipman değil; planlı,
+              denetlenebilir ve sürdürülebilir bir güvenlik sistemidir.
             </p>
           </div>
 
@@ -345,6 +383,7 @@ export default function AboutPage() {
                   size={22}
                   className="mt-0.5 shrink-0 text-[#d71920]"
                 />
+
                 <p className="text-sm font-bold leading-7 text-white/82">
                   {item}
                 </p>
@@ -355,10 +394,10 @@ export default function AboutPage() {
       </section>
 
       {/* MISSION VISION */}
-      <section className="bg-[#f4f6f8] py-24">
+      <section className="bg-[#f4f6f8] py-16 lg:py-20">
         <div className="mx-auto max-w-[1500px] px-5 lg:px-6">
           <div className="grid grid-cols-1 gap-7 lg:grid-cols-2">
-            <div className="relative overflow-hidden bg-[#06132d] p-9 text-white shadow-xl">
+            <div className="relative overflow-hidden bg-[#06132d] p-8 text-white shadow-xl md:p-9">
               <div className="absolute right-[-30px] top-[-20px] text-[110px] font-black uppercase leading-none text-white/[0.04]">
                 AFS
               </div>
@@ -370,18 +409,16 @@ export default function AboutPage() {
               </p>
 
               <h3 className="mt-4 text-3xl font-black uppercase leading-tight">
-                İşletmelerin yangın güvenliği süreçlerini mühendislik
-                disipliniyle sıfır sorun hedefine taşımak.
+                Yangın güvenliği süreçlerini sıfır sorun hedefine taşımak.
               </h3>
 
               <p className="mt-5 text-sm leading-7 text-white/68">
                 Can ve mal güvenliğini koruyan, denetimlerde güven veren ve
-                tehlike anında kusursuz çalışması hedeflenen yangın güvenliği
-                çözümleri sunmak için çalışıyoruz.
+                tehlike anında çalışması hedeflenen çözümler sunarız.
               </p>
             </div>
 
-            <div className="relative overflow-hidden bg-white p-9 shadow-xl">
+            <div className="relative overflow-hidden bg-white p-8 shadow-xl md:p-9">
               <div className="absolute right-[-30px] top-[-20px] text-[110px] font-black uppercase leading-none text-[#0b2c5f]/5">
                 AFS
               </div>
@@ -393,14 +430,12 @@ export default function AboutPage() {
               </p>
 
               <h3 className="mt-4 text-3xl font-black uppercase leading-tight text-[#101827]">
-                Yangın güvenliği alanında güvenilir, yetkin ve tek çatı çözüm
-                modeliyle tercih edilen marka olmak.
+                Yangın güvenliğinde güvenilir çözüm ortağı olmak.
               </h3>
 
               <p className="mt-5 text-sm leading-7 text-gray-600">
                 Mühendislik gücü, kurumsal hizmet yaklaşımı, bakım ve kontrol
-                kabiliyetiyle işletmelerin uzun vadeli çözüm ortağı olmayı
-                hedefliyoruz.
+                kabiliyetiyle uzun vadeli çözüm ortağı olmayı hedefleriz.
               </p>
             </div>
           </div>
@@ -408,21 +443,16 @@ export default function AboutPage() {
       </section>
 
       {/* VALUES */}
-      <section className="py-24">
+      <section className="py-16 lg:py-20">
         <div className="mx-auto max-w-[1500px] px-5 lg:px-6">
-          <div className="mx-auto mb-14 max-w-4xl text-center">
+          <div className="mx-auto mb-10 max-w-4xl text-center">
             <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
               Değerlerimiz
             </p>
 
             <h2 className="mt-4 text-3xl font-black uppercase text-[#101827] md:text-5xl">
-              Her projenin arkasında duran hizmet anlayışı
+              Güven, kalite, sorumluluk ve tek çatı çözüm.
             </h2>
-
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-gray-600">
-              AFS yaklaşımı; güven, kalite, sorumluluk ve tek çatı çözüm
-              ilkeleri üzerine kuruludur.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
@@ -432,13 +462,13 @@ export default function AboutPage() {
               return (
                 <div
                   key={item.title}
-                  className="group border border-gray-200 bg-white p-8 shadow-sm transition hover:-translate-y-2 hover:border-[#d71920] hover:shadow-2xl"
+                  className="group border border-gray-200 bg-white p-7 shadow-sm transition hover:-translate-y-2 hover:border-[#d71920] hover:shadow-2xl"
                 >
-                  <div className="flex h-16 w-16 items-center justify-center bg-[#eef1f5] text-[#d71920] transition group-hover:bg-[#d71920] group-hover:text-white">
-                    <Icon size={32} />
+                  <div className="flex h-14 w-14 items-center justify-center bg-[#eef1f5] text-[#d71920] transition group-hover:bg-[#d71920] group-hover:text-white">
+                    <Icon size={28} />
                   </div>
 
-                  <h3 className="mt-7 text-xl font-black uppercase text-[#101827]">
+                  <h3 className="mt-6 text-lg font-black uppercase text-[#101827]">
                     {item.title}
                   </h3>
 
@@ -453,22 +483,21 @@ export default function AboutPage() {
       </section>
 
       {/* APPROACH */}
-      <section className="bg-[#f4f6f8] py-24">
+      <section className="bg-[#f4f6f8] py-16 lg:py-20">
         <div className="mx-auto max-w-[1500px] px-5 lg:px-6">
-          <div className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div className="mb-10 flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div>
               <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
-                Çalışma Yaklaşımımız
+                Çalışma Yaklaşımı
               </p>
 
               <h2 className="mt-4 max-w-4xl text-3xl font-black uppercase text-[#101827] md:text-5xl">
-                Yangın güvenliği süreçlerini baştan doğru kurgularız.
+                Süreci baştan doğru kurgularız.
               </h2>
             </div>
 
             <p className="max-w-lg text-base leading-8 text-gray-600">
-              En iyi yangın güvenlik sistemi; varlığını unuttuğunuz ama tehlike
-              anında eksiksiz çalışan sistemdir.
+              Doğru analiz, doğru planlama ve düzenli takip güvenliğin temelidir.
             </p>
           </div>
 
@@ -476,7 +505,7 @@ export default function AboutPage() {
             {approach.map((step) => (
               <div
                 key={step.number}
-                className="relative overflow-hidden border border-gray-200 bg-white p-8 shadow-sm"
+                className="relative overflow-hidden border border-gray-200 bg-white p-7 shadow-sm"
               >
                 <span className="absolute right-5 top-3 text-6xl font-black text-[#0b2c5f]/5">
                   {step.number}
@@ -500,9 +529,9 @@ export default function AboutPage() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="py-24">
+      <section className="py-16 lg:py-20">
         <div className="mx-auto max-w-[1500px] px-5 lg:px-6">
-          <div className="relative overflow-hidden bg-[#06132d] p-8 text-white md:p-14">
+          <div className="relative overflow-hidden bg-[#06132d] p-7 text-white md:p-10 lg:p-12">
             <img
               src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=1600&auto=format&fit=crop"
               alt="AFS Yangın teklif"

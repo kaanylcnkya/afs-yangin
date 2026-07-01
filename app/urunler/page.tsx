@@ -6,10 +6,10 @@ import {
   BadgeCheck,
   CheckCircle2,
   Flame,
+  LayoutGrid,
   Lightbulb,
   LockKeyhole,
   PackageCheck,
-  PanelsTopLeft,
   ShieldCheck,
   ShoppingCart,
   Store,
@@ -19,39 +19,57 @@ import {
   Zap,
 } from "lucide-react";
 
-const differences = [
+const highlights = [
   {
-    title: "Denetim Garantili ve Yönetmeliğe Uyumlu Ürünler",
-    description:
-      "Portalımızda sergilenen her ürün, uzman mühendislerimiz tarafından incelenmiş, TSE/CE sertifikalarına sahip ve itfaiye denetimlerinde güvenle kullanılabilecek standartlardadır.",
-    icon: BadgeCheck,
-  },
-  {
-    title: "Doğru Yere Doğru Ürün Güvencesi",
-    description:
-      "Hangi dolabı veya hangi levhayı almalısınız? Yanlış ürün alıp paranızı çöpe atmayın. Portalımızda yalnızca yönetmeliğin zorunlu kıldığı, sahada gerçekten işe yarayan doğru ürünleri listeliyoruz.",
+    title: "Yönetmelik Uyumlu",
+    text: "Denetlenebilir ve güvenilir yangın güvenlik ürünleri.",
     icon: ShieldCheck,
   },
   {
-    title: "Her İhtiyaca Yönelik Büyüyen Ekosistem",
+    title: "Sertifikalı Ürünler",
+    text: "TSE / CE belgeli ürün yaklaşımıyla güvenli tedarik.",
+    icon: BadgeCheck,
+  },
+  {
+    title: "Dijital Portal",
+    text: "Müşteri ve bayi portalı üzerinden hızlı ürün erişimi.",
+    icon: ShoppingCart,
+  },
+];
+
+const differences = [
+  {
+    title: "Mühendislik Onaylı",
     description:
-      "Sadece kendi ürünlerimizle sınırlı kalmıyor; sektörün güvenilir tedarikçileriyle yaptığımız özel anlaşmalarla ürün yelpazemizi her geçen gün genişletiyoruz.",
-    icon: PanelsTopLeft,
+      "Yangın güvenlik ürünleri, saha kullanımı ve yönetmelik ihtiyacına göre değerlendirilir.",
+    icon: BadgeCheck,
+  },
+  {
+    title: "Doğru Ürün Seçimi",
+    description:
+      "Yangın dolabı, levha, armatür ve aksesuar seçiminde doğru ürün yönlendirmesi yapılır.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Geniş Ürün Ekosistemi",
+    description:
+      "YSC aksesuarları, mekanik ürünler, elektronik ekipmanlar ve tamamlayıcı güvenlik ürünleri.",
+    icon: LayoutGrid,
   },
 ];
 
 const productCategories = [
   {
     number: "01",
-    title: "YSC ve Tamamlayıcı Aksesuarlar",
-    subtitle: "Cihazlarınızın ömrünü uzatan ve dış etkenlerden koruyan çözümler.",
+    title: "YSC ve Aksesuarlar",
+    subtitle: "Yangın söndürme cihazları için tamamlayıcı çözümler.",
     description:
-      "Yangın söndürme cihazlarının güvenli şekilde konumlandırılması, korunması ve yönetmeliğe uygun görünürlükte tutulması için tamamlayıcı aksesuar çözümleri sunuyoruz.",
+      "Yangın söndürme cihazlarının güvenli konumlandırılması ve korunması için uygun aksesuar ürünleri.",
     items: [
       "YSC dolapları",
       "YSC kılıfları",
       "YSC sehpaları",
-      "YSC duvar askı aparatları",
+      "Duvar askı aparatları",
     ],
     icon: Flame,
     image:
@@ -60,14 +78,14 @@ const productCategories = [
   {
     number: "02",
     title: "Mekanik Yangın Ürünleri",
-    subtitle: "Tesislerin en temel su bazlı savunma hatları.",
+    subtitle: "Tesisler için temel yangın savunma ekipmanları.",
     description:
-      "Sahada en çok tercih edilen, yüksek dayanımlı ve yönetmelik standartlarını karşılayan mekanik yangın ürünlerini AFS güvencesiyle tedarik edebilirsiniz.",
+      "Yangın dolabı ve mekanik yangın ekipmanlarında yönetmelik uyumlu tedarik çözümleri.",
     items: [
       "Yangın dolapları",
       "Mekanik yangın ekipmanları",
       "Su bazlı yangın savunma ürünleri",
-      "Yönetmelik uyumlu saha ekipmanları",
+      "Saha ekipmanları",
     ],
     icon: Wrench,
     image:
@@ -75,15 +93,15 @@ const productCategories = [
   },
   {
     number: "03",
-    title: "Elektrik ve Elektronik Güvenlik Ürünleri",
-    subtitle: "Karanlıkta ve panik anında hayat kurtaran yönlendirmeler.",
+    title: "Elektrik ve Elektronik Ürünler",
+    subtitle: "Acil durum ve tahliye güvenliği.",
     description:
-      "Yangın ve acil durum anlarında güvenli tahliye için yönetmeliğe uygun acil durum aydınlatma armatürleri ve yönlendirme sistemleri sunuyoruz.",
+      "Acil aydınlatma, yönlendirme ve elektronik güvenlik ürünleriyle güvenli tahliye desteği.",
     items: [
-      "Acil durum aydınlatma armatürleri",
+      "Acil durum aydınlatma",
       "Yönlendirme sistemleri",
       "Elektronik güvenlik ürünleri",
-      "Tahliye güvenliği ekipmanları",
+      "Tahliye ekipmanları",
     ],
     icon: Lightbulb,
     image:
@@ -91,15 +109,14 @@ const productCategories = [
   },
   {
     number: "04",
-    title: "Diğer Yangın Güvenlik Ekipmanları",
-    subtitle: "İlk müdahale ve güvenli kaçış için tamamlayıcı donanımlar.",
+    title: "Tamamlayıcı Güvenlik Ekipmanları",
+    subtitle: "İlk müdahale ve güvenli kaçış ürünleri.",
     description:
-      "Tehlike anında ilk müdahale, güvenli kaçış ve riskin kontrol altına alınması için gerekli tamamlayıcı yangın güvenlik ekipmanlarını portalımızda bulabilirsiniz.",
+      "Yangın güvenlik işaretleri, fosforlu levhalar, yangın battaniyeleri ve tamamlayıcı ürünler.",
     items: [
       "Yangın güvenlik işaretleri",
       "Fosforlu levhalar",
-      "Standart yangın battaniyeleri",
-      "Lityum / araç yangın battaniyeleri",
+      "Yangın battaniyeleri",
       "Yeni nesil söndürücü köpükler",
     ],
     icon: PackageCheck,
@@ -111,25 +128,25 @@ const productCategories = [
 const portalAdvantages = [
   "Mühendislik onaylı ürün seçimi",
   "TSE / CE sertifikalı ürün yaklaşımı",
-  "Yönetmelik uyumlu tedarik ağı",
-  "Doğru yere doğru ürün yönlendirmesi",
-  "Bireysel ve kurumsal ihtiyaçlara uygun ürün grupları",
-  "Sürekli güncellenen ürün ekosistemi",
-  "Güvenilir tedarikçilerle özel anlaşmalar",
-  "Bayi ve B2B müşteriler için özel fiyat avantajları",
+  "Yönetmelik uyumlu tedarik",
+  "Doğru yere doğru ürün",
+  "Bireysel ve kurumsal çözümler",
+  "Bayi ve B2B fiyat avantajları",
+  "Güncellenen ürün ekosistemi",
+  "Güvenilir tedarik ağı",
 ];
 
 const priceGroups = [
   {
-    title: "Son Kullanıcılar İçin",
+    title: "Son Kullanıcılar",
     description:
-      "“Acaba sahte mi, yönetmeliğe uygun mu?” stresine girmeden; şeffaf fiyatlarla, orijinal ve sertifikalı ürünleri doğrudan satın alma rahatlığını yaşarsınız.",
+      "Ev, araç, apartman ve işletmeler için güvenilir yangın güvenlik ürünlerine kolay erişim.",
     icon: Users,
   },
   {
-    title: "Bayiler ve B2B Müşterileri İçin",
+    title: "Bayiler ve B2B",
     description:
-      "Sektörde son kullanıcıya hizmet veren iş ortaklarımız, portalımıza bayi girişi yaparak özel iskonto oranlarından ve yüksek kâr marjlı fiyat avantajlarından yararlanır.",
+      "Sektör profesyonelleri için özel fiyat, tedarik ve ürün çeşitliliği avantajı.",
     icon: Store,
   },
 ];
@@ -138,165 +155,126 @@ export default function ProductsPage() {
   return (
     <main className="bg-white">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-[#06132d] pt-[82px] text-white lg:pt-32">
-        <img
-          src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80&w=1800&auto=format&fit=crop"
-          alt="AFS Yangın Güvenlik Ekipmanları"
-          className="absolute inset-0 h-full w-full object-cover opacity-30"
-        />
+      <section className="bg-[#06132d] pt-[82px] text-white lg:pt-32">
+        <div className="relative mx-auto min-h-[430px] max-w-[1500px] overflow-hidden lg:min-h-[410px]">
+          <img
+            src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80&w=1800&auto=format&fit=crop"
+            alt="AFS Yangın Güvenlik Ürünleri"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
 
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,18,48,0.98)_0%,rgba(5,18,48,0.88)_48%,rgba(215,25,32,0.32)_100%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_right,rgba(255,255,255,0.12),transparent_28%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,#031433_0%,rgba(3,20,51,0.98)_34%,rgba(3,20,51,0.78)_62%,rgba(3,20,51,0.88)_100%)]" />
 
-        <div className="relative mx-auto max-w-[1500px] px-5 py-20 lg:px-6 lg:py-28">
-          <div className="max-w-5xl">
-            <div className="mb-7 flex items-center gap-3">
-              <span className="h-20 w-1.5 bg-[#d71920] lg:h-28 lg:w-2" />
-              <span className="h-14 w-1.5 bg-[#1d75bc] lg:h-20 lg:w-2" />
-              <span className="h-9 w-1.5 bg-white/80 lg:h-12 lg:w-2" />
-            </div>
+          <div className="relative flex min-h-[430px] items-center px-5 py-10 sm:px-8 lg:min-h-[410px] lg:px-14 xl:px-20">
+            <div className="max-w-[700px]">
+              <div className="mb-4 flex items-center gap-3">
+                <span className="h-12 w-1.5 bg-[#d71920] sm:h-14" />
+                <span className="h-9 w-1.5 bg-[#1d75bc] sm:h-10" />
+                <span className="h-6 w-1.5 bg-white/80" />
+              </div>
 
-            <p className="text-xs font-black uppercase tracking-[0.32em] text-[#d71920] sm:text-sm">
-              Ürünler / Yangın Güvenlik Ekipmanları
-            </p>
-
-            <h1 className="mt-5 max-w-5xl text-[34px] font-black uppercase leading-[1.08] tracking-[-0.035em] text-white sm:text-[42px] md:text-[58px] xl:text-[70px]">
-              Güvenliği ucuza getiremezsiniz.
-            </h1>
-
-            <h2 className="mt-5 max-w-4xl text-2xl font-black uppercase leading-tight text-white/90 md:text-4xl">
-              Yönetmelik onaylı, güvenilir yangın ekipmanları.
-            </h2>
-
-            <p className="mt-7 max-w-3xl text-base leading-8 text-white/75 md:text-lg">
-              Piyasada sadece “işimi görsün” veya “denetimden geçeyim yeter”
-              düşüncesiyle satılan standart dışı, ucuz ürünler; bir yangın
-              anında en büyük düşmanınız olabilir.
-            </p>
-
-            <div className="mt-8 max-w-3xl border-l-4 border-[#d71920] bg-white/10 p-5 backdrop-blur">
-              <p className="text-sm font-bold leading-7 text-white/88 md:text-base">
-                Çalışmayan bir vana, yırtılan bir hortum veya karanlıkta
-                yanmayan bir acil aydınlatma armatürü, telafisi imkansız
-                kayıplara yol açar.
+              <p className="mb-3 text-[9px] font-black uppercase tracking-[0.22em] text-[#d71920] sm:text-[11px] sm:tracking-[0.26em]">
+                Ürünler / Yangın Güvenlik Ekipmanları
               </p>
-            </div>
 
-            <p className="mt-7 max-w-3xl text-base leading-8 text-white/75">
-              AFS Yangın olarak; Binaların Yangından Korunması Hakkında
-              Yönetmelik'e ve uluslararası standartlara uyumlu, sertifikalı
-              yangın güvenlik ürünlerini tek bir dijital platformda bir araya
-              getiriyoruz. Ne aldığınızı bilin, tehlike anında yarı yolda
-              kalmayın.
-            </p>
+              <h1 className="max-w-[680px] text-[27px] font-black uppercase leading-[1.06] tracking-[-0.035em] text-white sm:text-[38px] md:text-[46px] lg:text-[50px]">
+                Güvenilir yangın güvenlik ürünleri.
+              </h1>
 
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Link
-                href="/teklif-al"
-                className="group inline-flex items-center justify-center gap-3 bg-[#d71920] px-7 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0b2c5f]"
-              >
-                Hızlı Teklif Al
-                <ArrowRight
-                  size={18}
-                  className="transition group-hover:translate-x-1"
-                />
-              </Link>
+              <p className="mt-4 max-w-[600px] text-[13px] font-semibold leading-6 text-white/80 sm:text-[15px] sm:leading-7 md:text-base">
+                YSC aksesuarları, yangın dolapları, acil aydınlatma,
+                yönlendirme ve tamamlayıcı yangın ekipmanlarını AFS güvencesiyle
+                inceleyin.
+              </p>
 
-              <a
-                href="#urun-kategorileri"
-                className="inline-flex items-center justify-center border-2 border-white px-7 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0b2c5f]"
-              >
-                Ürünleri İncele
-              </a>
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <a
+                  href="#urun-kategorileri"
+                  className="group inline-flex items-center justify-center gap-2 bg-[#d71920] px-5 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0b2c5f] sm:justify-start sm:text-sm"
+                >
+                  Ürünleri İncele
+                  <ArrowRight
+                    size={15}
+                    className="transition group-hover:translate-x-1"
+                  />
+                </a>
+
+                <Link
+                  href="/bize-ulasin"
+                  className="inline-flex items-center justify-center gap-2 bg-white px-5 py-3 text-xs font-black uppercase tracking-wide text-[#0b2c5f] transition hover:bg-[#d71920] hover:text-white sm:justify-start sm:text-sm"
+                >
+                  Teklif Al
+                  <ArrowRight size={15} />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* TOP CARDS */}
-      <section className="relative z-10 -mt-14">
+      <section className="relative z-10 bg-white py-5 md:py-0">
         <div className="mx-auto max-w-[1500px] px-5 lg:px-6">
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
-            <div className="bg-white p-7 shadow-2xl">
-              <ShieldCheck size={38} className="text-[#d71920]" />
-              <h3 className="mt-5 text-xl font-black uppercase text-[#101827]">
-                Yönetmelik Uyumlu
-              </h3>
-              <p className="mt-3 text-sm leading-7 text-gray-600">
-                Yangın güvenlik ürünlerinde standart dışı çözümler yerine
-                denetlenebilir ve güvenilir ürün yaklaşımı sunarız.
-              </p>
-            </div>
+          <div className="grid grid-cols-1 gap-5 md:-mt-5 md:grid-cols-3">
+            {highlights.map((item) => {
+              const Icon = item.icon;
 
-            <div className="bg-white p-7 shadow-2xl">
-              <BadgeCheck size={38} className="text-[#d71920]" />
-              <h3 className="mt-5 text-xl font-black uppercase text-[#101827]">
-                Sertifikalı Ürünler
-              </h3>
-              <p className="mt-3 text-sm leading-7 text-gray-600">
-                TSE / CE belgeli, sahada kullanılabilir ve denetimlerde sorun
-                çıkarmayacak ürünleri ön plana çıkarırız.
-              </p>
-            </div>
+              return (
+                <div key={item.title} className="bg-white p-6 shadow-xl">
+                  <Icon size={34} className="text-[#d71920]" />
 
-            <div className="bg-white p-7 shadow-2xl">
-              <ShoppingCart size={38} className="text-[#d71920]" />
-              <h3 className="mt-5 text-xl font-black uppercase text-[#101827]">
-                Dijital Portal
-              </h3>
-              <p className="mt-3 text-sm leading-7 text-gray-600">
-                Müşteri ve bayi portalı üzerinden ürünleri inceleyebilir, doğru
-                tedarik sürecine hızlıca ulaşabilirsiniz.
-              </p>
-            </div>
+                  <h3 className="mt-5 text-lg font-black uppercase text-[#101827]">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm leading-7 text-gray-600">
+                    {item.text}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* WHY PORTAL */}
-      <section className="py-24">
+      <section className="py-14 lg:py-20">
         <div className="mx-auto max-w-[1500px] px-5 lg:px-6">
-          <div className="mb-14 grid grid-cols-1 gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+          <div className="mb-10 grid grid-cols-1 gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
             <div>
               <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
-                Neden AFS Portalından Tedarik Etmelisiniz?
+                Neden AFS Portal?
               </p>
 
               <h2 className="mt-4 text-3xl font-black uppercase leading-tight text-[#101827] md:text-5xl">
-                Sıradan bir e-ticaret değil, mühendislik onaylı tedarik ağı.
+                Sadece ürün değil, doğru ürün seçimi.
               </h2>
             </div>
 
             <p className="max-w-2xl text-base leading-8 text-gray-600">
-              Müşterilerimizin internetteki bilgi kirliliği ve sahte sertifikalı
-              ürünler arasında kaybolmasını istemiyoruz. AFS Müşteri ve Bayi
-              Portalı üzerinden yapacağınız her tedarikte güvenilir, onaylı ve
-              doğru ürünlere ulaşmanızı hedefliyoruz.
+              Yangın güvenlik ürünlerinde doğru seçim; yönetmelik, sertifika,
+              kullanım alanı ve saha ihtiyacına göre yapılmalıdır.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-7 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {differences.map((item) => {
               const Icon = item.icon;
 
               return (
                 <div
                   key={item.title}
-                  className="group relative overflow-hidden border border-gray-200 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:border-[#d71920] hover:shadow-2xl"
+                  className="group border border-gray-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-2 hover:border-[#d71920] hover:shadow-2xl"
                 >
-                  <div className="absolute right-[-30px] top-[-30px] text-[110px] font-black uppercase leading-none text-[#0b2c5f]/5">
-                    AFS
+                  <div className="flex h-14 w-14 items-center justify-center bg-[#eef1f5] text-[#d71920] transition group-hover:bg-[#d71920] group-hover:text-white">
+                    <Icon size={28} />
                   </div>
 
-                  <div className="relative flex h-16 w-16 items-center justify-center bg-[#eef1f5] text-[#d71920] transition group-hover:bg-[#d71920] group-hover:text-white">
-                    <Icon size={32} />
-                  </div>
-
-                  <h3 className="relative mt-7 text-2xl font-black uppercase leading-tight text-[#101827]">
+                  <h3 className="mt-6 text-lg font-black uppercase leading-tight text-[#101827]">
                     {item.title}
                   </h3>
 
-                  <p className="relative mt-5 text-sm leading-7 text-gray-600">
+                  <p className="mt-4 text-sm leading-7 text-gray-600">
                     {item.description}
                   </p>
                 </div>
@@ -307,21 +285,20 @@ export default function ProductsPage() {
       </section>
 
       {/* PORTAL ADVANTAGES */}
-      <section className="bg-[#06132d] py-24 text-white">
-        <div className="mx-auto grid max-w-[1500px] grid-cols-1 gap-12 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:px-6">
+      <section className="bg-[#06132d] py-16 text-white lg:py-20">
+        <div className="mx-auto grid max-w-[1500px] grid-cols-1 gap-10 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:px-6">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
               AFS Portal Avantajı
             </p>
 
             <h2 className="mt-4 text-3xl font-black uppercase leading-tight md:text-5xl">
-              Ne aldığınızı bilin, tehlike anında yarı yolda kalmayın.
+              Güvenilir ürün, doğru tedarik.
             </h2>
 
             <p className="mt-6 max-w-xl text-base leading-8 text-white/65">
-              Portal yapısı, ürün seçimini sadece fiyat odaklı olmaktan çıkarır;
-              yönetmelik, sertifika, saha kullanımı ve doğru ürün eşleşmesini
-              merkeze alır.
+              Ürün seçiminde fiyat kadar uygunluk, sertifika ve kullanım alanı
+              da önemlidir.
             </p>
           </div>
 
@@ -335,6 +312,7 @@ export default function ProductsPage() {
                   size={22}
                   className="mt-0.5 shrink-0 text-[#d71920]"
                 />
+
                 <p className="text-sm font-bold leading-7 text-white/82">
                   {item}
                 </p>
@@ -345,69 +323,64 @@ export default function ProductsPage() {
       </section>
 
       {/* PRODUCT CATEGORIES */}
-      <section id="urun-kategorileri" className="bg-[#f4f6f8] py-24">
+      <section id="urun-kategorileri" className="bg-[#f4f6f8] py-16 lg:py-20">
         <div className="mx-auto max-w-[1500px] px-5 lg:px-6">
-          <div className="mx-auto mb-14 max-w-4xl text-center">
+          <div className="mx-auto mb-10 max-w-4xl text-center">
             <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
-              Portalda Sizi Neler Bekliyor?
+              Ürün Kategorileri
             </p>
 
             <h2 className="mt-4 text-3xl font-black uppercase text-[#101827] md:text-5xl">
-              Ürün kategorilerimiz.
+              Yangın güvenliği için temel ürün grupları.
             </h2>
 
             <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-gray-600">
-              Bireysel ve kurumsal ihtiyaçlarınızı karşılayacak, sürekli
-              güncellenen ve genişleyen ürün gruplarımız portalımızda 4 ana
-              kategori altında toplanmıştır.
+              YSC aksesuarları, mekanik yangın ürünleri, acil aydınlatma ve
+              tamamlayıcı güvenlik ekipmanları.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8">
-            {productCategories.map((product, index) => {
+          <div className="grid grid-cols-1 gap-7 md:grid-cols-2 xl:grid-cols-4">
+            {productCategories.map((product) => {
               const Icon = product.icon;
-              const reverse = index % 2 === 1;
 
               return (
                 <div
                   key={product.title}
-                  className="grid grid-cols-1 overflow-hidden bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-2xl lg:grid-cols-2"
+                  className="group overflow-hidden bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
                 >
-                  <div
-                    className={`relative min-h-[320px] ${
-                      reverse ? "lg:order-2" : ""
-                    }`}
-                  >
+                  <div className="relative h-[210px] sm:h-[230px]">
                     <img
                       src={product.image}
                       alt={product.title}
                       className="absolute inset-0 h-full w-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(5,18,48,0.45),rgba(215,25,32,0.20))]" />
 
-                    <div className="absolute left-6 top-6 flex h-16 w-16 items-center justify-center bg-white text-[#d71920] shadow-xl">
-                      <Icon size={32} />
+                    <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(5,18,48,0.60),rgba(215,25,32,0.22))]" />
+
+                    <div className="absolute left-5 top-5 flex h-14 w-14 items-center justify-center bg-white text-[#d71920] shadow-xl">
+                      <Icon size={28} />
+                    </div>
+
+                    <div className="absolute bottom-5 left-5 bg-[#d71920] px-4 py-2 text-xs font-black uppercase tracking-wide text-white">
+                      {product.number}
                     </div>
                   </div>
 
-                  <div className="p-7 md:p-10">
-                    <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
-                      {product.number}
-                    </p>
-
-                    <h3 className="mt-4 text-3xl font-black uppercase leading-tight text-[#101827]">
+                  <div className="p-6">
+                    <h3 className="text-2xl font-black uppercase leading-tight text-[#101827]">
                       {product.title}
                     </h3>
 
-                    <p className="mt-4 text-xl font-black uppercase leading-tight text-[#0b2c5f]">
+                    <p className="mt-3 text-base font-black uppercase leading-tight text-[#0b2c5f]">
                       {product.subtitle}
                     </p>
 
-                    <p className="mt-6 text-sm leading-7 text-gray-600">
+                    <p className="mt-5 text-sm leading-7 text-gray-600">
                       {product.description}
                     </p>
 
-                    <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                    <div className="mt-5 grid gap-3">
                       {product.items.map((item) => (
                         <div
                           key={item}
@@ -417,6 +390,7 @@ export default function ProductsPage() {
                             size={18}
                             className="mt-0.5 shrink-0 text-[#d71920]"
                           />
+
                           <p className="text-sm font-bold leading-6 text-gray-700">
                             {item}
                           </p>
@@ -425,10 +399,10 @@ export default function ProductsPage() {
                     </div>
 
                     <Link
-                      href="/teklif-al"
-                      className="mt-7 inline-flex items-center gap-3 bg-[#d71920] px-6 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#0b2c5f]"
+                      href="/bize-ulasin"
+                      className="mt-6 inline-flex items-center gap-3 text-sm font-black uppercase text-[#d71920]"
                     >
-                      Bu Kategoriyi İncele
+                      Teklif Al
                       <ArrowRight size={17} />
                     </Link>
                   </div>
@@ -440,21 +414,16 @@ export default function ProductsPage() {
       </section>
 
       {/* B2B */}
-      <section className="py-24">
+      <section className="py-16 lg:py-20">
         <div className="mx-auto max-w-[1500px] px-5 lg:px-6">
-          <div className="mx-auto mb-14 max-w-4xl text-center">
+          <div className="mx-auto mb-10 max-w-4xl text-center">
             <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
-              B2B ve Son Kullanıcı Avantajları
+              B2B ve Son Kullanıcı
             </p>
 
             <h2 className="mt-4 text-3xl font-black uppercase text-[#101827] md:text-5xl">
-              Hem sektör profesyonelleri hem de son kullanıcılar için özel fiyat avantajları.
+              Bayiler ve son kullanıcılar için ürün tedariki.
             </h2>
-
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-gray-600">
-              AFS Portal, kendi güvenliğini sağlamak isteyen son kullanıcılar ve
-              sektörde hizmet veren bayiler için farklı avantajlar sunar.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 gap-7 lg:grid-cols-2">
@@ -465,8 +434,10 @@ export default function ProductsPage() {
               return (
                 <div
                   key={group.title}
-                  className={`relative overflow-hidden p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-2xl ${
-                    dark ? "bg-[#06132d] text-white" : "bg-[#f4f6f8] text-[#101827]"
+                  className={`relative overflow-hidden p-7 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-2xl md:p-8 ${
+                    dark
+                      ? "bg-[#06132d] text-white"
+                      : "bg-[#f4f6f8] text-[#101827]"
                   }`}
                 >
                   <div
@@ -479,7 +450,9 @@ export default function ProductsPage() {
 
                   <div
                     className={`relative flex h-16 w-16 items-center justify-center ${
-                      dark ? "bg-white/10 text-[#d71920]" : "bg-white text-[#d71920]"
+                      dark
+                        ? "bg-white/10 text-[#d71920]"
+                        : "bg-white text-[#d71920]"
                     }`}
                   >
                     <Icon size={32} />
@@ -498,14 +471,14 @@ export default function ProductsPage() {
                   </p>
 
                   <Link
-                    href="/teklif-al"
+                    href="/bize-ulasin"
                     className={`relative mt-7 inline-flex items-center gap-3 px-6 py-4 text-sm font-black uppercase tracking-wide transition ${
                       dark
                         ? "bg-[#d71920] text-white hover:bg-white hover:text-[#0b2c5f]"
                         : "bg-[#d71920] text-white hover:bg-[#0b2c5f]"
                     }`}
                   >
-                    Fiyat Avantajlarını Gör
+                    Bilgi Al
                     <ArrowRight size={17} />
                   </Link>
                 </div>
@@ -516,35 +489,36 @@ export default function ProductsPage() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="bg-[#06132d] py-24 text-white">
+      <section className="bg-[#06132d] py-16 text-white lg:py-20">
         <div className="mx-auto max-w-[1500px] px-5 lg:px-6">
-          <div className="relative overflow-hidden bg-white p-8 text-[#101827] md:p-12">
-            <div className="absolute right-[-40px] top-[-30px] text-[140px] font-black uppercase leading-none text-[#0b2c5f]/5">
+          <div className="relative overflow-hidden bg-white p-7 text-[#101827] md:p-10 lg:p-12">
+            <div className="absolute right-[-40px] top-[-30px] text-[120px] font-black uppercase leading-none text-[#0b2c5f]/5 md:text-[140px]">
               AFS
             </div>
 
             <div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
               <div>
                 <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
-                  Kaliteden Ödün Vermeden
+                  Onaylı Ürün Tedariki
                 </p>
 
                 <h2 className="mt-4 max-w-4xl text-3xl font-black uppercase leading-tight text-[#101827] md:text-5xl">
-                  En avantajlı fiyatlarla onaylı ürünleri inceleyin.
+                  Projenize uygun yangın güvenlik ürünlerini birlikte
+                  belirleyelim.
                 </h2>
 
                 <p className="mt-5 max-w-2xl text-base leading-8 text-gray-600">
-                  Hemen AFS Müşteri ve Bayi Portalına adım atın; güvenilir,
-                  onaylı ve sertifikalı ürünleri detaylıca inceleyip projenize
-                  en uygun çözümleri tek tıkla sipariş edin.
+                  Yangın güvenlik ürünleri, YSC aksesuarları, mekanik yangın
+                  ekipmanları ve acil yönlendirme ürünleri için AFS ekibiyle
+                  iletişime geçin.
                 </p>
               </div>
 
               <Link
-                href="/teklif-al"
+                href="/bize-ulasin"
                 className="group inline-flex w-fit items-center gap-3 bg-[#d71920] px-7 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#0b2c5f]"
               >
-                Giriş Yap / Kayıt Oluştur
+                Teklif Al
                 <ArrowRight
                   size={18}
                   className="transition group-hover:translate-x-1"
@@ -555,17 +529,17 @@ export default function ProductsPage() {
             <div className="relative mt-7 flex flex-wrap gap-3">
               <span className="inline-flex items-center gap-2 bg-[#f4f6f8] px-4 py-2 text-xs font-black uppercase tracking-wide text-[#0b2c5f]">
                 <LockKeyhole size={14} />
-                Fiyat Avantajlarından Yararlan
+                Güvenilir Tedarik
               </span>
 
               <span className="inline-flex items-center gap-2 bg-[#f4f6f8] px-4 py-2 text-xs font-black uppercase tracking-wide text-[#0b2c5f]">
                 <Tag size={14} />
-                Onaylı Ürünleri İncele
+                Onaylı Ürün
               </span>
 
               <span className="inline-flex items-center gap-2 bg-[#f4f6f8] px-4 py-2 text-xs font-black uppercase tracking-wide text-[#0b2c5f]">
                 <Zap size={14} />
-                Tek Tıkla Sipariş Et
+                Hızlı Teklif
               </span>
             </div>
           </div>
