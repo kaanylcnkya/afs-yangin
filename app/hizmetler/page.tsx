@@ -44,8 +44,7 @@ const differences = [
   },
   {
     title: "Yasal Uyum",
-    description:
-      "İtfaiye ve ilgili mevzuatlara uygun teknik süreç hazırlanır.",
+    description: "İtfaiye ve ilgili mevzuatlara uygun teknik süreç hazırlanır.",
     icon: ShieldCheck,
   },
   {
@@ -67,6 +66,8 @@ const serviceCategories = [
       "Yangın danışmanlığı, itfaiye uygunluk raporu, risk değerlendirmesi, patlamadan korunma dokümanı, eğitim ve tatbikat.",
     href: "/bize-ulasin",
     icon: ShieldAlert,
+    image:
+      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1600&auto=format&fit=crop",
   },
   {
     number: "02",
@@ -78,6 +79,8 @@ const serviceCategories = [
       "Mimari yangın projesi, mekanik yangın projesi, temiz gazlı sistemler, davlumbaz söndürme, algılama ve ikaz sistemleri.",
     href: "/bize-ulasin",
     icon: FileText,
+    image:
+      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600&auto=format&fit=crop",
   },
   {
     number: "03",
@@ -89,6 +92,8 @@ const serviceCategories = [
       "Vaziyet planı, röleve planı, tahliye planı, yangından korunma planı.",
     href: "/bize-ulasin",
     icon: ClipboardCheck,
+    image:
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1600&auto=format&fit=crop",
   },
   {
     number: "04",
@@ -100,6 +105,8 @@ const serviceCategories = [
       "Sulu söndürme sistemleri, otomatik söndürme, algılama, yönlendirme, yangın tüpü bakımı, davlumbaz baca temizliği.",
     href: "/bize-ulasin",
     icon: Wrench,
+    image:
+      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=1600&auto=format&fit=crop",
   },
   {
     number: "05",
@@ -111,6 +118,8 @@ const serviceCategories = [
       "Yangın sistemleri, basınçlı kaplar, kaldırma ekipmanları, elektriksel kontroller, havalandırma, ex-proof ekipman kontrolü.",
     href: "/bize-ulasin",
     icon: QrCode,
+    image:
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1600&auto=format&fit=crop",
   },
 ];
 
@@ -329,47 +338,57 @@ export default function ServicesPage() {
               return (
                 <div
                   key={service.title}
-                  className="group overflow-hidden bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
+                  className="group overflow-hidden bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
                 >
-                  <div className="flex items-start justify-between gap-5">
-                    <div className="flex h-14 w-14 items-center justify-center bg-[#eef1f5] text-[#d71920] transition group-hover:bg-[#d71920] group-hover:text-white">
+                  <div className="relative h-[210px] sm:h-[230px]">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+
+                    <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(5,18,48,0.60),rgba(215,25,32,0.22))]" />
+
+                    <div className="absolute left-5 top-5 flex h-14 w-14 items-center justify-center bg-white text-[#d71920] shadow-xl">
                       <Icon size={28} />
                     </div>
 
-                    <span className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
+                    <div className="absolute bottom-5 left-5 bg-[#d71920] px-4 py-2 text-xs font-black uppercase tracking-wide text-white">
                       {service.number}
-                    </span>
+                    </div>
                   </div>
 
-                  <h3 className="mt-6 text-2xl font-black uppercase leading-tight text-[#101827]">
-                    {service.title}
-                  </h3>
+                  <div className="p-6">
+                    <h3 className="text-2xl font-black uppercase leading-tight text-[#101827]">
+                      {service.title}
+                    </h3>
 
-                  <p className="mt-3 text-base font-black uppercase leading-tight text-[#0b2c5f]">
-                    {service.subtitle}
-                  </p>
-
-                  <p className="mt-5 text-sm leading-7 text-gray-600">
-                    {service.description}
-                  </p>
-
-                  <div className="mt-5 bg-[#eef1f5] px-4 py-3">
-                    <p className="text-xs font-black uppercase tracking-wide text-[#0b2c5f]">
-                      Hizmet Kapsamı
+                    <p className="mt-3 text-base font-black uppercase leading-tight text-[#0b2c5f]">
+                      {service.subtitle}
                     </p>
 
-                    <p className="mt-2 text-sm font-bold leading-6 text-gray-700">
-                      {service.scope}
+                    <div className="mt-5 bg-[#eef1f5] px-4 py-3">
+                      <p className="text-xs font-black uppercase tracking-wide text-[#0b2c5f]">
+                        Hizmet Kapsamı
+                      </p>
+
+                      <p className="mt-2 text-sm font-bold leading-6 text-gray-700">
+                        {service.scope}
+                      </p>
+                    </div>
+
+                    <p className="mt-5 text-sm leading-7 text-gray-600">
+                      {service.description}
                     </p>
+
+                    <Link
+                      href={service.href}
+                      className="mt-6 inline-flex items-center gap-3 text-sm font-black uppercase text-[#d71920]"
+                    >
+                      Bilgi Al
+                      <ArrowRight size={17} />
+                    </Link>
                   </div>
-
-                  <Link
-                    href={service.href}
-                    className="mt-6 inline-flex items-center gap-3 text-sm font-black uppercase text-[#d71920]"
-                  >
-                    Bilgi Al
-                    <ArrowRight size={17} />
-                  </Link>
                 </div>
               );
             })}
@@ -390,8 +409,8 @@ export default function ServicesPage() {
             </h2>
 
             <p className="mt-6 text-base leading-8 text-gray-600">
-              Rapor ve kontrol kayıtlarınızı dijital ortamda takip ederek denetim
-              anında belge erişimini kolaylaştırırız.
+              Rapor ve kontrol kayıtlarınızı dijital ortamda takip ederek
+              denetim anında belge erişimini kolaylaştırırız.
             </p>
           </div>
 

@@ -1,9 +1,6 @@
 // app/ysc/page.tsx
 
-"use client";
-
 import Link from "next/link";
-import { useState } from "react";
 import {
   ArrowRight,
   BadgeCheck,
@@ -24,33 +21,6 @@ import {
   Zap,
 } from "lucide-react";
 
-const pageTabs = [
-  {
-    key: "cihazlar",
-    title: "YSC Çözümleri",
-    description: "Yangın riskine göre doğru cihaz seçimi.",
-    icon: Flame,
-  },
-  {
-    key: "farkimiz",
-    title: "AFS Farkı",
-    description: "Doğru cihaz, bakım ve takip süreci.",
-    icon: ShieldCheck,
-  },
-  {
-    key: "alanlar",
-    title: "Koruma Alanları",
-    description: "Evden fabrikaya kadar uygun çözüm.",
-    icon: Home,
-  },
-  {
-    key: "hizmet",
-    title: "Hizmet Kapsamı",
-    description: "Satış, dolum, bakım ve takip.",
-    icon: ClipboardCheck,
-  },
-];
-
 const highlights = [
   {
     title: "4 Yıl Garanti",
@@ -69,11 +39,124 @@ const highlights = [
   },
 ];
 
+const productCategories = [
+  {
+    number: "01",
+    title: "KKT Söndürücüler",
+    subtitle: "Genel kullanım için güçlü çözüm.",
+    description:
+      "Ev, ofis, araç, apartman, depo ve genel endüstriyel alanlarda A, B ve C sınıfı yangınlara karşı kullanılır.",
+    usage: "Ev, ofis, araç, depo, apartman",
+    icon: Flame,
+    image:
+      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1600&auto=format&fit=crop",
+  },
+  {
+    number: "02",
+    title: "CO2 Söndürücüler",
+    subtitle: "Elektrik ve hassas cihazlar için.",
+    description:
+      "Elektrik panosu, server odası, trafo ve elektronik ekipman bulunan alanlarda kalıntı bırakmadan müdahale sağlar.",
+    usage: "Pano, server odası, trafo, elektrik alanları",
+    icon: Zap,
+    image:
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop",
+  },
+  {
+    number: "03",
+    title: "Köpüklü Söndürücüler",
+    subtitle: "Sıvı yangınlarında etkili koruma.",
+    description:
+      "Akaryakıt, boya, solvent ve yanıcı sıvı riski bulunan alanlarda yangının yayılmasını önlemeye yardımcı olur.",
+    usage: "Akaryakıt, boya, solvent, sıvı risk alanları",
+    icon: Droplets,
+    image:
+      "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1600&auto=format&fit=crop",
+  },
+  {
+    number: "04",
+    title: "Sulu Söndürücüler",
+    subtitle: "Katı madde yangınları için.",
+    description:
+      "Kağıt, ahşap, tekstil ve benzeri katı madde yangınlarında tercih edilen temel söndürme cihazı grubudur.",
+    usage: "Ahşap, kağıt, tekstil, arşiv ve depo",
+    icon: Droplets,
+    image:
+      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1600&auto=format&fit=crop",
+  },
+  {
+    number: "05",
+    title: "Yağ Yangını Söndürücüler",
+    subtitle: "Endüstriyel mutfaklar için.",
+    description:
+      "Restoran, otel, yemekhane ve sanayi tipi mutfaklarda F sınıfı yağ yangınlarına karşı güvenli müdahale sağlar.",
+    usage: "Restoran, otel, yemekhane, endüstriyel mutfak",
+    icon: Utensils,
+    image:
+      "https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&w=1600&auto=format&fit=crop",
+  },
+  {
+    number: "06",
+    title: "Lityum-İyon Söndürücüler",
+    subtitle: "Batarya yangınlarına özel çözüm.",
+    description:
+      "Elektrikli araç, e-scooter, batarya depolama alanı ve şarj istasyonlarında oluşabilecek risklere yönelik kullanılır.",
+    usage: "Elektrikli araç, batarya, e-scooter, şarj istasyonu",
+    icon: BatteryCharging,
+    image:
+      "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1600&auto=format&fit=crop",
+  },
+  {
+    number: "07",
+    title: "HFC Söndürücüler",
+    subtitle: "Kalıntısız ve hassas koruma.",
+    description:
+      "Elektronik cihazların bulunduğu hassas alanlarda yangına müdahale ederken kalıntı bırakmayan söndürme çözümüdür.",
+    usage: "Bilgi işlem, arşiv, elektronik ekipman alanları",
+    icon: ShieldCheck,
+    image:
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop",
+  },
+  {
+    number: "08",
+    title: "Araç Tipi Söndürücüler",
+    subtitle: "Araç içi güvenlik için.",
+    description:
+      "Binek araç, servis, ticari araç, kamyon ve iş makinelerinde ilk müdahale amacıyla kullanılan kompakt cihazlardır.",
+    usage: "Binek araç, ticari araç, servis, iş makinesi",
+    icon: Gauge,
+    image:
+      "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1600&auto=format&fit=crop",
+  },
+  {
+    number: "09",
+    title: "Endüstriyel Tip Söndürücüler",
+    subtitle: "Yüksek riskli tesislere uygun.",
+    description:
+      "Fabrika, üretim alanı, depo, atölye ve yüksek yangın yükü bulunan işletmeler için güçlü cihaz çözümleridir.",
+    usage: "Fabrika, depo, üretim alanı, atölye",
+    icon: Wrench,
+    image:
+      "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80&w=1600&auto=format&fit=crop",
+  },
+  {
+    number: "10",
+    title: "Tekerlekli Söndürücüler",
+    subtitle: "Büyük hacimli müdahale gücü.",
+    description:
+      "Geniş alanlarda, yüksek riskli noktalarda ve hızlı taşınabilir yüksek kapasiteli söndürme ihtiyacında kullanılır.",
+    usage: "Sanayi, depo, akaryakıt, büyük tesis alanları",
+    icon: PackageCheck,
+    image:
+      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=1600&auto=format&fit=crop",
+  },
+];
+
 const differences = [
   {
     title: "TSE Belgeli Cihaz",
     description:
-      "Silindir, hortum ve söndürücü madde kalitesinde güvenilir ürün.",
+      "Silindir, hortum ve söndürücü madde kalitesinde güvenilir ürün yaklaşımı.",
     icon: BadgeCheck,
   },
   {
@@ -91,64 +174,6 @@ const differences = [
     title: "Denetime Hazır",
     description: "Kontrol kartı, bakım kaydı ve uygunluk süreçlerinde destek.",
     icon: ClipboardCheck,
-  },
-];
-
-const productCategories = [
-  {
-    number: "01",
-    title: "KKT Söndürücüler",
-    subtitle: "Genel kullanım için güçlü çözüm.",
-    description:
-      "Ev, ofis, araç, apartman, depo ve genel endüstriyel alanlarda A, B ve C sınıfı yangınlara karşı kullanılır.",
-    usage: "Ev, ofis, araç, depo, apartman",
-    icon: Flame,
-    image:
-      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    number: "02",
-    title: "Lityum-İyon Söndürücüler",
-    subtitle: "Batarya yangınlarına özel.",
-    description:
-      "Elektrikli araç, e-scooter, batarya alanı ve şarj istasyonlarında oluşabilecek lityum-iyon yangınları için özel çözümdür.",
-    usage: "Elektrikli araç, batarya, şarj istasyonu",
-    icon: BatteryCharging,
-    image:
-      "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    number: "03",
-    title: "Yağ Yangını Söndürücüler",
-    subtitle: "Endüstriyel mutfaklar için.",
-    description:
-      "Restoran, otel ve sanayi tipi mutfaklarda F sınıfı yağ yangınlarına karşı güvenli müdahale sağlar.",
-    usage: "Restoran, otel, endüstriyel mutfak",
-    icon: Utensils,
-    image:
-      "https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    number: "04",
-    title: "CO2 ve HFC Söndürücüler",
-    subtitle: "Hassas cihazlara uygun.",
-    description:
-      "Server odası, elektrik panosu, trafo ve elektronik ekipman bulunan alanlarda kalıntısız koruma sağlar.",
-    usage: "Server odası, pano, trafo, hassas cihaz",
-    icon: Zap,
-    image:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    number: "05",
-    title: "Köpüklü ve Sulu Söndürücüler",
-    subtitle: "Özel risk alanları için.",
-    description:
-      "Ahşap, kağıt, tekstil deposu ve akaryakıt istasyonu gibi alanlarda tamamlayıcı söndürme çözümü sunar.",
-    usage: "Ahşap, kağıt, tekstil, akaryakıt",
-    icon: Droplets,
-    image:
-      "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1600&auto=format&fit=crop",
   },
 ];
 
@@ -170,12 +195,6 @@ const serviceItems = [
 ];
 
 export default function YscPage() {
-  const [activeTab, setActiveTab] = useState("cihazlar");
-  const [activeProduct, setActiveProduct] = useState(0);
-
-  const currentProduct = productCategories[activeProduct];
-  const CurrentProductIcon = currentProduct.icon;
-
   return (
     <main className="bg-white">
       {/* HERO */}
@@ -223,10 +242,10 @@ export default function YscPage() {
                 </Link>
 
                 <a
-                  href="#sayfa-icerigi"
+                  href="#ysc-cozumleri"
                   className="inline-flex items-center justify-center gap-2 bg-white px-5 py-3 text-xs font-black uppercase tracking-wide text-[#0b2c5f] transition hover:bg-[#d71920] hover:text-white sm:justify-start sm:text-sm"
                 >
-                  Çözümleri İncele
+                  Cihazları İncele
                   <ArrowRight size={15} />
                 </a>
               </div>
@@ -260,302 +279,206 @@ export default function YscPage() {
         </div>
       </section>
 
-      {/* CONTROLLED CONTENT */}
-      <section id="sayfa-icerigi" className="bg-[#f4f6f8] py-12 lg:py-20">
+      {/* PRODUCT CATALOG */}
+      <section id="ysc-cozumleri" className="bg-[#f4f6f8] py-16 lg:py-20">
         <div className="mx-auto max-w-[1500px] px-5 lg:px-6">
-          <div className="mb-8 grid grid-cols-1 gap-5 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
-            <div>
-              <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
-                YSC Sayfa İçeriği
-              </p>
+          <div className="mx-auto mb-10 max-w-4xl text-center">
+            <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
+              YSC Çözümlerimiz
+            </p>
 
-              <h2 className="mt-4 text-3xl font-black uppercase leading-tight text-[#101827] md:text-5xl">
-                İhtiyacınız olan bölümü seçin.
-              </h2>
-            </div>
+            <h2 className="mt-4 text-3xl font-black uppercase text-[#101827] md:text-5xl">
+              Yangın riskine göre doğru cihaz seçimi.
+            </h2>
 
-            <p className="max-w-2xl text-base leading-8 text-gray-600">
-              Cihazlar, AFS farkı, koruma alanları ve hizmet kapsamını tek
-              ekrandan hızlıca inceleyebilirsiniz.
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-gray-600">
+              Kullanım alanına, yangın sınıfına ve risk tipine göre farklı
+              yangın söndürme cihazı seçenekleri sunuyoruz.
             </p>
           </div>
 
-          {/* 4 COLUMN MAIN BOXES */}
-          <div className="mb-8 grid grid-cols-2 gap-4 lg:grid-cols-4">
-            {pageTabs.map((tab) => {
-              const Icon = tab.icon;
-              const active = activeTab === tab.key;
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-5">
+            {productCategories.map((product) => {
+              const Icon = product.icon;
 
               return (
-                <button
-                  key={tab.key}
-                  type="button"
-                  onClick={() => setActiveTab(tab.key)}
-                  className={`group min-h-[170px] cursor-pointer border p-5 text-left transition duration-300 ${
-                    active
-                      ? "border-[#d71920] bg-[#06132d] text-white shadow-2xl"
-                      : "border-gray-200 bg-white text-[#101827] shadow-sm hover:-translate-y-1 hover:border-[#d71920] hover:shadow-xl"
-                  }`}
+                <div
+                  key={product.title}
+                  className="group overflow-hidden bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
                 >
-                  <div
-                    className={`flex h-12 w-12 items-center justify-center transition ${
-                      active
-                        ? "bg-[#d71920] text-white"
-                        : "bg-[#eef1f5] text-[#d71920] group-hover:bg-[#d71920] group-hover:text-white"
-                    }`}
-                  >
-                    <Icon size={24} />
-                  </div>
-
-                  <h3 className="mt-5 text-base font-black uppercase leading-tight">
-                    {tab.title}
-                  </h3>
-
-                  <p
-                    className={`mt-3 text-xs font-semibold leading-5 sm:text-sm sm:leading-6 ${
-                      active ? "text-white/70" : "text-gray-500"
-                    }`}
-                  >
-                    {tab.description}
-                  </p>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* CONTENT PANEL */}
-          <div className="overflow-hidden bg-white shadow-xl">
-            {activeTab === "cihazlar" && (
-              <div>
-                <div className="border-b border-gray-100 p-6 md:p-8 lg:p-10">
-                  <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
-                    YSC Çözümleri
-                  </p>
-
-                  <h3 className="mt-4 text-3xl font-black uppercase leading-tight text-[#101827] md:text-5xl">
-                    Cihaz tipini seçin.
-                  </h3>
-
-                  <p className="mt-5 max-w-2xl text-base leading-8 text-gray-600">
-                    Yangın riskine ve kullanım alanına göre doğru cihaz tipini
-                    hızlıca inceleyin.
-                  </p>
-                </div>
-
-                {/* PRODUCT BOXES */}
-                <div className="grid grid-cols-1 gap-4 border-b border-gray-100 bg-[#f8fafc] p-5 sm:grid-cols-2 lg:grid-cols-5">
-                  {productCategories.map((product, index) => {
-                    const Icon = product.icon;
-                    const active = activeProduct === index;
-
-                    return (
-                      <button
-                        key={product.title}
-                        type="button"
-                        onClick={() => setActiveProduct(index)}
-                        className={`group min-h-[150px] cursor-pointer border p-4 text-left transition duration-300 ${
-                          active
-                            ? "border-[#d71920] bg-[#06132d] text-white shadow-xl"
-                            : "border-gray-200 bg-white text-[#101827] hover:-translate-y-1 hover:border-[#d71920] hover:shadow-lg"
-                        }`}
-                      >
-                        <div
-                          className={`flex h-11 w-11 items-center justify-center transition ${
-                            active
-                              ? "bg-[#d71920] text-white"
-                              : "bg-[#eef1f5] text-[#d71920] group-hover:bg-[#d71920] group-hover:text-white"
-                          }`}
-                        >
-                          <Icon size={22} />
-                        </div>
-
-                        <p className="mt-4 text-xs font-black uppercase tracking-[0.22em] text-[#d71920]">
-                          {product.number}
-                        </p>
-
-                        <h4 className="mt-2 text-sm font-black uppercase leading-tight">
-                          {product.title}
-                        </h4>
-                      </button>
-                    );
-                  })}
-                </div>
-
-                {/* PRODUCT DETAIL */}
-                <div className="grid grid-cols-1 lg:grid-cols-[0.55fr_0.45fr]">
                   <div className="relative w-full overflow-hidden bg-[#06132d]">
                     <img
-                      src={currentProduct.image}
-                      alt={currentProduct.title}
+                      src={product.image}
+                      alt={product.title}
                       className="block h-auto w-full"
                     />
 
                     <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(5,18,48,0.58),rgba(215,25,32,0.18))]" />
 
-                    <div className="absolute left-5 top-5 flex h-14 w-14 items-center justify-center bg-white text-[#d71920] shadow-xl">
-                      <CurrentProductIcon size={28} />
+                    <div className="absolute left-4 top-4 flex h-11 w-11 items-center justify-center bg-white text-[#d71920] shadow-xl">
+                      <Icon size={22} />
                     </div>
 
-                    <div className="absolute bottom-5 left-5 right-5">
-                      <p className="inline-flex bg-[#d71920] px-4 py-2 text-xs font-black uppercase tracking-wide text-white">
-                        {currentProduct.number}
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <p className="inline-flex bg-[#d71920] px-3 py-1.5 text-[10px] font-black uppercase tracking-wide text-white">
+                        {product.number}
                       </p>
-
-                      <h3 className="mt-4 max-w-2xl text-2xl font-black uppercase leading-tight text-white sm:text-3xl md:text-4xl">
-                        {currentProduct.title}
-                      </h3>
                     </div>
                   </div>
 
-                  <div className="flex flex-col justify-center p-6 md:p-8 lg:p-10">
-                    <p className="text-xl font-black uppercase leading-tight text-[#0b2c5f] md:text-2xl">
-                      {currentProduct.subtitle}
+                  <div className="p-5">
+                    <h3 className="text-lg font-black uppercase leading-tight text-[#101827]">
+                      {product.title}
+                    </h3>
+
+                    <p className="mt-3 text-sm font-black uppercase leading-tight text-[#0b2c5f]">
+                      {product.subtitle}
                     </p>
 
-                    <div className="mt-6 bg-[#eef1f5] px-5 py-4">
-                      <p className="text-xs font-black uppercase tracking-wide text-[#0b2c5f]">
+                    <div className="mt-4 bg-[#eef1f5] px-4 py-3">
+                      <p className="text-[10px] font-black uppercase tracking-wide text-[#0b2c5f]">
                         Kullanım Alanı
                       </p>
 
-                      <p className="mt-2 text-sm font-bold leading-6 text-gray-700">
-                        {currentProduct.usage}
+                      <p className="mt-2 text-xs font-bold leading-5 text-gray-700">
+                        {product.usage}
                       </p>
                     </div>
 
-                    <p className="mt-6 max-w-3xl text-sm leading-7 text-gray-600 md:text-base md:leading-8">
-                      {currentProduct.description}
+                    <p className="mt-4 text-sm leading-7 text-gray-600">
+                      {product.description}
                     </p>
 
                     <Link
                       href="/bize-ulasin"
-                      className="mt-8 inline-flex w-fit items-center gap-3 bg-[#d71920] px-6 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#0b2c5f]"
+                      className="mt-5 inline-flex items-center gap-2 text-sm font-black uppercase text-[#d71920]"
                     >
-                      Bu Cihaz İçin Teklif Al
-                      <ArrowRight size={17} />
+                      Teklif Al
+                      <ArrowRight size={16} />
                     </Link>
                   </div>
                 </div>
-              </div>
-            )}
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
-            {activeTab === "farkimiz" && (
-              <div className="p-6 md:p-8 lg:p-10">
-                <div className="max-w-4xl">
-                  <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
-                    AFS Farkı
-                  </p>
+      {/* WHY AFS */}
+      <section className="py-16 lg:py-20">
+        <div className="mx-auto max-w-[1500px] px-5 lg:px-6">
+          <div className="mb-10 grid grid-cols-1 gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+            <div>
+              <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
+                AFS Farkı
+              </p>
 
-                  <h3 className="mt-4 text-3xl font-black uppercase leading-tight text-[#101827] md:text-5xl">
-                    Sadece cihaz değil, güvenli kullanım süreci.
+              <h2 className="mt-4 text-3xl font-black uppercase leading-tight text-[#101827] md:text-5xl">
+                Sadece cihaz değil, güvenli kullanım süreci.
+              </h2>
+            </div>
+
+            <p className="max-w-2xl text-base leading-8 text-gray-600">
+              Yangın söndürme cihazı seçiminde doğru ürün, doğru konumlandırma
+              ve düzenli bakım birlikte değerlendirilmelidir.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {differences.map((item) => {
+              const Icon = item.icon;
+
+              return (
+                <div
+                  key={item.title}
+                  className="group border border-gray-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-2 hover:border-[#d71920] hover:shadow-2xl"
+                >
+                  <div className="flex h-14 w-14 items-center justify-center bg-[#eef1f5] text-[#d71920] transition group-hover:bg-[#d71920] group-hover:text-white">
+                    <Icon size={28} />
+                  </div>
+
+                  <h3 className="mt-6 text-lg font-black uppercase leading-tight text-[#101827]">
+                    {item.title}
                   </h3>
 
-                  <p className="mt-5 max-w-2xl text-base leading-8 text-gray-600">
-                    Yangın söndürme cihazı seçiminde doğru ürün, doğru
-                    konumlandırma ve düzenli bakım birlikte değerlendirilir.
+                  <p className="mt-4 text-sm leading-7 text-gray-600">
+                    {item.description}
                   </p>
                 </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
-                <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
-                  {differences.map((item) => {
-                    const Icon = item.icon;
+      {/* PROTECTION AREAS */}
+      <section className="bg-[#06132d] py-16 text-white lg:py-20">
+        <div className="mx-auto max-w-[1500px] px-5 lg:px-6">
+          <div className="mx-auto mb-10 max-w-3xl text-center">
+            <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
+              Koruma Alanları
+            </p>
 
-                    return (
-                      <div
-                        key={item.title}
-                        className="group border border-gray-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-2 hover:border-[#d71920] hover:shadow-2xl"
-                      >
-                        <div className="flex h-14 w-14 items-center justify-center bg-[#eef1f5] text-[#d71920] transition group-hover:bg-[#d71920] group-hover:text-white">
-                          <Icon size={28} />
-                        </div>
+            <h2 className="mt-4 text-3xl font-black uppercase leading-tight md:text-5xl">
+              Evden fabrikaya kadar her alana uygun çözüm.
+            </h2>
+          </div>
 
-                        <h3 className="mt-6 text-lg font-black uppercase leading-tight text-[#101827]">
-                          {item.title}
-                        </h3>
+          <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
+            {protectionAreas.map((area) => {
+              const Icon = area.icon;
 
-                        <p className="mt-4 text-sm leading-7 text-gray-600">
-                          {item.description}
-                        </p>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
+              return (
+                <div
+                  key={area.title}
+                  className="flex min-h-[135px] flex-col items-center justify-center border border-white/10 bg-white/5 p-5 text-center backdrop-blur transition hover:-translate-y-2 hover:border-[#d71920] hover:bg-white/10"
+                >
+                  <Icon size={32} className="text-[#d71920]" />
 
-            {activeTab === "alanlar" && (
-              <div className="bg-[#06132d] p-6 text-white md:p-8 lg:p-10">
-                <div className="max-w-4xl">
-                  <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
-                    Koruma Alanları
-                  </p>
-
-                  <h3 className="mt-4 text-3xl font-black uppercase leading-tight md:text-5xl">
-                    Evden fabrikaya kadar her alana uygun çözüm.
+                  <h3 className="mt-5 text-sm font-black uppercase leading-6 text-white">
+                    {area.title}
                   </h3>
-
-                  <p className="mt-5 max-w-2xl text-base leading-8 text-white/65">
-                    Kullanım alanına göre doğru yangın söndürme cihazı
-                    planlaması yapılmalıdır.
-                  </p>
                 </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
-                <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 xl:grid-cols-5">
-                  {protectionAreas.map((area) => {
-                    const Icon = area.icon;
+      {/* SERVICES */}
+      <section className="py-16 lg:py-20">
+        <div className="mx-auto grid max-w-[1500px] grid-cols-1 gap-10 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:px-6">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
+              Hizmet Kapsamı
+            </p>
 
-                    return (
-                      <div
-                        key={area.title}
-                        className="flex min-h-[145px] flex-col items-center justify-center border border-white/10 bg-white/5 p-5 text-center backdrop-blur transition hover:-translate-y-2 hover:border-[#d71920] hover:bg-white/10"
-                      >
-                        <Icon size={32} className="text-[#d71920]" />
+            <h2 className="mt-4 text-3xl font-black uppercase leading-tight text-[#101827] md:text-5xl">
+              Satış, dolum, bakım ve takip tek çatı altında.
+            </h2>
 
-                        <h3 className="mt-5 text-sm font-black uppercase leading-6 text-white">
-                          {area.title}
-                        </h3>
-                      </div>
-                    );
-                  })}
-                </div>
+            <p className="mt-6 text-base leading-8 text-gray-600">
+              AFS Yangın, bireysel ve kurumsal ihtiyaçlara uygun yangın söndürme
+              cihazı çözümleri sunar.
+            </p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            {serviceItems.map((item) => (
+              <div
+                key={item}
+                className="flex items-start gap-4 border border-gray-200 bg-white p-5 shadow-sm"
+              >
+                <CheckCircle2
+                  size={22}
+                  className="mt-0.5 shrink-0 text-[#d71920]"
+                />
+
+                <p className="text-sm font-bold leading-7 text-gray-700">
+                  {item}
+                </p>
               </div>
-            )}
-
-            {activeTab === "hizmet" && (
-              <div className="p-6 md:p-8 lg:p-10">
-                <div className="max-w-4xl">
-                  <p className="text-sm font-black uppercase tracking-[0.28em] text-[#d71920]">
-                    Hizmet Kapsamı
-                  </p>
-
-                  <h3 className="mt-4 text-3xl font-black uppercase leading-tight text-[#101827] md:text-5xl">
-                    Satış, dolum, bakım ve takip tek çatı altında.
-                  </h3>
-
-                  <p className="mt-5 max-w-2xl text-base leading-8 text-gray-600">
-                    AFS Yangın, bireysel ve kurumsal ihtiyaçlara uygun yangın
-                    söndürme cihazı çözümleri sunar.
-                  </p>
-                </div>
-
-                <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                  {serviceItems.map((item) => (
-                    <div
-                      key={item}
-                      className="flex items-start gap-4 border border-gray-200 bg-white p-5 shadow-sm"
-                    >
-                      <CheckCircle2
-                        size={22}
-                        className="mt-0.5 shrink-0 text-[#d71920]"
-                      />
-
-                      <p className="text-sm font-bold leading-7 text-gray-700">
-                        {item}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
+            ))}
           </div>
         </div>
       </section>
